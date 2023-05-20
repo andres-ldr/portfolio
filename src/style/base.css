@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .card-project {
+    @apply rounded-lg
+          shadow-lg transition-all ease-in-out duration-700 cursor-pointer flex flex-col justify-center p-10 text-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500;
+  }
+  .card-project > * {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  .card-project:hover > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-image {
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.4) 100%
+      ),
+      url('../../public/images/desk.jpg');
+    background-size: cover;
+  }
+
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
+
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+  .animation-delay-225 {
+    animation-delay: 225ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-375 {
+    animation-delay: 370ms;
+  }
+  .animation-delay-450 {
+    animation-delay: 450ms;
+  }
+}
