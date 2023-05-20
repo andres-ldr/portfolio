@@ -1,0 +1,20 @@
+---
+import PortfolioPanel from './PortfolioPanel';
+import projects from '../assets/data/projects.json';
+---
+
+<div
+  class='w-full flex flex-col mt-52 pt-52 pb-52 justify-center items-center bg-gray-400'
+>
+  <div class='w-3/4 flex flex-col justify-center items-center'>
+    <!-- title -->
+    <div class='w-80 space-y-10'>
+      <h3 class='text-center font-bold text-4xl'>Portfolio</h3>
+      <p class='text-center text-lg'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi labore
+        inventore, ipsa nemo dolore nam sapiente sit omnis accusamus
+      </p>
+    </div>
+    <PortfolioPanel client:load projectsList={projects} />
+  </div>
+</div>
