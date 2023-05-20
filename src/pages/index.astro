@@ -1,7 +1,65 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Portfolio from '../components/Portfolio.astro';
+import AboutSec from '../components/AboutSec.astro';
+import SkillsetSec from '../components/SkillsetSec.astro';
+import WorkXSec from '../components/WorkXSec.astro';
+import fbicon from '../../public/images/facebook3D.png';
 ---
 
 <Layout title=''>
-  <main></main>
+  <main>
+    <Navbar />
+    <Hero />
+    <AboutSec />
+    <SkillsetSec />
+    <WorkXSec />
+    <Portfolio />
+    <div
+      class='w-full h-[35rem] contact-image flex justify-center items-center'
+    >
+      <div
+        class='w-[35rem] h-56 bg-white rounded-[3rem] shadow-lg flex flex-col justify-center items-center p-10 text-center space-y-8'
+      >
+        <h3 class='text-2xl font-bold'>👋 Let's Work Toghether!</h3>
+        <a
+          href='#'
+          class='w-44 h-10 rounded-full p-2 bg-blue-400 font-semibold shadow-md transition-all hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white'
+          >email</a
+        >
+      </div>
+    </div>
+  </main>
+  <footer
+    class='w-full pt-10 pb-10 bg-gray-950 flex justify-center items-center'
+  >
+    <div class='w-3/4 flex justify-evenly items-center'>
+      <span class='text-white w-1/3'
+        >&#169; All rights reserved 2023 Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Similique saepe placeat</span
+      >
+      <div class='flex flex-col space-y-3'>
+        <h5 class='text-lg font-bold text-white uppercase'>Follow me</h5>
+        <div class='flex space-x-5'>
+          <img
+            src={fbicon}
+            alt=''
+            class='w-14 h-14 transition hover:-translate-y-1'
+          />
+          <img
+            src={fbicon}
+            alt=''
+            class='w-14 h-14 transition hover:-translate-y-1'
+          />
+          <img
+            src={fbicon}
+            alt=''
+            class='w-14 h-14 transition hover:-translate-y-1'
+          />
+        </div>
+      </div>
+    </div>
+  </footer>
 </Layout>
