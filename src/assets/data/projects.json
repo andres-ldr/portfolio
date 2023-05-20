@@ -1,0 +1,77 @@
+[
+  {
+    "id": "0",
+    "name": "Project 0",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla pellentesque. In eu mi bibendum neque. Arcu non sodales neque sodales ut. Mi in nulla posuere sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. In hendrerit gravida rutrum quisque non. Blandit libero volutpat sed cras. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Nec ullamcorper sit amet risus nullam eget felis.",
+    "stack": ["React", "Svelte", "NestJS", "GraphQL"],
+    "images": ["../../public/images/code.png"],
+    "link_repo": "www.google.com",
+    "link_app": "www.youtube.com",
+    "type": "Frontend",
+    "goals": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl."
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Project 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla pellentesque. In eu mi bibendum neque. Arcu non sodales neque sodales ut. Mi in nulla posuere sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. In hendrerit gravida rutrum quisque non. Blandit libero volutpat sed cras. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Nec ullamcorper sit amet risus nullam eget felis.",
+    "stack": ["MongoDB", "PostgreSQL", "TS", "NGINX"],
+    "images": ["../../public/images/code.png"],
+    "link_repo": "www.google.com",
+    "link_app": "www.youtube.com",
+    "type": "Frontend",
+    "goals": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl."
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Project 2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla pellentesque. In eu mi bibendum neque. Arcu non sodales neque sodales ut. Mi in nulla posuere sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. In hendrerit gravida rutrum quisque non. Blandit libero volutpat sed cras. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Nec ullamcorper sit amet risus nullam eget felis.",
+    "stack": ["React", "Svelte", "NestJS", "GraphQL"],
+    "images": ["../../public/images/ipad.png"],
+    "link_repo": "www.google.com",
+    "link_app": "www.youtube.com",
+    "type": "Data Science",
+    "goals": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl."
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Project 3",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla pellentesque. In eu mi bibendum neque. Arcu non sodales neque sodales ut. Mi in nulla posuere sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. In hendrerit gravida rutrum quisque non. Blandit libero volutpat sed cras. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Nec ullamcorper sit amet risus nullam eget felis.",
+    "stack": ["React", "Svelte", "NestJS", "GraphQL"],
+    "images": ["../../public/images/screen.png"],
+    "link_repo": "www.google.com",
+    "link_app": "www.youtube.com",
+    "type": "Backend",
+    "goals": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl."
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Project 4",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictum fusce ut placerat orci nulla pellentesque. In eu mi bibendum neque. Arcu non sodales neque sodales ut. Mi in nulla posuere sollicitudin. Nunc non blandit massa enim nec dui nunc mattis. In hendrerit gravida rutrum quisque non. Blandit libero volutpat sed cras. Pharetra diam sit amet nisl suscipit adipiscing bibendum est. Consectetur adipiscing elit ut aliquam purus sit amet luctus. Nec ullamcorper sit amet risus nullam eget felis.",
+    "stack": ["React", "Svelte", "NestJS", "GraphQL"],
+    "images": ["../../public/images/mac.png"],
+    "link_repo": "www.google.com",
+    "link_app": "www.youtube.com",
+    "type": "Frontend",
+    "goals": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl.",
+      "2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam at lectus urna duis convallis convallis tellus id interdum. Arcu non sodales neque sodales ut etiam sit amet nisl."
+    ]
+  }
+]
