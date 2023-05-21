@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'portfolio'>;
+}
+
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title='Project'>
+  <h1>{project.data.name}</h1>
+  <h1>{project.data.description}</h1>
+  <img src={project.data.images[0]} />
+  <ul>
+    {project.data.stack.map((el) => <li>{el}</li>)}
+  </ul>
+  <ul>
+    {project.data.goals.map((el) => <li>{el}</li>)}
+  </ul>
+</Layout>
