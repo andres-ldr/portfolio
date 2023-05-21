@@ -1,12 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from './Grid';
 
-interface TabProps {
-  id: number;
-  label: string;
-  clickHandler: (type: string, id: number) => void;
-  isSelected: boolean;
-}
+import Tab from './Tab';
 
 interface Project {
   id: string;
@@ -19,44 +14,32 @@ interface Project {
   type: string;
 }
 
-interface PortfolioList {
-  projectsList: Project[];
+interface Projects {
+  projects: Project[];
 }
 
-const Tab: React.FC<TabProps> = ({ id, label, clickHandler, isSelected }) => {
-  return (
-    <h5
-      onClick={() => clickHandler(label, id)}
-      className={`p-2 cursor-pointer hover-underline-animation transition ${
-        isSelected ? 'text-white bg-black rounded-md' : 'rounded-full'
-      }`}
-    >
-      {label}
-    </h5>
-  );
-};
+const PortfolioPanel: React.FC<Projects> = ({ projects }) => {
+  const [allProjects, setAllProjects] = useState<Project[]>(projects);
+  const [varList, setVarList] = useState<Project[]>(projects);
 
-const PortfolioPanel: React.FC<PortfolioList> = ({ projectsList }) => {
-  const [totalProjects, setTotalProjects] = useState(projectsList);
   const [typesList, setTypesList] = useState<string[]>();
-  const [varList, setVarList] = useState(projectsList);
   const [tabSelectedId, setTabSelectedId] = useState(0);
 
   useEffect(() => {
     const getTypes = () => {
-      const arr = projectsList.map((e) => e.type);
+      const arr = allProjects.map((e) => e.type);
       const set = new Set(arr);
       setTypesList(Array.from(set));
     };
     getTypes();
   }, []);
 
-  const onFilterList = (type: string, id: number) => {
+  const onFilterHandler = (type: string, id: number) => {
     setTabSelectedId(id);
     if (type === 'All') {
-      setVarList(totalProjects);
+      setVarList(allProjects);
     } else {
-      const newArr = totalProjects.filter((p) => p.type === type);
+      const newArr = allProjects.filter((p) => p.type === type);
       setVarList(newArr);
     }
   };
@@ -67,26 +50,26 @@ const PortfolioPanel: React.FC<PortfolioList> = ({ projectsList }) => {
         <Tab
           id={0}
           label={'All'}
-          clickHandler={onFilterList}
+          clickHandler={onFilterHandler}
           isSelected={tabSelectedId === 0}
         />
         {typesList?.map((e) => (
           <Tab
             id={typesList.indexOf(e) + 1}
             label={e}
-            clickHandler={onFilterList}
+            clickHandler={onFilterHandler}
             isSelected={tabSelectedId === typesList.indexOf(e) + 1}
           />
         ))}
         <Tab
           id={-1}
           label={'Others'}
-          clickHandler={onFilterList}
+          clickHandler={onFilterHandler}
           isSelected={tabSelectedId === -1}
         />
       </div>
 
-      <Grid projectsList={varList} />
+      <Grid projects={varList} />
     </div>
   );
 };
