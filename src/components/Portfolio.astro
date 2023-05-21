@@ -1,6 +1,27 @@
 ---
 import PortfolioPanel from './PortfolioPanel';
-import projects from '../assets/data/projects.json';
+import { getCollection, CollectionEntry } from 'astro:content';
+
+interface Project {
+  id: string;
+  name: string;
+  stack: string[];
+  goals: string[];
+  images: string[];
+  link_repo: string;
+  link_app: string;
+  type: string;
+}
+
+const projects: CollectionEntry<'portfolio'>[] = await getCollection(
+  'portfolio'
+);
+
+let list: Project[] = [];
+projects.map((el) => {
+  const obj: Project = { id: el.slug, ...el.data };
+  list.push(obj);
+});
 ---
 
 <div
@@ -15,6 +36,7 @@ import projects from '../assets/data/projects.json';
         inventore, ipsa nemo dolore nam sapiente sit omnis accusamus
       </p>
     </div>
-    <PortfolioPanel client:load projectsList={projects} />
+
+    <PortfolioPanel client:load projects={list} />
   </div>
 </div>
