@@ -4,6 +4,7 @@ import Portrait2 from '../../public/images/portrait2.png';
 ---
 
 <div
+  id='about-me'
   class='w-full h-screen relative flex flex-col justify-center items-center mt-96'
 >
   <div class='w-3/4 flex justify-center space-x-52'>
@@ -15,7 +16,12 @@ import Portrait2 from '../../public/images/portrait2.png';
       </p>
       <div class='flex space-x-3'>
         <Button />
-        <Button />
+        <a
+          href='/files/cv.pdf'
+          target='_blank'
+          class='rounded-2xl shadow-md pt-4 pb-4 pl-9 pr-9 cursor-pointer font-bold transition-all hover:shadow-lg hover:bg-slate-900 hover:text-white'
+          >Get My Resume</a
+        >
       </div>
     </div>
     <img src={Portrait2} alt='' class='rounded-full scale-75' />

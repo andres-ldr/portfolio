@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .navbar-link {
+    @apply font-bold text-xl leading-none p-2 hover-underline-animation;
+  }
+}
+
 @layer utilities {
   .card-project {
     @apply rounded-lg
