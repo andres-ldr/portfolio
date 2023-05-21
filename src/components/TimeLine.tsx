@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TimeLineCard from './TimeLineCard';
 import JobDetails from './JobDetails';
 
@@ -9,16 +9,17 @@ interface Jobs {
   date_start: string;
   date_end: string;
   description: string;
-  skills: string[];
+  stack: string[];
   goals: string[];
+  image: string;
 }
 
 interface Props {
-  jobslist: Jobs[];
+  jobs: Jobs[];
 }
 
-const TimeLine: React.FC<Props> = ({ jobslist }) => {
-  const [selectedCard, setSelectedCard] = useState('0');
+const TimeLine: React.FC<Props> = ({ jobs }) => {
+  const [selectedCard, setSelectedCard] = useState(jobs[0].id);
 
   const onCardSelected = (id: string) => {
     setSelectedCard(id);
@@ -28,7 +29,7 @@ const TimeLine: React.FC<Props> = ({ jobslist }) => {
     <div className='flex w-full h-full mt-52'>
       <div className='relative w-1/2 h-full flex flex-col justify-start items-center space-y-8'>
         <span className='absolute left-56 top-9 bottom-9 border-4 border-blue-950'></span>
-        {jobslist.map(({ id, company, date_end, date_start, post }) => (
+        {jobs.map(({ id, company, date_end, date_start, post, image }) => (
           <TimeLineCard
             key={id}
             id={id}
@@ -36,17 +37,18 @@ const TimeLine: React.FC<Props> = ({ jobslist }) => {
             date_start={date_start}
             date_end={date_end}
             post={post}
+            image={image}
             isSelected={selectedCard === id}
             handler={onCardSelected}
           />
         ))}
       </div>
 
-      {jobslist.map(({ id, description, goals, skills }) => (
+      {jobs.map(({ id, description, goals, stack }) => (
         <JobDetails
           description={description}
           goals={goals}
-          skills={skills}
+          stack={stack}
           isSelected={selectedCard === id}
         />
       ))}

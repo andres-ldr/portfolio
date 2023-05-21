@@ -1,5 +1,4 @@
 import React from 'react';
-import logo3d from '../../public/images/facebook3D.png';
 
 interface JobsProps {
   id: string;
@@ -8,6 +7,7 @@ interface JobsProps {
   date_start: string;
   date_end: string;
   isSelected: boolean;
+  image: string;
   handler: (id: string) => void;
 }
 
@@ -19,6 +19,7 @@ const TimeLineCard: React.FC<JobsProps> = ({
   post,
   isSelected,
   handler,
+  image,
 }) => {
   return (
     <div
@@ -29,7 +30,7 @@ const TimeLineCard: React.FC<JobsProps> = ({
           : 'bg-white'
       }`}
     >
-      <img src={logo3d} alt='' className='scale-75' />
+      <img src={image} alt='' className='scale-75' />
       <div className='flex flex-col grow justify-start item-center text-left space-y-2'>
         <div className='flex justify-between'>
           <h4 className='font-bold text-lg'>{company}</h4>

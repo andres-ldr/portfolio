@@ -1,9 +1,31 @@
 ---
+import { CollectionEntry, getCollection } from 'astro:content';
 import TimeLine from './TimeLine';
-import jobs from '../assets/data/jobs.json';
+interface Job {
+  id: string;
+  company: string;
+  post: string;
+  date_start: string;
+  date_end: string;
+  description: string;
+  stack: string[];
+  goals: string[];
+  image: string;
+}
+
+const projects: CollectionEntry<'jobs'>[] = await getCollection('jobs');
+
+let list: Job[] = [];
+projects.map((el) => {
+  const obj: Job = { id: el.slug, ...el.data };
+  list.push(obj);
+});
 ---
 
-<div class='w-full mt-64 flex flex-col justify-center items-center'>
+<div
+  id='work-experience'
+  class='w-full mt-64 flex flex-col justify-center items-center'
+>
   <div class='flex flex-col w-3/4 justify-center items-center text-center'>
     <!-- title -->
     <div class='w-96'>
@@ -13,6 +35,6 @@ import jobs from '../assets/data/jobs.json';
         tenetur laboriosam dolor veniam cupiditate quas.
       </p>
     </div>
-    <TimeLine jobslist={jobs} client:load />
+    <TimeLine jobs={list} client:load />
   </div>
 </div>
