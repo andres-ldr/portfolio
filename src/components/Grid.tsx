@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from './Spinner';
 
 interface ContentProps {
   id: string;
@@ -17,11 +18,11 @@ interface Project {
   type: string;
 }
 
-interface PortfolioList {
-  projectsList: Project[];
+interface Projects {
+  projects: Project[];
 }
 
-const Content: React.FC<ContentProps> = ({ id, stack, name }) => {
+const Content: React.FC<ContentProps> = ({ id, name, stack }) => {
   return (
     <div className='flex flex-col justify-center items-center w-full h-full card-project  space-y-10'>
       <h4 className='uppercase text-2xl font-semibold text-white transition-all ease-in-out duration-700'>
@@ -35,7 +36,7 @@ const Content: React.FC<ContentProps> = ({ id, stack, name }) => {
         ))}
       </div>
       <a
-        href={`/projects/${id}`}
+        href={`/portfolio/${id}`}
         className='p-3 border-2 border-white text-white rounded-lg transition-all ease-in-out duration-300 font-semibold cursor-pointer hover:bg-white hover:text-blue-600 hover:shadow-md'
       >
         Know more
@@ -44,7 +45,7 @@ const Content: React.FC<ContentProps> = ({ id, stack, name }) => {
   );
 };
 
-const Grid: React.FC<PortfolioList> = ({ projectsList }) => {
+const Grid: React.FC<Projects> = ({ projects }) => {
   const [gridArr, setGridArr] = useState<Project[][]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
@@ -55,11 +56,13 @@ const Grid: React.FC<PortfolioList> = ({ projectsList }) => {
         try {
           let chunkSize = 5;
           const arr: Project[][] = [];
-          for (let i = 0; i < projectsList.length; i += chunkSize) {
+
+          for (let i = 0; i < projects.length; i += chunkSize) {
             let chunk;
-            chunk = projectsList.slice(i, i + chunkSize);
+            chunk = projects.slice(i, i + chunkSize);
             arr.push(chunk);
           }
+
           setTimeout(() => {
             resolve(setGridArr(arr));
             setIsSearching(false);
@@ -69,16 +72,13 @@ const Grid: React.FC<PortfolioList> = ({ projectsList }) => {
         }
       });
     };
+
     gridHandler();
-  }, [projectsList]);
+  }, [projects]);
 
   return (
     <div className='mt-20'>
-      {isSearching && (
-        <div className='w-full h-[20rem] flex justify-center items-center text-center'>
-          <h3 className='text-4xl'>🔍 Searching...</h3>
-        </div>
-      )}
+      {isSearching && <Spinner />}
       {!isSearching &&
         (gridArr.length !== 0 ? (
           gridArr.map((grid) => {
