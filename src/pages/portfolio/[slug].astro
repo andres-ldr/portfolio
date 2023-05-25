@@ -1,4 +1,5 @@
 ---
+import GeneralProjectPage from '../../components/GeneralProjectPage.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, CollectionEntry } from 'astro:content';
 
@@ -18,13 +19,5 @@ const { project } = Astro.props;
 ---
 
 <Layout title='Project'>
-  <h1>{project.data.name}</h1>
-  <h1>{project.data.description}</h1>
-  <img src={project.data.images[0]} />
-  <ul>
-    {project.data.stack.map((el) => <li>{el}</li>)}
-  </ul>
-  <ul>
-    {project.data.goals.map((el) => <li>{el}</li>)}
-  </ul>
+  <GeneralProjectPage project={project} />
 </Layout>
