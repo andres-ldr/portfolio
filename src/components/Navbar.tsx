@@ -2,12 +2,9 @@ import React, { useEffect } from 'react';
 import Button from './Button';
 
 const Navbar: React.FC = () => {
-  useEffect(() => {
-    console.log('hi mom');
-  }, []);
+  useEffect(() => {}, []);
 
   const executeScroll = (id: string) => {
-    console.log(id);
     let element = document.getElementById(id) as HTMLElement;
     element.scrollIntoView();
   };
