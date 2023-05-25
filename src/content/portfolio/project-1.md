@@ -1,11 +1,11 @@
 ---
 name: My website
-description: Find out what makes Astro awesome!
+description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus reiciendis dolore nihil, molestias laudantium sed aspernatur impedit perferendis eos officiis maxime in officia excepturi beatae corporis mollitia neque vero aliquid!
 stack: [React, Svelte, NestJS, GraphQL]
 images: ['../../public/images/code.png']
 link_repo: www.google.com
 link_app: www.youtube.com
-type: Frontend
+type: Mobile
 goals: [
     Lorem ipsum dolor sit amet
     consectetur adipiscing elit,

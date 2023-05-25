@@ -1,8 +1,16 @@
 ---
 name: Himanshu
-description: Find out what makes Astro awesome!
+description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus reiciendis dolore nihil, molestias laudantium sed aspernatur impedit perferendis eos officiis maxime in officia excepturi beatae corporis mollitia neque vero aliquid!
 stack: [React, Svelte, NestJS, GraphQL]
-images: ['/images/mac.png']
+images:
+  [
+    '/images/mac.png',
+    '/images/apple.png',
+    '/images/laptop.png',
+    '/images/code.png',
+    '/images/ipad.png',
+    '/images/phone.png',
+  ]
 link_repo: www.google.com
 link_app: www.youtube.com
 type: Frontend
