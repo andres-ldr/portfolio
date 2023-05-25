@@ -1,0 +1,188 @@
+---
+import arrowLeft from '../../public/icons/arrow-left.svg';
+import arrowRight from '../../public/icons/arrow-right.svg';
+import POimage from '../../public/images/PO.svg';
+import ContactMeSec from './ContactMeSec.astro';
+import Footer from './Footer.astro';
+import GridImages from './GridImages';
+
+import Slider from './Slider.astro';
+
+const { project } = Astro.props;
+---
+
+<section class='relative'>
+  <main class='overflow-x-hidden font-inter bg-slate-50'>
+    <div class='w-full h-screen flex'>
+      <!-- left side hero -->
+      <div class='w-3/5 h-full flex justify-center items-center bg-gray-300'>
+        <div class='flex flex-col w-1/2 h-1/2 space-y-20'>
+          <h1 class='text-6xl font-bold'>{project.data.name}</h1>
+          <p class='text-lg'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
+            fuga itaque, tempore, perferendis
+          </p>
+          <!-- stack list -->
+          <div
+            class='flex w-3/4 justify-start flex-wrap text-black text-sm mt-5 transition-all ease-in-out duration-700 space-x-3'
+          >
+            {
+              project.data.stack.map((el: string[]) => (
+                <span class='rounded-full text-black border-black border-2 p-2 m-2'>
+                  {el}
+                </span>
+              ))
+            }
+          </div>
+          <!-- btn container -->
+          <div class='flex w-full space-x-8'>
+            <a
+              href={project.data.link_repo}
+              target='_blank'
+              class='w-40 h-12 p-2 flex justify-center items-center font-bold bg-blue-300 rounded-3xl space-x-2 shadow-lg transition hover:shadow-xl hover:scale-105 hover:-translate-y-1'
+            >
+              <svg
+                class='w-8 h-8'
+                viewBox='0 0 32 32'
+                xmlns='http://www.w3.org/2000/svg'
+              >
+                <path
+                  d='M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z'
+                ></path>
+              </svg>
+              <span>Repositorio</span>
+            </a>
+            <a
+              href={project.data.link_app}
+              target='_blank'
+              class='w-40 h-12 p-2 flex justify-center items-center font-bold bg-blue-300 rounded-3xl space-x-2 shadow-lg transition hover:shadow-xl hover:scale-105 hover:-translate-y-1'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                class='w-8 h-8'
+                viewBox='0 0 48 48'
+                ><path
+                  d='M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z'
+                ></path></svg
+              >
+              <span>Launch app</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        style=`background-image: url('${project.data.images[0]}');`
+        class='w-2/5 h-full bg-no-repeat bg-center bg-cover'
+      >
+      </div>
+    </div>
+    <!-- description section -->
+    <div class='w-full h-screen mt-[16rem] relative flex justify-end'>
+      <div class='w-1/2 h-full flex justify-end items-start'>
+        <div
+          class='w-3/4 h-1/2 flex flex-col justify-start items-start space-y-20'
+        >
+          <h2 class='text-6xl font-bold'>Description</h2>
+          <p class='text-lg leading-9'>
+            {project.data.description}
+          </p>
+        </div>
+      </div>
+
+      <!-- right side -->
+      <div class='w-1/2 h-full relative'>
+        <img src={POimage} />
+      </div>
+    </div>
+
+    <!-- goals section -->
+    <div class='w-full h-screen relative flex justify-end'>
+      <!-- left side -->
+      <div
+        class='w-1/2 h-full flex flex-col justify-center items-center space-y-5 z-10'
+      >
+        <!-- wrapper -->
+        <Slider items={project.data.goals} />
+        <!-- Button scrolls -->
+        <div class='w-full h-20 flex justify-end items-center space-x-10'>
+          <span
+            id='arrow-left'
+            class='flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50'
+          >
+            <img src={arrowLeft} class='w-8 h-8' />
+          </span>
+          <span
+            id='arrow-right'
+            class='flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50'
+          >
+            <img src={arrowRight} class='w-8 h-8' />
+          </span>
+        </div>
+      </div>
+      <!-- right side -->
+      <div class='w-1/2 h-full flex justify-start items-center'>
+        <div
+          class='absolute w-2/3 h-[55rem] bg-gray-500 -right-20 top-1/2 -translate-y-1/2 opacity-10 rounded-3xl'
+        >
+        </div>
+        <div
+          class='w-1/2 h-1/2 flex flex-col justify-center items-start space-y-20 z-10'
+        >
+          <h2 class='text-6xl font-bold'>Goals</h2>
+          <p class='text-lg'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Exercitationem, officiis expedita ducimus est molestias esse, quidem
+            asperiores, iusto odit quia rem dolorum quisquam necessitatibus
+            delectus rerum veritatis natus culpa deserunt.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery section -->
+    <div
+      class='w-full h-auto pt-52 pb-52 flex flex-col justify-center items-center bg-slate-500'
+    >
+      <div class='w-3/4 h-auto flex flex-col justify-evenly items-center'>
+        <!-- header -->
+        <div class='w-[25rem] space-y-10'>
+          <h2 class='font-bold text-5xl text-center'>Gallery</h2>
+          <p class='text-center'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque error
+            dolorum nulla nisi deserunt qui excepturi autem, possimus laboriosam
+            sunt rem blanditiis, ducimus voluptatibus, temporibus harum porro
+            dolor? Enim, fugiat.
+          </p>
+        </div>
+
+        <!-- grid gallery -->
+        <div class='w-full h-auto mt-32'>
+          <GridImages client:load images={project.data.images} />
+        </div>
+      </div>
+    </div>
+    <ContactMeSec />
+  </main>
+  <Footer />
+</section>
+
+<script>
+  const arrowLeft = document.getElementById('arrow-left') as HTMLSpanElement;
+  const arrowRight = document.getElementById('arrow-right') as HTMLSpanElement;
+  const wrapper = document.getElementById('wrapper') as HTMLDivElement;
+  const d = wrapper.clientWidth / 4;
+  arrowLeft.addEventListener('click', () => {
+    wrapper.scrollTo({
+      top: 0,
+      left: wrapper.scrollLeft - d,
+      behavior: 'smooth',
+    });
+  });
+  arrowRight.addEventListener('click', () => {
+    wrapper.scrollTo({
+      top: 0,
+      left: wrapper.scrollLeft + d,
+      behavior: 'smooth',
+    });
+  });
+</script>
