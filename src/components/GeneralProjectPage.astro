@@ -1,7 +1,6 @@
 ---
-import arrowLeft from '../../public/icons/arrow-left.svg';
-import arrowRight from '../../public/icons/arrow-right.svg';
-import POimage from '../../public/images/PO.svg';
+import shieldicon from '../../public/images/shield3d.png';
+import CodingImg from '../../public/images/coding.jpg';
 import ContactMeSec from './ContactMeSec.astro';
 import Footer from './Footer.astro';
 import GridImages from './GridImages';
@@ -77,65 +76,55 @@ const { project } = Astro.props;
       </div>
     </div>
     <!-- description section -->
-    <div class='w-full h-screen mt-[16rem] relative flex justify-end'>
-      <div class='w-1/2 h-full flex justify-end items-start'>
+    <div class='w-full h-[100rem] relative flex justify-start items-center'>
+      <!-- gray container -->
+      <div class='w-3/4 h-full bg-gray-200 relative'>
+        <!-- ttitle & paragraph container -->
         <div
-          class='w-3/4 h-1/2 flex flex-col justify-start items-start space-y-20'
+          class='absolute w-[60rem] h-[40rem] top-80 left-72 z-10 flex flex-col justify-start'
         >
           <h2 class='text-6xl font-bold'>Description</h2>
-          <p class='text-lg leading-9'>
-            {project.data.description}
-          </p>
+          <!-- paragraph container -->
+          <div class='w-full h-auto bg-white mt-32 p-10 shadow-lg'>
+            <p class='text-lg leading-7'>
+              {project.data.description}
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- right side -->
-      <div class='w-1/2 h-full relative'>
-        <img src={POimage} />
-      </div>
+      <img
+        src={CodingImg}
+        class='absolute top-60 right-44 w-[50rem] h-[70rem] shadow-2xl'
+      />
     </div>
 
     <!-- goals section -->
-    <div class='w-full h-screen relative flex justify-end'>
-      <!-- left side -->
-      <div
-        class='w-1/2 h-full flex flex-col justify-center items-center space-y-5 z-10'
-      >
-        <!-- wrapper -->
-        <Slider items={project.data.goals} />
-        <!-- Button scrolls -->
-        <div class='w-full h-20 flex justify-end items-center space-x-10'>
-          <span
-            id='arrow-left'
-            class='flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50'
-          >
-            <img src={arrowLeft} class='w-8 h-8' />
-          </span>
-          <span
-            id='arrow-right'
-            class='flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50'
-          >
-            <img src={arrowRight} class='w-8 h-8' />
-          </span>
-        </div>
+    <div
+      class='w-full h-full pt-20 pb-20 bg-gray-100 relative flex flex-col justify-center items-center space-y-24'
+    >
+      <div class='w-[28rem] h-52 text-center space-y-10'>
+        <h2 class='text-5xl font-bold'>Goals Reached</h2>
+        <p class=''>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempore
+          deserunt dolorum pariatur, unde cumque, eum iusto animi perferendis
+          quo repellat aliquam eveniet, tenetur laudantium deleniti suscipit
+          corporis eaque? Magni?
+        </p>
       </div>
-      <!-- right side -->
-      <div class='w-1/2 h-full flex justify-start items-center'>
-        <div
-          class='absolute w-2/3 h-[55rem] bg-gray-500 -right-20 top-1/2 -translate-y-1/2 opacity-10 rounded-3xl'
-        >
-        </div>
-        <div
-          class='w-1/2 h-1/2 flex flex-col justify-center items-start space-y-20 z-10'
-        >
-          <h2 class='text-6xl font-bold'>Goals</h2>
-          <p class='text-lg'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Exercitationem, officiis expedita ducimus est molestias esse, quidem
-            asperiores, iusto odit quia rem dolorum quisquam necessitatibus
-            delectus rerum veritatis natus culpa deserunt.
-          </p>
-        </div>
+
+      <!-- cards container -->
+      <div class='w-3/4 h-full flex flex-wrap justify-center p-16'>
+        <!-- card -->
+        {
+          project.data.goals.map((goal: string) => (
+            <div class='w-[22rem] h-auto p-10 m-5 shadow-lg rounded-2xl flex flex-col items-center justify-center space-y-4 border-gray-200 border-4 transition hover:-translate-y-5 hover:scale-105 hover:bg-gray-400'>
+              <img src={shieldicon} class='w-24 h-24' />
+              <h3 class='font-bold text-2xl'>Security</h3>
+              <p class='text-sm text-center'>{goal}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
 
