@@ -1,0 +1,20 @@
+---
+import shieldicon from '../../public/images/shield3d.png';
+const { items } = Astro.props;
+---
+
+<div
+  id='wrapper'
+  class='w-[47.5rem] h-2/3 flex pl-10 pr-10 justify-start items-center space-x-10 overflow-x-auto snap-x snap-mandatory snap-always scroll-pl-10 z-10'
+>
+  {
+    items.map((i: string) => (
+      <div class='flex justify-center items-center min-w-[20rem] h-full snap-start select-none'>
+        <div class='flex flex-col justify-center items-center w-full h-[30rem] p-5 bg-white rounded-2xl shadow-lg'>
+          <img src={shieldicon} class='w-32 h-32' />
+          <p class='text-center font-light'>{i}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>
