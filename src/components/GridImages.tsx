@@ -28,7 +28,6 @@ const GridImages: React.FC<Images> = ({ images }) => {
   }, []);
 
   const imageClickHandler = (id: number) => {
-    console.log(id);
     setImageIndex(id);
   };
 
@@ -55,7 +54,6 @@ const GridImages: React.FC<Images> = ({ images }) => {
               return (
                 <div className='w-full h-[50rem] mt-5 grid grid-cols-8 grid-rows-8 gap-2'>
                   {grid.map((imgUrl) => {
-                    console.log(matrix.indexOf(grid));
                     let index = 0;
                     if (matrix.indexOf(grid) < 0) {
                       index = grid.indexOf(imgUrl);
