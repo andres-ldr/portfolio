@@ -16,8 +16,11 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const { Content, headings } = await project.render();
 ---
 
 <Layout title='Project'>
-  <GeneralProjectPage project={project} />
+  <GeneralProjectPage project={project}>
+    <Content />
+  </GeneralProjectPage>
 </Layout>
