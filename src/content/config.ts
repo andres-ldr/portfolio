@@ -16,12 +16,17 @@ const jobsCollection = defineCollection({
 const projectCollection = defineCollection({
   schema: z.object({
     name: z.string(),
-    description: z.string(),
     link_repo: z.string(),
     link_app: z.string(),
     type: z.string(),
     stack: z.array(z.string()),
-    goals: z.array(z.string()),
+    goals: z.array(
+      z.object({
+        goal: z.string(),
+        icon: z.string(),
+        title: z.string(),
+      })
+    ),
     images: z.array(z.string()),
   }),
 });
