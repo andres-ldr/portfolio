@@ -12,26 +12,66 @@ interface Images {
 enum DIRECTION {
   RIGHT,
   LEFT,
+  START,
+  END,
 }
 
 const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
   const imagesRef = useRef<HTMLDivElement[] | null[]>([]);
+  const imagesSliderRef = useRef<HTMLDivElement[] | null[]>([]);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const imageSliderRef = useRef<HTMLDivElement | null>(null);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const [imageIndex, setImageIndex] = useState(index);
   const [scrolling, setScrolling] = useState(false);
+  const [limitControl, setLimitControl] = useState<{
+    nmax: number;
+    lmax: number;
+    lmin: number;
+  }>({
+    nmax: 0,
+    lmin: 0,
+    lmax: 0,
+  });
+
+  let scrollTimer = setTimeout(() => {}, 700);
 
   useEffect(() => {
     imagesRef.current = imagesRef.current.slice(0, images.length);
+    imagesSliderRef.current = imagesSliderRef.current.slice(0, images.length);
 
-    const image = imagesRef.current[index];
-    const target = image?.offsetLeft;
+    const scrollToImgSelected = () => {
+      const image = imagesRef.current[index];
+      const target = image?.offsetLeft;
 
-    wrapperRef.current?.scroll({
-      top: 0,
-      left: target,
-      behavior: 'instant',
-    });
+      wrapperRef.current?.scroll({
+        top: 0,
+        left: target,
+        behavior: 'instant',
+      });
+    };
+
+    const calcNumMaxOfImgInSlider = () => {
+      if (sliderRef.current && imagesSliderRef.current[0]) {
+        const maxImages = Math.floor(
+          sliderRef.current.clientWidth / imagesSliderRef.current[0].clientWidth
+        );
+
+        let initLimit: {
+          nmax: number;
+          lmax: number;
+          lmin: number;
+        } = {
+          nmax: maxImages,
+          lmin: 0,
+          lmax: maxImages,
+        };
+
+        setLimitControl(initLimit);
+      }
+    };
+
+    scrollToImgSelected();
+    calcNumMaxOfImgInSlider();
   }, [images]);
 
   const imageHandler = (direction: DIRECTION) => {
@@ -42,7 +82,21 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
       if (counter < imagesRef.current.length) {
         const image = imagesRef.current[counter];
         const target = image?.offsetLeft;
-
+        // calc limits
+        if (counter > limitControl.lmax - 1) {
+          let updateLimits: {
+            nmax: number;
+            lmax: number;
+            lmin: number;
+          } = {
+            nmax: limitControl.nmax,
+            lmax: limitControl.lmax + limitControl.nmax,
+            lmin: limitControl.lmin + limitControl.nmax,
+          };
+          setLimitControl(updateLimits);
+          sliderHandler(DIRECTION.RIGHT);
+        }
+        // -----
         wrapperRef.current?.scroll({
           top: 0,
           left: target,
@@ -50,6 +104,21 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
         });
       } else {
         counter = 0;
+        // calc limits
+        let updateLimits: {
+          nmax: number;
+          lmax: number;
+          lmin: number;
+        } = {
+          nmax: limitControl.nmax,
+          lmax: limitControl.nmax,
+          lmin: 0,
+        };
+        setLimitControl(updateLimits);
+        sliderHandler(DIRECTION.START);
+
+        // -----
+
         setImageIndex(counter);
         const image = imagesRef.current[counter];
         const target = image?.offsetLeft;
@@ -63,6 +132,21 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
       counter = imageIndex - 1;
       if (counter > -1) {
         setImageIndex(counter);
+        // -----------------
+        if (counter < limitControl.lmin) {
+          let updateLimits: {
+            nmax: number;
+            lmax: number;
+            lmin: number;
+          } = {
+            nmax: limitControl.nmax,
+            lmax: limitControl.lmax - limitControl.nmax,
+            lmin: limitControl.lmin - limitControl.nmax,
+          };
+          setLimitControl(updateLimits);
+          sliderHandler(DIRECTION.LEFT);
+        }
+        // ----------------
         const image = imagesRef.current[counter];
         const target = image?.offsetLeft;
 
@@ -74,6 +158,22 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
       } else {
         counter = imagesRef.current.length - 1;
         setImageIndex(counter);
+        //-----
+
+        let updateLimits: {
+          nmax: number;
+          lmax: number;
+          lmin: number;
+        } = {
+          nmax: limitControl.nmax,
+          lmax: imagesSliderRef.current.length - 1,
+          lmin: imagesSliderRef.current.length - limitControl.nmax,
+        };
+
+        setLimitControl(updateLimits);
+        sliderHandler(DIRECTION.END);
+        //-----
+
         const image = imagesRef.current[counter];
         const target = image?.offsetLeft;
 
@@ -99,27 +199,41 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
   };
 
   const sliderHandler = (direction: DIRECTION) => {
-    const slider = imageSliderRef.current;
-    if (direction === DIRECTION.RIGHT) {
-      slider?.scroll({
-        top: 0,
-        left: slider.offsetLeft + slider.clientWidth,
-        behavior: 'smooth',
-      });
-    } else {
-      slider?.scroll({
-        top: 0,
-        left: slider.offsetLeft - slider.clientWidth,
-        behavior: 'smooth',
-      });
+    const slider = sliderRef.current;
+    if (slider) {
+      if (direction === DIRECTION.RIGHT) {
+        slider?.scroll({
+          top: 0,
+          left: slider.offsetLeft + slider.clientWidth,
+          behavior: 'smooth',
+        });
+      } else if (direction === DIRECTION.LEFT) {
+        slider?.scroll({
+          top: 0,
+          left: slider.offsetLeft - slider.clientWidth,
+          behavior: 'smooth',
+        });
+      } else if (direction === DIRECTION.START) {
+        slider?.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+      } else if (direction === DIRECTION.END) {
+        slider?.scroll({
+          top: 0,
+          left: slider.clientWidth,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
   const isScrollingHandler = (e: React.UIEvent<HTMLDivElement, UIEvent>) => {
-    //clearTimeout(scrollTimer);
+    clearTimeout(scrollTimer);
 
     setScrolling(true);
-    const scrollTimer = setTimeout(() => {
+    scrollTimer = setTimeout(() => {
       setScrolling(false);
     }, 700);
   };
@@ -180,14 +294,18 @@ const ImageViewer: React.FC<Images> = ({ images, closeHandler, index }) => {
         {/* slider */}
         <div
           id='wrapper-viewer__slider'
-          ref={imageSliderRef}
+          ref={sliderRef}
           onScroll={(e) => isScrollingHandler(e)}
           className={`w-full h-full bg-black p-4 flex justify-start items-center space-x-5 overflow-x-auto snap-x snap-mandatory snap-always`}
         >
+          {/* MINI Image */}
           {images.map((url) => {
             let variable = images.indexOf(url);
             return (
               <div
+                ref={(el) =>
+                  (imagesSliderRef.current[images.indexOf(url)] = el)
+                }
                 onClick={() => imageSliderHandler(images.indexOf(url))}
                 style={{
                   backgroundImage: `url("${url}")`,
