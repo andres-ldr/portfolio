@@ -1,29 +1,14 @@
 ---
 ---
 
-<style>
-  .hide {
-    transition: all 0.25s ease-in-out;
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  .show {
-    transition: all 0.25s ease-in-out;
-    transform: translateY(0%);
-    opacity: 1;
-  }
-</style>
-
 <script>
   const navbar = document.getElementById('nav-bar') as HTMLDivElement;
   let movement = 0;
   window.addEventListener('scroll', () => {
     if (movement < window.scrollY) {
-      navbar.classList.add('hide');
-      navbar.classList.remove('show');
+      navbar.classList.toggle('nabvar__hide');
     } else {
-      navbar.classList.add('show');
-      navbar.classList.remove('hide');
+      navbar.classList.toggle('nabvar__hide');
     }
     movement = window.scrollY;
   });

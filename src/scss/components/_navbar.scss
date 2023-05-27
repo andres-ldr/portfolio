@@ -2,7 +2,9 @@
 
 @layer components {
   .navbar {
-    @apply fixed bg-slate-100 top-0 w-full flex justify-center z-20;
+    @apply fixed bg-slate-100 top-0 w-full flex justify-center translate-y-0 z-20;
+    transition: all 0.25s ease-in-out;
+    opacity: 1;
 
     & > * {
       @apply w-3/4 flex justify-between bg-transparent p-6 z-20;
