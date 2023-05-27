@@ -1,0 +1,11 @@
+@tailwind base;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .navbar-link {
+    @apply font-bold text-xl leading-none p-2 hover-underline-animation;
+  }
+}

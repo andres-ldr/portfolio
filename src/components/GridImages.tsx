@@ -48,7 +48,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
         />
       )}
       {!isViewerVisible && (
-        <>
+        <Fragment>
           {matrix.length !== 0 ? (
             matrix.map((grid) => {
               return (
@@ -64,20 +64,20 @@ const GridImages: React.FC<Images> = ({ images }) => {
                     switch (m) {
                       case 0:
                         return (
-                          <div className='image-card relative overflow-hidden col-span-4 row-span-3 rounded-lg'>
+                          <div className='image-card col-span-4 row-span-3'>
                             {/* image */}
                             <div
                               key={imgUrl}
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
-                            <div className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'>
+                            <div className='image-card__cover'>
                               <span
                                 onClick={() => viewerVisibilityHandler(index)}
-                                className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'
+                                className='image-card__cover__btn'
                               >
                                 view
                               </span>
@@ -88,7 +88,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         return (
                           <div
                             key={imgUrl}
-                            className={`image-card relative overflow-hidden col-span-2 row-span-5 col-start-5 rounded-lg`}
+                            className={`image-card  col-span-2 row-span-5 col-start-5`}
                           >
                             {/* image */}
                             <div
@@ -96,13 +96,13 @@ const GridImages: React.FC<Images> = ({ images }) => {
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
-                            <div className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'>
+                            <div className='image-card__cover'>
                               <span
                                 onClick={() => viewerVisibilityHandler(index)}
-                                className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'
+                                className='image-card__cover__btn'
                               >
                                 view
                               </span>
@@ -113,7 +113,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         return (
                           <div
                             key={imgUrl}
-                            className={`image-card relative overflow-hidden rounded-lg col-span-2 row-span-5 col-start-7`}
+                            className={`image-card col-span-2 row-span-5 col-start-7`}
                           >
                             {/* image */}
                             <div
@@ -121,13 +121,13 @@ const GridImages: React.FC<Images> = ({ images }) => {
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
-                            <div className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'>
+                            <div className='image-card__cover'>
                               <span
                                 onClick={() => viewerVisibilityHandler(index)}
-                                className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'
+                                className='image-card__cover__btn'
                               >
                                 view
                               </span>
@@ -138,7 +138,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         return (
                           <div
                             key={imgUrl}
-                            className={`image-card relative overflow-hidden rounded-lg col-span-2 row-span-5 row-start-4`}
+                            className={`image-card col-span-2 row-span-5 row-start-4`}
                           >
                             {/* image */}
                             <div
@@ -146,14 +146,14 @@ const GridImages: React.FC<Images> = ({ images }) => {
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
                             <div
                               onClick={() => viewerVisibilityHandler(index)}
-                              className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'
+                              className='image-card__cover'
                             >
-                              <span className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'>
+                              <span className='image-card__cover__btn'>
                                 view
                               </span>
                             </div>
@@ -163,7 +163,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         return (
                           <div
                             key={imgUrl}
-                            className={`w-full image-card relative overflow-hidden rounded-lg col-span-2 row-span-5 col-start-3 row-start-4`}
+                            className={`image-card col-span-2 row-span-5 col-start-3 row-start-4`}
                           >
                             {/* image */}
                             <div
@@ -171,14 +171,14 @@ const GridImages: React.FC<Images> = ({ images }) => {
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
                             <div
                               onClick={() => viewerVisibilityHandler(index)}
-                              className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'
+                              className='image-card__cover'
                             >
-                              <span className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'>
+                              <span className='image-card__cover__btn'>
                                 view
                               </span>
                             </div>
@@ -188,7 +188,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         return (
                           <div
                             key={imgUrl}
-                            className={`w-full image-card relative overflow-hidden rounded-lg col-span-4 row-span-3 col-start-5 row-start-6`}
+                            className={`image-card col-span-4 row-span-3 col-start-5 row-start-6`}
                           >
                             {/* image */}
                             <div
@@ -196,14 +196,14 @@ const GridImages: React.FC<Images> = ({ images }) => {
                               style={{
                                 backgroundImage: `url("${imgUrl}")`,
                               }}
-                              className={`card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150`}
+                              className={`image-card__image`}
                             ></div>
                             {/* cover */}
                             <div
                               onClick={() => viewerVisibilityHandler(index)}
-                              className='absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0'
+                              className='image-card__cover'
                             >
-                              <span className='w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black'>
+                              <span className='image-card__cover__btn'>
                                 view
                               </span>
                             </div>
@@ -219,7 +219,7 @@ const GridImages: React.FC<Images> = ({ images }) => {
               <h3 className='text-4xl'>🔍 Sorry, didn't find anything...</h3>
             </div>
           )}
-        </>
+        </Fragment>
       )}
     </Fragment>
   );

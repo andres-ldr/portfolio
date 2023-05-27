@@ -1,0 +1,23 @@
+@tailwind components;
+
+@layer components {
+  .image-card {
+    @apply w-full rounded-lg relative overflow-hidden shadow-lg;
+    &:hover .card__image {
+      transform: scale(1.1);
+    }
+    &:hover :nth-child(2) {
+      transform: translateY(0);
+    }
+
+    &__image {
+      @apply card__image w-full h-full bg-no-repeat bg-cover bg-center transition-all hover:scale-150;
+    }
+    &__cover {
+      @apply absolute w-full h-full bg-opacity-50 bg-black flex flex-col justify-center items-center translate-y-full transition inset-0;
+      &__btn {
+        @apply w-40 text-white cursor-pointer font-bold inset-0 pt-4 pb-4 border-2 rounded-lg uppercase text-xl transition text-center content-center hover:bg-white hover:text-black;
+      }
+    }
+  }
+}

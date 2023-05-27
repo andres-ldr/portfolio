@@ -20,7 +20,7 @@ const JobDetails: React.FC<JDProps> = ({
       <h4 className='text-2xl font-semibold text-left'>Description:</h4>
       <p className='text-left text-lg'>{description}</p>
       <h4 className='text-2xl font-semibold text-left'>Reached goals:</h4>
-      {/* stack */}
+      {/* goals */}
       <ul className='text-left text-lg list-disc space-y-5'>
         {goals.map((goal) => (
           <li key={goal} className=''>
@@ -31,10 +31,7 @@ const JobDetails: React.FC<JDProps> = ({
       {/* tags */}
       <div className='flex mt-12 flex-wrap'>
         {stack.map((skill) => (
-          <div
-            key={skill}
-            className='bg-red-300 rounded-full m-2 pt-2 pb-2 pl-4 pr-4 border-red-600 border-2 text-red-950 font-semibold'
-          >
+          <div key={skill} className='tag'>
             {skill}
           </div>
         ))}

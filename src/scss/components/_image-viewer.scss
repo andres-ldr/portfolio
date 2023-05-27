@@ -1,0 +1,39 @@
+@tailwind components;
+
+@layer components {
+  .image-viewer {
+    @apply fixed w-screen h-screen flex flex-col justify-center items-center  bg-black inset-0 z-50;
+    &__close__btn {
+      @apply absolute top-10 right-16 flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50;
+    }
+
+    &__wrapper {
+      @apply w-full h-full flex justify-start items-center overflow-x-auto snap-x snap-mandatory snap-always;
+    }
+    &-image {
+      @apply min-w-full h-full bg-white snap-center bg-center bg-cover bg-no-repeat;
+    }
+  }
+
+  .arrows-container {
+    @apply absolute bottom-0 left-0 right-0 w-full h-32 flex justify-center items-center space-x-8;
+
+    &__btn {
+      @apply flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50;
+    }
+  }
+
+  .wrapper-slider {
+    @apply w-full h-full bg-black p-4 flex justify-start items-center space-x-5 overflow-x-auto snap-x snap-mandatory snap-always;
+
+    &-image {
+      @apply min-w-[16rem] h-full snap-center bg-center bg-cover bg-no-repeat transition-all cursor-pointer;
+    }
+    &-cover {
+      @apply w-full h-full bg-black bg-opacity-30 transition-all;
+    }
+    &-arrow {
+      @apply absolute top-1/2 -translate-y-1/2 flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50;
+    }
+  }
+}

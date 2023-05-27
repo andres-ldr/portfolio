@@ -11,7 +11,7 @@ const Tab: React.FC<TabProps> = ({ id, label, clickHandler, isSelected }) => {
   return (
     <h5
       onClick={() => clickHandler(label, id)}
-      className={`p-2 cursor-pointer hover-underline-animation transition ${
+      className={`tab ${
         isSelected ? 'text-white bg-black rounded-md' : 'rounded-full'
       }`}
     >

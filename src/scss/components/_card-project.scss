@@ -1,0 +1,17 @@
+@tailwind components;
+
+@layer components {
+  .card-project {
+    @apply rounded-lg
+                      shadow-lg transition-all ease-in-out duration-700 cursor-pointer flex flex-col justify-center p-10 text-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500;
+  }
+  .card-project > * {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  .card-project:hover > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

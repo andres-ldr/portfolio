@@ -28,7 +28,7 @@ const TimeLine: React.FC<Props> = ({ jobs }) => {
   return (
     <div className='flex w-full h-full mt-52'>
       <div className='relative w-1/2 h-full flex flex-col justify-start items-center space-y-8'>
-        <span className='absolute left-56 top-9 bottom-9 border-4 border-blue-950'></span>
+        <span className='time-line'></span>
         {jobs.map(({ id, company, date_end, date_start, post, image }) => (
           <TimeLineCard
             key={id}

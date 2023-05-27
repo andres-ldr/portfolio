@@ -1,0 +1,26 @@
+---
+import GridImages from '../GridImages';
+const { images } = Astro.props;
+---
+
+<div
+  class='w-full h-auto pt-52 pb-52 flex flex-col justify-center items-center bg-slate-500'
+>
+  <div class='w-3/4 h-auto flex flex-col justify-evenly items-center'>
+    <!-- header -->
+    <div class='w-[25rem] space-y-10'>
+      <h2 class='font-bold text-5xl text-center'>Gallery</h2>
+      <p class='text-center'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque error
+        dolorum nulla nisi deserunt qui excepturi autem, possimus laboriosam
+        sunt rem blanditiis, ducimus voluptatibus, temporibus harum porro dolor?
+        Enim, fugiat.
+      </p>
+    </div>
+
+    <!-- grid gallery -->
+    <div class='w-full h-auto mt-32'>
+      <GridImages client:load images={images} />
+    </div>
+  </div>
+</div>

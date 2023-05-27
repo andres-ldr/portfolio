@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components {
+  .navbar {
+    @apply fixed bg-slate-100 top-0 w-full flex justify-center z-20;
+
+    & > * {
+      @apply w-3/4 flex justify-between bg-transparent p-6 z-20;
+    }
+  }
+}

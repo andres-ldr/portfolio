@@ -1,17 +1,7 @@
 ---
+import Project from '../models/Project';
 import PortfolioPanel from './PortfolioPanel';
 import { getCollection, CollectionEntry } from 'astro:content';
-
-interface Project {
-  id: string;
-  name: string;
-  stack: string[];
-  goals: string[];
-  images: string[];
-  link_repo: string;
-  link_app: string;
-  type: string;
-}
 
 const projects: CollectionEntry<'portfolio'>[] = await getCollection(
   'portfolio'
@@ -31,7 +21,7 @@ projects.map((el) => {
   <div class='w-3/4 flex flex-col justify-center items-center'>
     <!-- title -->
     <div class='w-80 space-y-10'>
-      <h3 class='text-center font-bold text-4xl'>Portfolio</h3>
+      <h3 class='text-center section-header'>Portfolio</h3>
       <p class='text-center text-lg'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi labore
         inventore, ipsa nemo dolore nam sapiente sit omnis accusamus

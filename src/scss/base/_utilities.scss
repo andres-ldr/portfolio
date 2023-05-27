@@ -1,18 +1,10 @@
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  .navbar-link {
-    @apply font-bold text-xl leading-none p-2 hover-underline-animation;
-  }
-}
-
 @layer utilities {
+  .section-header {
+    @apply text-5xl font-bold;
+  }
+
   .hover-underline-animation {
     display: inline-block;
     position: relative;
@@ -67,44 +59,5 @@
   #wrapper-viewer::-webkit-scrollbar,
   #wrapper-viewer__slider::-webkit-scrollbar {
     display: none;
-  }
-}
-
-@layer components {
-  #wrapper,
-  #wrapper-viewer,
-  #wrapper-viewer__slider {
-    scrollbar-width: 0;
-  }
-
-  .image-card:hover .card__image {
-    transform: scale(1.1);
-  }
-  .image-card:hover :nth-child(2) {
-    transform: translateY(0);
-  }
-
-  .card-project {
-    @apply rounded-lg
-          shadow-lg transition-all ease-in-out duration-700 cursor-pointer flex flex-col justify-center p-10 text-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500;
-  }
-  .card-project > * {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-
-  .card-project:hover > * {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .contact-image {
-    background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(255, 255, 255, 0.4) 100%
-      ),
-      url('../../public/images/desk.jpg');
-    background-size: cover;
   }
 }

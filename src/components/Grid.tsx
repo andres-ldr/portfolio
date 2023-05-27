@@ -1,17 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Spinner from './Spinner';
 import CardProjContent from './CardProjectContent';
-
-interface Project {
-  id: string;
-  name: string;
-  stack: string[];
-  goals: string[];
-  images: string[];
-  link_repo: string;
-  link_app: string;
-  type: string;
-}
+import Project from '../models/Project';
 
 interface Projects {
   projects: Project[];
@@ -64,7 +54,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`rounded-lg bg-no-repeat bg-cover bg-center col-span-2 row-span-3 hover:scale-[1.01]  animate-show`}
+                          className={`card-grid col-span-2 row-span-3 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -78,7 +68,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`rounded-lg bg-no-repeat bg-cover bg-center col-span-2 row-span-2 hover:scale-[1.01]  animate-show`}
+                          className={`card-grid col-span-2 row-span-2 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -92,7 +82,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`rounded-lg bg-no-repeat bg-cover bg-center col-span-2 row-span-2 col-start-3 row-start-1 hover:scale-[1.01]  animate-show`}
+                          className={`card-grid col-span-2 row-span-2 col-start-3 row-start-1 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -106,7 +96,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`rounded-lg bg-no-repeat bg-cover bg-center col-span-2 row-span-3 col-start-3 row-start-3 hover:scale-[1.01]  animate-show`}
+                          className={`card-grid col-span-2 row-span-3 col-start-3 row-start-3 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -120,7 +110,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`rounded-lg bg-no-repeat bg-cover bg-center col-span-2 row-span-5 col-start-5 row-start-1 hover:scale-[1.01]  animate-show`}
+                          className={`card-grid col-span-2 row-span-5 col-start-5 row-start-1 `}
                         >
                           <CardProjContent
                             id={e.id}

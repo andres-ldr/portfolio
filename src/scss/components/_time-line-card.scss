@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components {
+  .time-line-card {
+    @apply flex justify-start items-center w-96 h-44 rounded-3xl shadow-xl cursor-pointer p-5 z-10 transition hover:drop-shadow-2xl hover:translate-x-5;
+  }
+  .time-line-card__selected {
+    @apply drop-shadow-2xl translate-x-5 bg-blue-950 border-blue-300 border-2 text-white;
+  }
+}

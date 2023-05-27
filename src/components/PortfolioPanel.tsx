@@ -2,17 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Grid from './Grid';
 
 import Tab from './Tab';
-
-interface Project {
-  id: string;
-  name: string;
-  stack: string[];
-  goals: string[];
-  images: string[];
-  link_repo: string;
-  link_app: string;
-  type: string;
-}
+import Project from '../models/Project';
 
 interface Projects {
   projects: Project[];

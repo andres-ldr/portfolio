@@ -1,5 +1,6 @@
 ---
 import sphere3d from '../../public/images/Rectangle.png';
+import CardSkill from './CardSkill.astro';
 ---
 
 <div id='skills' class='flex flex-col justify-center items-center w-full mt-72'>
@@ -11,19 +12,11 @@ import sphere3d from '../../public/images/Rectangle.png';
         modi sunt? Sed veritatis praesentium ducimus, unde ipsa exercitationem
       </p>
     </div>
-    <!-- Card skill -->
-    <div
-      class={`absolute w-72 rounded-3xl shadow-md p-12 flex flex-col justify-center items-center top-20 right-56 transition hover:scale-105 hover:shadow-xl`}
-    >
-      <img src={sphere3d} alt='' class='w-24 h-24 mb-5' />
-      <h4 class='text-lg font-semibold mb-5 text-center'>
-        Frontend Development
-      </h4>
-      <p class='text-sm text-center'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quas
-        eligendi omnis minus inventore
-      </p>
-    </div>
+    <CardSkill
+      icon={sphere3d}
+      title={'Data science'}
+      text={'lore fdsdf fsfs'}
+    />
     <!-- Card skill -->
     <div
       class={`absolute w-72 rounded-3xl shadow-md p-12 flex flex-col justify-center items-center bottom-10 left-40 transition hover:scale-105 hover:shadow-xl`}
