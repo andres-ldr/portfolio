@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import ImageViewer from './ImageViewer';
+import ImageViewer from './image-viewer/ImageViewer';
 
 interface Images {
   images: string[];
