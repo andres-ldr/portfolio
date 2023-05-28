@@ -30,7 +30,7 @@
       @apply min-w-[16rem] h-full snap-center bg-center bg-cover bg-no-repeat transition-all cursor-pointer;
     }
     &-cover {
-      @apply w-full h-full bg-black bg-opacity-30 transition-all;
+      @apply w-full h-full bg-opacity-30 transition-all;
     }
     &-arrow {
       @apply absolute top-1/2 -translate-y-1/2 flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50;
