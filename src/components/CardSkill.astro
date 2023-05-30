@@ -2,8 +2,8 @@
 const { icon, title, text } = Astro.props;
 ---
 
-<div class={`card-skill top-20 right-56 `}>
-  <img src={icon} alt={title} class='w-24 h-24 mb-5' />
+<div class={`card-skill top-20 right-56 max-2xl:right-40 max-xl:right-0`}>
+  <img src={icon} alt={title} class='w-24 h-auto mb-5' />
   <h4 class='text-lg font-semibold mb-5 text-center'>{title}</h4>
   <p class='text-sm text-center'>
     {text}

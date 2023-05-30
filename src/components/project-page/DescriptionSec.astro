@@ -3,25 +3,19 @@ const { CodingImg } = Astro.props;
 ---
 
 <!-- description section -->
-<div class='w-full h-[100rem] relative flex justify-start items-center'>
-  <!-- gray container -->
+<div
+  class='w-full h-[100rem] relative flex justify-start items-center max-lg:justify-center max-lg:items-center max-lg:bg-red-500'
+>
   <div
-    class='w-3/4 h-full bg-gray-200 relative flex justify-center items-center'
+    class='absolute top-[25rem] rounded-lg left-96 flex flex-col justify-center items-start w-[40rem] p-20 bg-white shadow-md z-20 max-2xl:left-52 max-2xl:translate-x-0 max-lg:w-3/4 max-lg:static max-lg:p-10 max-md:w-5/6'
   >
-    <!-- ttitle & paragraph container -->
-    <div class='w-[60rem] h-[40rem] z-10 flex flex-col justify-start'>
-      <h2 class='text-6xl font-bold'>Description</h2>
-      <!-- paragraph container -->
-      <div class='w-full h-auto bg-white mt-32 p-10 shadow-lg'>
-        <p class='text-lg leading-7'>
-          <slot />
-        </p>
-      </div>
-    </div>
-  </div>
+    <h2 class='section-header mb-16'>Description</h2>
 
+    <slot class='max-lg:text-sm' />
+  </div>
+  <div class='w-3/5 h-full bg-gray-200 max-lg:hidden'></div>
   <img
     src={CodingImg}
-    class='absolute top-60 right-44 w-[50rem] h-[70rem] shadow-2xl'
+    class='absolute object-cover top-60 right-44 w-[50rem] h-[70rem] shadow-2xl max-2xl:right-28 max-xl:w-[33rem] max-xl:right-0 max-lg:w-full max-lg:inset-0 max-lg:h-full'
   />
 </div>

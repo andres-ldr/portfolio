@@ -4,43 +4,46 @@ import CardSkill from './CardSkill.astro';
 ---
 
 <div id='skills' class='center-section mt-72'>
-  <div class='w-3/4 h-[900px] relative'>
-    <div class='absolute top-36 left-64 w-72 flex flex-col'>
+  <div class='w-3/4 h-auto flex justify-evenly items-center max-lg:flex-col'>
+    <!-- cards container -->
+    <div
+      class='w-[35rem] h-auto flex p-10 max-xl:w-full max-lg:order-2 max-lg:flex-col max-lg:space-y-5 max-md:p-0'
+    >
+      <div
+        class='w-1/2 h-auto flex flex-col justify-end items-center space-y-10 mt-24 max-lg:w-full'
+      >
+        <CardSkill
+          icon={sphere3d}
+          title={'Data science'}
+          text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iste aperiam ratione, ipsum modi unde necessitatibus sapiente'}
+        />
+        <CardSkill
+          icon={sphere3d}
+          title={'Data science'}
+          text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iste aperiam ratione, ipsum modi unde necessitatibus sapiente'}
+        />
+      </div>
+      <div
+        class='w-1/2 h-full flex flex-col justify-start items-center space-y-10 max-lg:w-full'
+      >
+        <CardSkill
+          icon={sphere3d}
+          title={'Data science'}
+          text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iste aperiam ratione, ipsum modi unde necessitatibus sapiente'}
+        />
+        <CardSkill
+          icon={sphere3d}
+          title={'Data science'}
+          text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iste aperiam ratione, ipsum modi unde necessitatibus sapiente'}
+        />
+      </div>
+    </div>
+
+    <div class='w-[15rem] flex flex-col max-lg:order-1 max-lg:text-center'>
       <h2 class='section-header mb-10'>Skillset & services</h2>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed laborum
         modi sunt? Sed veritatis praesentium ducimus, unde ipsa exercitationem
-      </p>
-    </div>
-    <CardSkill
-      icon={sphere3d}
-      title={'Data science'}
-      text={'lore fdsdf fsfs'}
-    />
-    <!-- Card skill -->
-    <div
-      class={`absolute w-72 rounded-3xl shadow-md p-12 flex flex-col justify-center items-center bottom-10 left-40 transition hover:scale-105 hover:shadow-xl`}
-    >
-      <img src={sphere3d} alt='' class='w-24 h-24 mb-5' />
-      <h4 class='text-lg font-semibold mb-5 text-center'>
-        Frontend Development
-      </h4>
-      <p class='text-sm text-center'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quas
-        eligendi omnis minus inventore
-      </p>
-    </div>
-    <!-- Card skill -->
-    <div
-      class={`absolute w-72 rounded-3xl shadow-md p-12 flex flex-col justify-center items-center bottom-0 right-96 transition hover:scale-105 hover:shadow-xl`}
-    >
-      <img src={sphere3d} alt='' class='w-24 h-24 mb-5' />
-      <h4 class='text-lg font-semibold mb-5 text-center'>
-        Frontend Development
-      </h4>
-      <p class='text-sm text-center'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quas
-        eligendi omnis minus inventore
       </p>
     </div>
   </div>

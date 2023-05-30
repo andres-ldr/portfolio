@@ -15,7 +15,7 @@ const JobDetails: React.FC<JDProps> = ({
     <div
       className={`${
         isSelected ? 'flex' : 'hidden'
-      } w-1/2 h-full flex-col justify-start p-10 space-y-10 animate-show`}
+      } w-1/2 h-full flex-col justify-start pl-10 pt-8 space-y-10 animate-show max-lg:hidden`}
     >
       <h4 className='text-2xl font-semibold text-left'>Description:</h4>
       <p className='text-left text-lg'>{description}</p>

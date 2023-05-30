@@ -26,22 +26,37 @@ const TimeLine: React.FC<Props> = ({ jobs }) => {
   };
 
   return (
-    <div className='flex w-full h-full mt-52'>
-      <div className='relative w-1/2 h-full flex flex-col justify-start items-center space-y-8'>
+    <div className='flex w-full h-full mt-52 justify-evenly max-2xl:justify-between max-lg:flex-col'>
+      <div className='relative w-auto h-full flex flex-col justify-start items-center space-y-8 max-lg:w-full max-lg:space-y-4'>
         <span className='time-line'></span>
-        {jobs.map(({ id, company, date_end, date_start, post, image }) => (
-          <TimeLineCard
-            key={id}
-            id={id}
-            company={company}
-            date_start={date_start}
-            date_end={date_end}
-            post={post}
-            image={image}
-            isSelected={selectedCard === id}
-            handler={onCardSelected}
-          />
-        ))}
+        {jobs.map(
+          ({
+            id,
+            company,
+            date_end,
+            date_start,
+            post,
+            image,
+            description,
+            goals,
+            stack,
+          }) => (
+            <TimeLineCard
+              key={id}
+              id={id}
+              company={company}
+              date_start={date_start}
+              date_end={date_end}
+              post={post}
+              image={image}
+              isSelected={selectedCard === id}
+              handler={onCardSelected}
+              description={description}
+              goals={goals}
+              stack={stack}
+            />
+          )
+        )}
       </div>
 
       {jobs.map(({ id, description, goals, stack }) => (

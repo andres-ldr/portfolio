@@ -36,7 +36,7 @@ const PortfolioPanel: React.FC<Projects> = ({ projects }) => {
 
   return (
     <div className='mt-20'>
-      <div className='w-full flex justify-center space-x-12 items-center p-3 text-xl font-semibold'>
+      <div className='w-full flex justify-center space-x-12 items-center p-3 text-xl font-semibold max-sm:flex-col max-sm:space-x-0 max-sm:space-y-3 '>
         <Tab
           id={0}
           label={'All'}

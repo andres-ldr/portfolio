@@ -45,7 +45,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
         (gridArr.length !== 0 ? (
           gridArr.map((grid) => {
             return (
-              <div className='w-full grid grid-cols-6 grid-rows-5 gap-4 mb-3'>
+              <div className='w-full grid grid-cols-6 grid-rows-5 gap-4 mb-3 max-xl:h-[50rem] max-lg:h-full max-lg:grid-cols-1'>
                 {grid.map((e) => {
                   let m: number = grid.indexOf(e) % 5;
                   switch (m) {
@@ -54,7 +54,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`card-grid col-span-2 row-span-3 `}
+                          className={`card-grid col-span-2 row-span-3 max-lg:col-span-1 max-lg:row-span-1 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -68,7 +68,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`card-grid col-span-2 row-span-2 `}
+                          className={`card-grid col-span-2 row-span-2 max-lg:col-span-1 max-lg:row-span-1`}
                         >
                           <CardProjContent
                             id={e.id}
@@ -82,7 +82,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`card-grid col-span-2 row-span-2 col-start-3 row-start-1 `}
+                          className={`card-grid col-span-2 row-span-2 col-start-3 row-start-1 max-lg:col-span-1 max-lg:row-span-1 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -96,7 +96,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`card-grid col-span-2 row-span-3 col-start-3 row-start-3 `}
+                          className={`card-grid col-span-2 row-span-3 col-start-3 row-start-3 max-lg:col-span-1 max-lg:row-span-1 `}
                         >
                           <CardProjContent
                             id={e.id}
@@ -110,7 +110,7 @@ const Grid: React.FC<Projects> = ({ projects }) => {
                         <div
                           key={e.id}
                           style={{ backgroundImage: `url("${e.images[0]}")` }}
-                          className={`card-grid col-span-2 row-span-5 col-start-5 row-start-1 `}
+                          className={`card-grid col-span-2 row-span-5 col-start-5 row-start-1 max-lg:col-span-1 max-lg:row-span-1 `}
                         >
                           <CardProjContent
                             id={e.id}

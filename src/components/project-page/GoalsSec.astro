@@ -6,7 +6,7 @@ const { goals } = Astro.props;
 <div
   class='w-full h-full pt-20 pb-20 bg-gray-100 relative flex flex-col justify-center items-center space-y-24'
 >
-  <div class='w-[28rem] h-52 text-center space-y-10'>
+  <div class='w-[28rem] h-52 text-center space-y-10 max-lg:w-3/4'>
     <h2 class='text-5xl font-bold'>Goals Reached</h2>
     <p class=''>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi tempore
@@ -17,7 +17,9 @@ const { goals } = Astro.props;
   </div>
 
   <!-- cards container -->
-  <div class='w-3/4 h-full flex flex-wrap justify-center p-16'>
+  <div
+    class='w-3/4 h-full flex flex-wrap justify-center p-16 max-md:p-0 max-md:w-5/6'
+  >
     <!-- card -->
     {
       goals.map((el: { icon: string; title: string; goal: string }) => (
