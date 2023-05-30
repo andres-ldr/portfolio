@@ -6,6 +6,6 @@
   }
 
   .navbar-link {
-    @apply font-bold text-xl leading-none p-2 hover-underline-animation;
+    @apply font-bold text-xl leading-none p-2 hover-underline-animation max-2xl:text-lg max-xl:text-base max-lg:hidden;
   }
 }
