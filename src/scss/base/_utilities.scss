@@ -8,12 +8,6 @@
     @apply w-full flex flex-col justify-center items-center;
   }
 
-  .navbar__hide {
-    transition: all 0.25s ease-in-out;
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
   .hover-underline-animation {
     display: inline-block;
     position: relative;
