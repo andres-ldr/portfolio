@@ -3,15 +3,25 @@
 
 <script>
   const navbar = document.getElementById('nav-bar') as HTMLDivElement;
+  const links = document.getElementsByClassName('navbar-link');
   let movement = 0;
   window.addEventListener('scroll', () => {
     if (movement < window.scrollY) {
-      navbar.classList.toggle('nabvar__hide');
+      navbar.classList.add('hide');
     } else {
-      navbar.classList.toggle('nabvar__hide');
+      navbar.classList.remove('hide');
     }
     movement = window.scrollY;
   });
+
+  for (let i = 0; i < links.length; i++) {
+    const element = links[i];
+    element.addEventListener('click', () => {
+      setTimeout(() => {
+        navbar.classList.add('hide');
+      }, 1000);
+    });
+  }
 </script>
 
 <div id='nav-bar' class='navbar'>
