@@ -35,14 +35,15 @@ const TimeLineCard: React.FC<JobsProps> = ({
           isSelected ? 'time-line-card__selected' : 'bg-white'
         }`}
       >
-        <img src={image} alt={image} className='w-16 h-auto max-lg:w-12' />
-        <div className='flex flex-col grow justify-start item-center text-left max-lg:space-y-2'>
+        <img src={image} alt={image} className='w-16 h-auto max-lg:w-14' />
+        <div className='flex flex-col grow justify-start item-center space-y-2 text-left'>
           <div className='flex justify-between'>
             <h4 className='font-bold text-lg max-lg:text-base'>{company}</h4>
             <h6 className='text-sm max-lg:hidden'>
               {date_start} - {date_end}
             </h6>
           </div>
+          <h4 className='font-semibold text-lg max-lg:hidden'>{post}</h4>
         </div>
       </div>
       <div
