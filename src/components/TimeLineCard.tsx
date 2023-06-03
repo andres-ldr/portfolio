@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import JobInfoCard from './JobInfoCard';
 
 interface JobsProps {
   id: string;
@@ -27,13 +28,45 @@ const TimeLineCard: React.FC<JobsProps> = ({
   goals,
   stack,
 }) => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const cardResponsiveRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const options = {
+    root: null,
+    rootMarging: '0px',
+    threshold: 0.3,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(entry.isIntersecting);
+          observer.unobserve(entry.target);
+        }
+      },
+      options
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+    if (cardResponsiveRef.current) observer.observe(cardResponsiveRef.current);
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+      if (cardResponsiveRef.current)
+        observer.unobserve(cardResponsiveRef.current);
+    };
+  }, [cardRef, options]);
+
   return (
     <Fragment>
       <div
+        ref={cardRef}
         onClick={() => handler(id)}
-        className={`time-line-card ${
+        className={`${isVisible ? `time-line-card` : 'opacity-0'} ${
           isSelected ? 'time-line-card__selected' : 'bg-white'
-        }`}
+        }  `}
       >
         <img src={image} alt={image} className='w-16 h-auto max-lg:w-14' />
         <div className='flex flex-col grow justify-start item-center space-y-2 text-left'>
@@ -46,39 +79,15 @@ const TimeLineCard: React.FC<JobsProps> = ({
           <h4 className='font-semibold text-lg max-lg:hidden'>{post}</h4>
         </div>
       </div>
-      <div
-        className={`${
-          isSelected && 'max-lg:flex'
-        } w-0 hidden h-full text-left flex-col justify-start space-y-10 rounded-2xl shadow-md animate-show  max-lg:w-full max-lg:justify-center max-lg:bg-white max-lg:p-5`}
-      >
-        <h4 className='font-semibold text-lg'>{post}</h4>
-        <h6 className='text-sm font-light text-black'>
-          {date_start} - {date_end}
-        </h6>
-        <h4 className='text-2xl font-semibold max-lg:text-base'>
-          Description:
-        </h4>
-        <p className='text-lg max-lg:text-sm'>{description}</p>
-        <h4 className='text-2xl font-semibold max-lg:text-base'>
-          Reached goals:
-        </h4>
-        {/* goals */}
-        <ul className='text-lg list-disc space-y-5'>
-          {goals.map((goal) => (
-            <li key={goal} className='max-lg:text-sm max-lg:list-inside'>
-              {goal}
-            </li>
-          ))}
-        </ul>
-        {/* tags */}
-        <div className='flex mt-12 flex-wrap'>
-          {stack.map((skill) => (
-            <div key={skill} className='tag'>
-              {skill}
-            </div>
-          ))}
-        </div>
-      </div>
+      <JobInfoCard
+        isSelected={isSelected}
+        post={post}
+        date_start={date_start}
+        date_end={date_end}
+        description={description}
+        goals={goals}
+        stack={stack}
+      />
     </Fragment>
   );
 };

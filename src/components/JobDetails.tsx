@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 interface JDProps {
   description: string;
   goals: string[];
@@ -11,11 +11,37 @@ const JobDetails: React.FC<JDProps> = ({
   stack,
   isSelected,
 }) => {
+  const jobRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const options = {
+    root: null,
+    rootMarging: '0px',
+    threshold: 0.1,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsVisible(entry.isIntersecting);
+          observer.unobserve(entry.target);
+        }
+      },
+      options
+    );
+    if (jobRef.current) observer.observe(jobRef.current);
+    return () => {
+      if (jobRef.current) observer.unobserve(jobRef.current);
+    };
+  }, [jobRef, options]);
   return (
     <div
-      className={`${
+      ref={jobRef}
+      className={`max-lg:hidden w-1/2 h-full flex flex-col justify-start pt-8 space-y-10 transition-all ${
         isSelected ? 'flex' : 'hidden'
-      } w-1/2 h-full flex-col justify-start pl-10 pt-8 space-y-10 animate-show max-lg:hidden`}
+      } ${isVisible ? 'animate-show' : 'opacity-0'} `}
     >
       <h4 className='text-2xl font-semibold text-left'>Description:</h4>
       <p className='text-left text-lg'>{description}</p>
