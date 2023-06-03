@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components {
+  .lazy-element {
+    @apply opacity-0;
+  }
+  .slide-bottom-top {
+    @apply opacity-100 animate-slideBottomTop;
+  }
+}
