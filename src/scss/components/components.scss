@@ -39,11 +39,11 @@
     @apply absolute left-24 top-9 bottom-9 border-4 border-blue-950 max-lg:hidden;
   }
   .tab {
-    @apply p-2 cursor-pointer hover-underline-animation transition;
+    @apply p-2 cursor-pointer hover-underline-animation transition animate-slideBottomTop;
   }
   .card-grid {
     @apply rounded-lg bg-no-repeat bg-cover bg-center
-    hover:scale-[1.01] animate-show;
+    hover:scale-[1.01] animate-slideBottomTop;
   }
   .card-project-content {
     @apply flex flex-col justify-center items-center w-full h-full card-project space-y-10;
