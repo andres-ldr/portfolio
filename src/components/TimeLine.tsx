@@ -26,9 +26,9 @@ const TimeLine: React.FC<Props> = ({ jobs }) => {
   };
 
   return (
-    <div className='flex w-full h-full mt-52 justify-evenly max-2xl:justify-between max-lg:flex-col'>
+    <div className='flex w-full h-full mt-52 space-x-32 justify-evenly max-2xl:justify-between max-lg:flex-col'>
       <div className='relative w-auto h-full flex flex-col justify-start items-center space-y-8 max-lg:w-full max-lg:space-y-4'>
-        <span className='time-line'></span>
+        <span className='lazy-element time-line'></span>
         {jobs.map(
           ({
             id,
