@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import ImageViewer from './image-viewer/ImageViewer';
+import ItemGrid from './grids/ItemGrid';
 
 interface Images {
   images: string[];
@@ -62,155 +63,16 @@ const GridImages: React.FC<Images> = ({ images }) => {
                         index = matrix.indexOf(grid) * 6 + grid.indexOf(imgUrl);
                       }
                       let m: number = grid.indexOf(imgUrl) % 6;
-                      switch (m) {
-                        case 0:
-                          return (
-                            <div className='image-card col-span-4 row-span-3 '>
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div className='image-card__cover'>
-                                <span
-                                  onClick={() => viewerVisibilityHandler(index)}
-                                  className='image-card__cover__btn'
-                                >
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        case 1:
-                          return (
-                            <div
-                              key={imgUrl}
-                              className={`image-card  col-span-2 row-span-5 col-start-5 `}
-                            >
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div className='image-card__cover'>
-                                <span
-                                  onClick={() => viewerVisibilityHandler(index)}
-                                  className='image-card__cover__btn'
-                                >
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        case 2:
-                          return (
-                            <div
-                              key={imgUrl}
-                              className={`image-card col-span-2 row-span-5 col-start-7 `}
-                            >
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div className='image-card__cover'>
-                                <span
-                                  onClick={() => viewerVisibilityHandler(index)}
-                                  className='image-card__cover__btn'
-                                >
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        case 3:
-                          return (
-                            <div
-                              key={imgUrl}
-                              className={`image-card col-span-2 row-span-5 row-start-4 `}
-                            >
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div
-                                onClick={() => viewerVisibilityHandler(index)}
-                                className='image-card__cover'
-                              >
-                                <span className='image-card__cover__btn'>
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        case 4:
-                          return (
-                            <div
-                              key={imgUrl}
-                              className={`image-card col-span-2 row-span-5 col-start-3 row-start-4`}
-                            >
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div
-                                onClick={() => viewerVisibilityHandler(index)}
-                                className='image-card__cover'
-                              >
-                                <span className='image-card__cover__btn'>
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                        default:
-                          return (
-                            <div
-                              key={imgUrl}
-                              className={`image-card col-span-4 row-span-3 col-start-5 row-start-6`}
-                            >
-                              {/* image */}
-                              <div
-                                key={imgUrl}
-                                style={{
-                                  backgroundImage: `url("${imgUrl}")`,
-                                }}
-                                className={`image-card__image`}
-                              ></div>
-                              {/* cover */}
-                              <div
-                                onClick={() => viewerVisibilityHandler(index)}
-                                className='image-card__cover'
-                              >
-                                <span className='image-card__cover__btn'>
-                                  view
-                                </span>
-                              </div>
-                            </div>
-                          );
-                      }
+                      return (
+                        <ItemGrid
+                          data={imgUrl}
+                          total_items={6}
+                          type={m}
+                          visibilityHandler={() =>
+                            viewerVisibilityHandler(index)
+                          }
+                        />
+                      );
                     })}
                   </div>
                   <div className='hidden w-full h-auto mt-5 flex-col space-y-10 max-lg:flex '>
