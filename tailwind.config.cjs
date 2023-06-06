@@ -29,6 +29,7 @@ module.exports = {
         slideName: 'slideName 1s ease-in-out',
         slideProf: 'slideProf 1.75s ease-in-out',
         slideBottomTop: 'slideBottomTop 0.75s ease-in-out',
+        slideRtoL: 'slideProf 0.75s ease-in-out',
       },
     },
   },
