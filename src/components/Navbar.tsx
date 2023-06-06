@@ -36,32 +36,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-// <script>
-//   const navbar = document.getElementById('nav-bar') as HTMLDivElement;
-//   const links = document.getElementsByClassName('navbar-link');
-//   let movement = 0;
-//   window.addEventListener('scroll', () => {
-//     if (movement < window.scrollY) {
-//       navbar.classList.add('hide');
-//     } else {
-//       navbar.classList.remove('hide');
-//     }
-//     movement = window.scrollY;
-//   });
-
-//   for (let i = 0; i < links.length; i++) {
-//     const element = links[i];
-//     element.addEventListener('click', () => {
-//       setTimeout(() => {
-//         navbar.classList.add('hide');
-//       }, 1000);
-//     });
-//   }
-
-//   const hamburguer = document.querySelector('.hamburguer') as HTMLDivElement;
-
-//   hamburguer.addEventListener('click', () => {
-//     hamburguer.children[0].classList.toggle('open');
-//   });
-// </script>
