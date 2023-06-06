@@ -1,8 +1,16 @@
 ---
+import arrowLeft from '../../../public/icons/arrow-left.svg';
 const { name, stack, link_repo, link_app, mainImage } = Astro.props;
 ---
 
 <div class='w-full h-screen relative flex justify-end max-lg:justify-center'>
+  <a
+    href='/'
+    class='absolute top-10 left-10 rounded-full bg-blue-400 p-2 transition hover:bg-blue-600 cursor-pointer max-lg:top-5 max-lg:left-5 z-20'
+  >
+    <img src={arrowLeft} class='w-10 h-10 max-lg:w-6 max-lg:h-6' />
+  </a>
+
   <div
     class='absolute top-1/2 left-36 -translate-y-1/2 px-10 py-20 w-[30rem] h-auto bg-white shadow-md rounded-xl flex flex-col justify-center items-center space-y-20 max-lg:justify-center z-10 max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:w-3/4 max-lg:py-5 max-lg:px-5 max-lg:bg-transparent'
   >
