@@ -2,7 +2,7 @@
 
 @layer components {
   .navbar {
-    @apply sticky opacity-100 bg-slate-100 top-0 w-full flex justify-center z-30;
+    @apply sticky opacity-100 bg-slate-100 top-0 inset-x-0 w-full flex justify-center z-30;
     transition: all 0.25s ease-in-out;
 
     & > * {
