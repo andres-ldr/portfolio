@@ -1,44 +1,34 @@
-import React, { useEffect } from 'react';
-import Button from './Button';
+import React from 'react';
+import { useScrollDirection } from './hooks/useScrollDirection';
+import MenuBtn from './MenuBtn';
 
 const Navbar: React.FC = () => {
-  useEffect(() => {}, []);
-
-  const executeScroll = (id: string) => {
-    let element = document.getElementById(id) as HTMLElement;
-    element.scrollIntoView();
-  };
+  const direction = useScrollDirection();
 
   return (
-    <div className='fixed bg-slate-100 top-0 w-full flex justify-center z-20'>
-      <div className='w-3/4 flex justify-between bg-transparent p-6 z-20'>
+    <div
+      id='nav-bar'
+      className={`navbar ${direction === 'down' ? ' hide' : ''}`}
+    >
+      <div>
+        <MenuBtn />
         <h1 className='text-3xl'>Logo</h1>
-        <div className='flex space-x-14 leading-none'>
-          <a
-            href='#about-me'
-            className='font-bold text-xl leading-none p-2  hover-underline-animation'
-          >
+        <div className='flex space-x-14 leading-none max-lg:hidden'>
+          <a href='#about-me' className='navbar-link'>
             About
           </a>
-          <a
-            href='#'
-            className='font-bold text-xl leading-none p-2  hover-underline-animation'
-          >
+          <a href='#skills' className='navbar-link'>
             Skillset
           </a>
-          <a
-            href='#'
-            className='font-bold text-xl leading-none p-2  hover-underline-animation'
-          >
+          <a href='#work-experience' className='navbar-link'>
             Experience
           </a>
-          <a
-            href='#'
-            className='font-bold text-xl leading-none p-2  hover-underline-animation'
-          >
+          <a href='#portfolio' className='navbar-link'>
             Portfolio
           </a>
-          <Button />
+          <a href='#contact-me' className='button-white-navbar'>
+            Contact me
+          </a>
         </div>
       </div>
     </div>
@@ -46,3 +36,32 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+// <script>
+//   const navbar = document.getElementById('nav-bar') as HTMLDivElement;
+//   const links = document.getElementsByClassName('navbar-link');
+//   let movement = 0;
+//   window.addEventListener('scroll', () => {
+//     if (movement < window.scrollY) {
+//       navbar.classList.add('hide');
+//     } else {
+//       navbar.classList.remove('hide');
+//     }
+//     movement = window.scrollY;
+//   });
+
+//   for (let i = 0; i < links.length; i++) {
+//     const element = links[i];
+//     element.addEventListener('click', () => {
+//       setTimeout(() => {
+//         navbar.classList.add('hide');
+//       }, 1000);
+//     });
+//   }
+
+//   const hamburguer = document.querySelector('.hamburguer') as HTMLDivElement;
+
+//   hamburguer.addEventListener('click', () => {
+//     hamburguer.children[0].classList.toggle('open');
+//   });
+// </script>
