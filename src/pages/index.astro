@@ -6,13 +6,13 @@ import Portfolio from '../components/Portfolio.astro';
 import AboutSec from '../components/AboutSec.astro';
 import SkillsetSec from '../components/SkillsetSec.astro';
 import WorkXSec from '../components/WorkXSec.astro';
-import NavBar from '../components/NavBar.astro';
 import ContactMeSec from '../components/ContactMeSec.astro';
 import Footer from '../components/Footer.astro';
+import Navbar from '../components/NavBar';
 ---
 
 <Layout title=''>
-  <NavBar />
+  <Navbar client:load />
   <main>
     <Hero />
     <AboutSec />
