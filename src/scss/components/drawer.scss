@@ -1,0 +1,62 @@
+@tailwind components;
+
+@keyframes slideLinks {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer components {
+  .drawer-bgr {
+    transition: all 1s ease-in-out;
+
+    @apply hidden fixed inset-0 w-screen h-screen bg-black bg-opacity-40 opacity-0 z-40;
+
+    &__open {
+      @apply block opacity-100 animate-show;
+    }
+  }
+
+  .drawer-nav {
+    @apply w-5/6 fixed hidden inset-y-0 left-0 h-screen opacity-0 bg-black max-lg:flex flex-col justify-center items-center shadow-lg -translate-x-full z-50;
+    transition: all 0.35s ease-in-out;
+
+    &__open {
+      @apply translate-x-0 opacity-100;
+    }
+
+    &-links {
+      @apply w-full h-auto flex flex-col justify-center items-start transition-all;
+
+      & :nth-child(1) {
+        animation-duration: 0.45s;
+      }
+      & :nth-child(2) {
+        animation-duration: 0.55s;
+      }
+      & :nth-child(3) {
+        animation-duration: 0.65s;
+      }
+      & :nth-child(4) {
+        animation-duration: 0.75s;
+      }
+      & :nth-child(5) {
+        animation-duration: 0.85s;
+      }
+
+      &-item {
+        @apply hidden opacity-0 pl-10 py-4 text-white w-full text-lg font-semibold;
+
+        &__show {
+          @apply block opacity-100;
+          animation-name: slideLinks;
+        }
+      }
+    }
+  }
+}

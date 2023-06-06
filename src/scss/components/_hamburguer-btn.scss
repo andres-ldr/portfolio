@@ -1,0 +1,32 @@
+@tailwind components;
+
+@layer components {
+  .hamburguer {
+    @apply relative hidden max-lg:flex w-10 h-7 bg-transparent rotate-0;
+
+    & > span {
+      @apply absolute rounded-lg w-full h-[5px] bg-black rotate-0 opacity-100;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &__no-clicked :nth-child(1) {
+      @apply inset-x-0 top-0;
+    }
+    &__no-clicked :nth-child(2) {
+      @apply inset-x-0 top-1/2 -translate-y-1/2;
+    }
+    &__no-clicked :nth-child(3) {
+      @apply inset-x-0 bottom-0;
+    }
+
+    &__clicked :nth-child(1) {
+      @apply top-1/2 rotate-45;
+    }
+    &__clicked :nth-child(2) {
+      @apply inset-x-0 top-1/2 -translate-y-1/2 opacity-0 scale-x-0;
+    }
+    &__clicked :nth-child(3) {
+      @apply top-1/2 -rotate-45;
+    }
+  }
+}
