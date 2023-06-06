@@ -120,7 +120,7 @@ const SliderViewer: React.FC<SliderProps> = ({
   };
 
   return (
-    <div className='relative w-3/4 h-44'>
+    <div className='relative w-3/4 h-44 max-lg:hidden'>
       {/* slider */}
       <div
         id='wrapper-viewer__slider'

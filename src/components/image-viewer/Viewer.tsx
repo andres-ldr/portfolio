@@ -85,7 +85,7 @@ const Viewer: React.FC<ViewerProps> = ({
   };
 
   return (
-    <div className='w-3/4 h-0 grow relative'>
+    <div className='w-3/4 h-0 grow relative max-lg:w-screen'>
       <div
         id='wrapper-viewer'
         ref={wrapperRef}
