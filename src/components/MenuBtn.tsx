@@ -1,7 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import Drawer from './Drawer';
 
-const MenuBtn = () => {
+interface MenuBtnProps {
+  closeNavbarHandler: () => void;
+}
+
+const MenuBtn: React.FC<MenuBtnProps> = ({ closeNavbarHandler }) => {
   const [isBtnClicked, setIsBtnClicked] = useState(false);
   const btnHandle = () => setIsBtnClicked(!isBtnClicked);
 
@@ -17,7 +21,11 @@ const MenuBtn = () => {
         <span></span>
         <span></span>
       </div>
-      <Drawer btnHandle={btnHandle} isBtnClicked={isBtnClicked} />
+      <Drawer
+        btnHandle={btnHandle}
+        isBtnClicked={isBtnClicked}
+        closeNavbarHandler={closeNavbarHandler}
+      />
     </Fragment>
   );
 };
