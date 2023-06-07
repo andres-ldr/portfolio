@@ -69,7 +69,7 @@ const Drawer: React.FC<DrawerProps> = ({ isBtnClicked, btnHandle }) => {
       document.body
     );
     setElement(el);
-  }, [element]);
+  }, [isBtnClicked]);
 
   return element;
 };

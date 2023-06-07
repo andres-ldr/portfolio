@@ -17,7 +17,6 @@ const MenuBtn = () => {
         <span></span>
         <span></span>
       </div>
-      {/* drawer */}
       <Drawer btnHandle={btnHandle} isBtnClicked={isBtnClicked} />
     </Fragment>
   );
