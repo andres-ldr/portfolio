@@ -18,10 +18,7 @@ const Drawer: React.FC<DrawerProps> = ({
     const el = ReactDOM.createPortal(
       <Fragment>
         <div
-          onClick={() => {
-            btnHandle();
-            closeNavbarHandler();
-          }}
+          onClick={() => btnHandle()}
           className={`drawer-bgr ${isBtnClicked ? 'drawer-bgr__open' : ''}`}
         ></div>
         <div className={`drawer-nav ${isBtnClicked ? 'drawer-nav__open' : ''}`}>
