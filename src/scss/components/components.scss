@@ -10,13 +10,13 @@
     @apply text-4xl font-bold max-sm:text-3xl;
   }
   .button-white {
-    @apply rounded-2xl shadow-md pt-4 pb-4 pl-9 pr-9 cursor-pointer font-bold transition-all hover:shadow-lg hover:bg-slate-900 hover:text-white max-2xl:text-sm max-2xl:pl-6 max-2xl:pr-6 max-xl:text-xs max-xl:pl-4 max-xl:pr-4;
+    @apply rounded-2xl shadow-md pt-4 pb-4 pl-9 pr-9 cursor-pointer font-bold transition-all hover:shadow-lg hover:bg-slate-900 hover:text-white max-2xl:text-sm max-2xl:pl-6 max-2xl:pr-6 max-xl:text-xs max-xl:pl-4 max-xl:pr-4 max-lg:w-full;
     &-navbar {
       @apply rounded-2xl shadow-md pt-4 pb-4 pl-9 pr-9 cursor-pointer font-bold transition-all hover:shadow-lg hover:bg-slate-900 hover:text-white max-2xl:text-sm max-2xl:pl-6 max-2xl:pr-6 max-xl:text-xs max-xl:pl-4 max-xl:pr-4 max-lg:hidden;
     }
   }
   .button-email {
-    @apply w-44 h-10 rounded-full p-2 bg-blue-400 font-semibold shadow-md transition-all hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white max-sm:text-sm max-sm:w-32;
+    @apply w-44 h-10 rounded-full p-2 bg-blue-400 font-semibold shadow-md transition-all hover:shadow-lg hover:scale-105 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500 hover:text-white max-sm:text-sm max-sm:w-full;
   }
   .button-blue {
     @apply w-44 h-12 p-2 flex justify-center items-center font-bold bg-blue-300 rounded-3xl space-x-2 shadow-lg transition hover:shadow-xl hover:scale-105 hover:-translate-y-1 max-sm:text-sm;
@@ -32,18 +32,18 @@
         rgba(255, 255, 255, 0.4) 0%,
         rgba(255, 255, 255, 0.4) 100%
       ),
-      url('../../public/images/desk.jpg');
+      url('/images/desk.jpg');
     background-size: cover;
   }
   .time-line {
     @apply absolute left-24 top-9 bottom-9 border-4 border-blue-950 max-lg:hidden;
   }
   .tab {
-    @apply p-2 cursor-pointer hover-underline-animation transition animate-slideBottomTop;
+    @apply p-2 cursor-pointer hover-underline-animation transition animate-slideBtT075;
   }
   .card-grid {
     @apply rounded-lg bg-no-repeat bg-cover bg-center
-    hover:scale-[1.01] animate-slideBottomTop;
+    hover:scale-[1.01] animate-slideBtT075;
   }
   .card-project-content {
     @apply flex flex-col justify-center items-center w-full h-full card-project space-y-10;
@@ -59,7 +59,7 @@
     }
   }
   .tag {
-    @apply bg-red-300 rounded-full m-2 pt-2 pb-2 pl-4 pr-4 border-red-600 border-2 text-red-950 font-semibold;
+    @apply bg-red-300 rounded-full m-2 py-2 px-4 border-red-600 border-2 text-red-950 font-semibold max-lg:px-2 max-lg:py-1 max-lg:text-sm;
   }
 
   .goal-project-card {
