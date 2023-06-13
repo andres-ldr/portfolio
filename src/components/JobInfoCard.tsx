@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface JobInfoCardProps {
   post: string;
@@ -19,43 +20,18 @@ const JobInfoCard: React.FC<JobInfoCardProps> = ({
   stack,
   isSelected,
 }) => {
-  const cardResponsiveRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const options = {
+  const [cardResponsiveRef, isVisible] = useIntersectionObserver({
     root: null,
     rootMarging: '0px',
     threshold: 0.3,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(entry.isIntersecting);
-          observer.unobserve(entry.target);
-        }
-      },
-      options
-    );
-
-    if (cardResponsiveRef.current) observer.observe(cardResponsiveRef.current);
-    if (cardResponsiveRef.current) observer.observe(cardResponsiveRef.current);
-    return () => {
-      if (cardResponsiveRef.current)
-        observer.unobserve(cardResponsiveRef.current);
-      if (cardResponsiveRef.current)
-        observer.unobserve(cardResponsiveRef.current);
-    };
-  }, [cardResponsiveRef, options]);
+  });
 
   return (
     <div
       ref={cardResponsiveRef}
       className={`${
         isSelected
-          ? `job-desc-responsive ${isVisible ? 'animate-show' : 'opacity-0'}`
+          ? `job-desc-responsive ${isVisible ? 'animate-show075' : 'opacity-0'}`
           : 'hidden'
       }`}
     >
@@ -71,13 +47,20 @@ const JobInfoCard: React.FC<JobInfoCardProps> = ({
       {/* goals */}
       <ul className='text-lg list-disc space-y-5'>
         {goals.map((goal: string) => (
-          <li className='max-lg:text-sm max-lg:list-inside'>{goal}</li>
+          <li
+            key={goals.indexOf(goal)}
+            className='max-lg:text-sm max-lg:list-inside'
+          >
+            {goal}
+          </li>
         ))}
       </ul>
       {/* tags */}
       <div className='flex mt-12 flex-wrap'>
         {stack.map((skill: string) => (
-          <div className='tag'>{skill}</div>
+          <div key={stack.indexOf(skill)} className='tag'>
+            {skill}
+          </div>
         ))}
       </div>
     </div>

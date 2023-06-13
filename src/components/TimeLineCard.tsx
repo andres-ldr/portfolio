@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import JobInfoCard from './JobInfoCard';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface JobsProps {
   id: string;
@@ -28,36 +29,11 @@ const TimeLineCard: React.FC<JobsProps> = ({
   goals,
   stack,
 }) => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const cardResponsiveRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const options = {
+  const [cardRef, isVisible] = useIntersectionObserver({
     root: null,
     rootMarging: '0px',
     threshold: 0.3,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(entry.isIntersecting);
-          observer.unobserve(entry.target);
-        }
-      },
-      options
-    );
-
-    if (cardRef.current) observer.observe(cardRef.current);
-    if (cardResponsiveRef.current) observer.observe(cardResponsiveRef.current);
-    return () => {
-      if (cardRef.current) observer.unobserve(cardRef.current);
-      if (cardResponsiveRef.current)
-        observer.unobserve(cardResponsiveRef.current);
-    };
-  }, [cardRef, options]);
+  });
 
   return (
     <Fragment>

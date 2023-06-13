@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface TabProps {
   id: number;
@@ -8,33 +9,11 @@ interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = ({ id, label, clickHandler, isSelected }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const tabRef = useRef<HTMLDivElement | null>(null);
-
-  const options = {
+  const [tabRef, isVisible] = useIntersectionObserver({
     root: null,
     rootMarging: '0px',
     threshold: 0.3,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(entry.isIntersecting);
-          observer.unobserve(entry.target);
-        }
-      },
-      options
-    );
-
-    if (tabRef.current) observer.observe(tabRef.current);
-
-    return () => {
-      if (tabRef.current) observer.unobserve(tabRef.current);
-    };
-  }, [tabRef, options]);
+  });
 
   return (
     <h5

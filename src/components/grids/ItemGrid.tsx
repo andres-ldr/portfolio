@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import CardProjContent from '../CardProjectContent';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 interface ItemGridProps {
   type: number;
@@ -14,34 +15,12 @@ const ItemGrid: React.FC<ItemGridProps> = ({
   total_items,
   visibilityHandler,
 }) => {
-  const item = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [n, setN] = useState(type);
-
-  const options = {
+  const [item, isVisible] = useIntersectionObserver({
     root: null,
     rootMarging: '0px',
     threshold: 0.3,
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          setIsVisible(entry.isIntersecting);
-          observer.unobserve(entry.target);
-        }
-      },
-      options
-    );
-
-    if (item.current) observer.observe(item.current);
-
-    return () => {
-      if (item.current) observer.unobserve(item.current);
-    };
-  }, [item, options]);
+  });
 
   const pickItemType = () => {
     switch (total_items) {
