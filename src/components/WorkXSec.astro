@@ -1,17 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content';
 import TimeLine from './TimeLine';
-interface Job {
-  id: string;
-  company: string;
-  post: string;
-  date_start: string;
-  date_end: string;
-  description: string;
-  stack: string[];
-  goals: string[];
-  image: string;
-}
+import Job from '../models/Job';
 
 const projects: CollectionEntry<'jobs'>[] = await getCollection('jobs');
 
@@ -23,7 +13,9 @@ projects.map((el) => {
 ---
 
 <div id='work-experience' class='center-section mt-72'>
-  <div class='flex flex-col w-3/4 justify-center items-center text-center'>
+  <div
+    class='flex flex-col w-3/4 justify-center items-center text-center max-lg:w-5/6'
+  >
     <!-- title -->
     <div class='lazy-element w-96 max-lg:w-5/6'>
       <h3 class='section-header'>Work experience</h3>

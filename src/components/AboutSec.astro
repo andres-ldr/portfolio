@@ -1,6 +1,6 @@
 ---
 import Button from './Button';
-import Portrait2 from '../../public/images/portrait2.png';
+import Portrait2 from '/images/portrait2.png';
 ---
 
 <div id='about-me' class='center-section h-auto relative mt-72'>
@@ -8,14 +8,16 @@ import Portrait2 from '../../public/images/portrait2.png';
     class='w-3/4 flex justify-center space-x-20 max-xl:space-x-10 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:space-x-0'
   >
     <div
-      class='lazy-element flex flex-col w-[30rem] justify-center max-xl:w-[20rem] max-lg:text-center'
+      class='lazy-element flex flex-col w-[30rem] justify-center max-xl:w-[20rem] max-lg:w-full max-lg:text-center'
     >
       <h3 class='section-header mb-10'>A bit about me</h3>
       <p class='mb-16 max-sm:text-center max-sm:text-sm'>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse ullam
         unde molestiae nulla consequuntur quo sint cum est vero debitis
       </p>
-      <div class='flex space-x-6 max-lg:items-center max-lg:justify-center'>
+      <div
+        class='flex space-x-6 max-lg:flex-col max-lg:items-center max-lg:space-x-0 max-lg:space-y-6 max-lg:justify-center'
+      >
         <Button />
         <a href='/files/cv.pdf' target='_blank' class='button-white'
           >Get My Resume</a

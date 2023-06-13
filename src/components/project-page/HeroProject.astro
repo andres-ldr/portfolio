@@ -15,7 +15,7 @@ const { name, stack, link_repo, link_app, mainImage } = Astro.props;
     class='absolute top-1/2 left-36 -translate-y-1/2 px-10 py-20 w-[30rem] h-auto bg-white shadow-md rounded-xl flex flex-col justify-center items-center space-y-20 max-lg:justify-center z-10 max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:w-3/4 max-lg:py-5 max-lg:px-5 max-lg:bg-transparent'
   >
     <h1
-      class='font-bold text-5xl max-md:text-3xl max-lg:text-white animate-slideBottomTop'
+      class='font-bold text-5xl max-md:text-3xl max-lg:text-white animate-slideBtT075'
     >
       {name}
     </h1>
@@ -25,7 +25,7 @@ const { name, stack, link_repo, link_app, mainImage } = Astro.props;
     >
       {
         stack.map((el: string[]) => (
-          <span class='tag animate-slideBottomTop'>{el}</span>
+          <span class='tag animate-slideBtT075'>{el}</span>
         ))
       }
     </div>
@@ -36,7 +36,7 @@ const { name, stack, link_repo, link_app, mainImage } = Astro.props;
       <a
         href={link_repo}
         target='_blank'
-        class='button-blue animate-slideBottomTop'
+        class='button-blue animate-slideBtT075'
       >
         <svg
           class='w-8 h-8 max-sm:w-6 max-sm:h-6'
@@ -52,7 +52,7 @@ const { name, stack, link_repo, link_app, mainImage } = Astro.props;
       <a
         href={link_app}
         target='_blank'
-        class='button-blue animate-slideBottomTop'
+        class='button-blue animate-slideBtT075'
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
