@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
         <MenuBtn closeNavbarHandler={closeNavbar} />
         <h1 className='text-3xl'>Logo</h1>
         <div className='flex space-x-14 leading-none max-lg:hidden'>
-          <a href='#about-me' className='navbar-link'>
+          <a onClick={closeNavbar} href='#about-me' className='navbar-link'>
             About
           </a>
           <a onClick={closeNavbar} href='#skills' className='navbar-link'>
