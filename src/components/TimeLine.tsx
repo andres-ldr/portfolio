@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TimeLineCard from './TimeLineCard';
 import JobDetails from './JobDetails';
+import Job from '../models/Job';
 
-interface Jobs {
-  id: string;
-  company: string;
-  post: string;
-  date_start: string;
-  date_end: string;
-  description: string;
-  stack: string[];
-  goals: string[];
-  image: string;
+interface TimeLineProps {
+  jobs: Job[];
 }
 
-interface Props {
-  jobs: Jobs[];
-}
-
-const TimeLine: React.FC<Props> = ({ jobs }) => {
+const TimeLine: React.FC<TimeLineProps> = ({ jobs }) => {
   const [selectedCard, setSelectedCard] = useState(jobs[0].id);
 
   const onCardSelected = (id: string) => {
@@ -61,6 +50,7 @@ const TimeLine: React.FC<Props> = ({ jobs }) => {
 
       {jobs.map(({ id, description, goals, stack }) => (
         <JobDetails
+          key={id}
           description={description}
           goals={goals}
           stack={stack}

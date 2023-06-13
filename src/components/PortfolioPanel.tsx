@@ -4,11 +4,11 @@ import Grid from './Grid';
 import Tab from './Tab';
 import Project from '../models/Project';
 
-interface Projects {
+interface PortfolioPanelProps {
   projects: Project[];
 }
 
-const PortfolioPanel: React.FC<Projects> = ({ projects }) => {
+const PortfolioPanel: React.FC<PortfolioPanelProps> = ({ projects }) => {
   const [allProjects, setAllProjects] = useState<Project[]>(projects);
   const [varList, setVarList] = useState<Project[]>(projects);
 
@@ -45,6 +45,7 @@ const PortfolioPanel: React.FC<Projects> = ({ projects }) => {
         />
         {typesList?.map((e) => (
           <Tab
+            key={typesList.indexOf(e)}
             id={typesList.indexOf(e) + 1}
             label={e}
             clickHandler={onFilterHandler}
