@@ -2,7 +2,7 @@
 
 @layer components {
   .image-card {
-    @apply w-full rounded-lg relative overflow-hidden shadow-lg animate-slideBottomTop;
+    @apply w-full rounded-lg relative overflow-hidden shadow-lg animate-slideBtT075;
     &:hover .card__image {
       transform: scale(1.1);
     }

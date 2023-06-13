@@ -5,6 +5,9 @@
     @apply opacity-0;
   }
   .slide-bottom-top {
-    @apply opacity-100 animate-slideBottomTop;
+    @apply opacity-100  animate-slideBtT075;
+  }
+  .show-item {
+    @apply opacity-100 animate-show075;
   }
 }
