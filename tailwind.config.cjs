@@ -11,12 +11,12 @@ module.exports = {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
-        slideName: {
+        slideLeftToRight: {
           '0%': { opacity: 0, transform: 'translateX(-50%)' },
           '100%': { opacity: 1, transform: 'translateX(0)' },
         },
-        slideProf: {
-          '0%': { opacity: 0, transform: 'translateX(50%)' },
+        slideRightToLeft: {
+          '0%': { opacity: 0, transform: 'translateX(25%)' },
           '100%': { opacity: 1, transform: 'translateX(0)' },
         },
         slideBottomTop: {
@@ -25,11 +25,11 @@ module.exports = {
         },
       },
       animation: {
-        show: 'show 0.75s ease-in-out',
-        slideName: 'slideName 1s ease-in-out',
-        slideProf: 'slideProf 1.75s ease-in-out',
-        slideBottomTop: 'slideBottomTop 0.75s ease-in-out',
-        slideRtoL: 'slideProf 0.75s ease-in-out',
+        show075: 'show 0.75s ease-in-out',
+        slideLtoR1: 'slideLeftToRight 1s ease-in-out',
+        slideRtoL175: 'slideRightToLeft 1.75s ease-in-out',
+        slideBtT075: 'slideBottomTop 0.75s ease-in-out',
+        slideRtoL075: 'slideRightToLeft 0.75s ease-in-out',
       },
     },
   },
