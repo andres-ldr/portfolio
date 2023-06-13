@@ -29,23 +29,3 @@ const { project } = Astro.props;
   </main>
   <Footer />
 </section>
-
-<script>
-  const sections = document.querySelectorAll('.lazy-element');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('slide-bottom-top', entry.isIntersecting);
-        if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-</script>
