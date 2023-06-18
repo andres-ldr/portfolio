@@ -2,9 +2,11 @@
 import portraitIMG from '/images/portrait.png';
 ---
 
-<div class='center-section h-screen overflow-x-hidden'>
+<div
+  class='center-section h-screen overflow-x-hidden max-lg:bg-gradient-to-r max-lg:from-primaryGreen max-lg:to-secondaryBlue'
+>
   <div
-    class='w-[50rem] h-3/4 relative max-lg:w-[40rem] max-md:w-[35rem] max-sm:w-3/4'
+    class='overflow-hidden w-[50rem] h-3/4 relative max-lg:w-[40rem] max-md:w-[35rem] max-sm:w-3/4'
   >
     <div class='absolute left-0 top-32 w-52 z-20 max-lg:top-0'>
       <h1 class='text-7xl font-bold max-sm:text-5xl animate-slideLtoR1'>
@@ -18,10 +20,54 @@ import portraitIMG from '/images/portrait.png';
     />
     <div class='absolute right-0 bottom-28 w-64 z-20'>
       <h2
-        class='text-5xl text-slate-500 font-semibold max-sm:text-4xl animate-slideRtoL075'
+        class='text-5xl text-slate-400 font-semibold max-sm:text-4xl animate-slideRtoL075'
       >
         Full Stack Developer & Data scientist
       </h2>
     </div>
   </div>
+  <svg
+    id='sw-js-blob'
+    viewBox='0 0 100 100'
+    xmlns='http://www.w3.org/2000/svg'
+    class='shape1'
+  >
+    <defs>
+      <linearGradient id='sw-gradient' x1='0' x2='1' y1='1' y2='0'>
+        <stop id='stop1' stop-color='#01c38d' offset='0%'></stop>
+        <stop id='stop2' stop-color='#01c38d' offset='100%'></stop>
+      </linearGradient>
+    </defs>
+    <path
+      fill='url(#sw-gradient)'
+      d='M27.8,-20C34.8,-13.5,38.3,-2,35.7,7.7C33.1,17.3,24.5,25.1,15.6,27.4C6.8,29.6,-2.2,26.4,-12.5,22.7C-22.8,19,-34.4,14.7,-37.8,6.7C-41.2,-1.4,-36.4,-13.3,-28.8,-20C-21.1,-26.8,-10.5,-28.3,-0.1,-28.3C10.4,-28.2,20.9,-26.6,27.8,-20Z'
+      width='100%'
+      height='100%'
+      transform='translate(50 50)'
+      stroke-width='0'
+      style='transition: all 0.3s ease 0s;'
+      stroke='url(#sw-gradient)'></path>
+  </svg>
+  <svg
+    id='sw-js-blob2'
+    viewBox='0 0 100 100'
+    xmlns='http://www.w3.org/2000/svg'
+    class='shape2'
+  >
+    <defs>
+      <linearGradient id='sw-gradient_shape2' x1='0' x2='1' y1='1' y2='0'>
+        <stop id='stop1_shape2' stop-color='#132D46' offset='0%'></stop>
+        <stop id='stop2_shape2' stop-color='#132D46' offset='100%'></stop>
+      </linearGradient>
+    </defs>
+    <path
+      fill='url(#sw-gradient_shape2)'
+      d='M15.9,-1.3C15.9,13.1,8,26.1,-4.3,26.1C-16.6,26.1,-33.1,13.1,-33.1,-1.3C-33.1,-15.8,-16.6,-31.5,-4.3,-31.5C8,-31.5,15.9,-15.8,15.9,-1.3Z'
+      width='100%'
+      height='100%'
+      transform='translate(50 50)'
+      stroke-width='0'
+      style='transition: all 0.3s ease 0s;'
+      stroke='url(#sw-gradient)'></path>
+  </svg>
 </div>

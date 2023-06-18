@@ -5,7 +5,7 @@ import Portrait2 from '/images/portrait2.png';
 
 <div id='about-me' class='center-section h-auto relative mt-72'>
   <div
-    class='w-3/4 flex justify-center space-x-20 max-xl:space-x-10 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:space-x-0'
+    class='relative w-3/4 flex justify-center space-x-20 max-xl:space-x-10 max-lg:flex-col max-lg:items-center max-lg:justify-center max-lg:space-x-0'
   >
     <div
       class='lazy-element flex flex-col w-[30rem] justify-center max-xl:w-[20rem] max-lg:w-full max-lg:text-center'
@@ -24,10 +24,40 @@ import Portrait2 from '/images/portrait2.png';
         >
       </div>
     </div>
+
+    <svg
+      id='sw-js-blob-svg_shape3'
+      viewBox='0 0 100 100'
+      xmlns='http://www.w3.org/2000/svg'
+      class='shape3'
+    >
+      <defs>
+        <linearGradient id='sw-gradient' x1='0' x2='1' y1='1' y2='0'>
+          <stop
+            id='stop1_shape3'
+            stop-color='rgba(31.877, 161.871, 244.826, 1)'
+            offset='0%'></stop>
+          <stop
+            id='stop2_shape3'
+            stop-color='rgba(75.77, 58.072, 233.442, 1)'
+            offset='100%'></stop>
+        </linearGradient>
+      </defs>
+      <path
+        fill='url(#sw-gradient)'
+        d='M24.6,-4.8C27.9,1.9,23.6,14.3,13.9,22C4.2,29.7,-10.9,32.8,-16.9,27.4C-22.9,22.1,-19.8,8.3,-15.5,0C-11.1,-8.3,-5.6,-11.1,2.6,-12C10.7,-12.8,21.4,-11.6,24.6,-4.8Z'
+        width='100%'
+        height='100%'
+        transform='translate(50 50)'
+        stroke-width='0'
+        style='transition: all 0.3s ease 0s;'
+        stroke='url(#sw-gradient)'></path>
+    </svg>
+
     <img
       src={Portrait2}
       alt=''
-      class='lazy-element w-[15rem] rounded-full object-cover max-xl:w-[12rem]'
+      class='lazy-element w-[15rem] max-xl:w-[12rem] rounded-full object-cover z-10'
     />
   </div>
 </div>
