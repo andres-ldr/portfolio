@@ -23,7 +23,7 @@
   }
 
   .drawer-nav {
-    @apply w-5/6 fixed hidden inset-y-0 left-0 h-screen opacity-0 bg-black max-lg:flex flex-col justify-center items-center shadow-lg -translate-x-full z-50;
+    @apply w-5/6 fixed hidden inset-y-0 left-0 h-screen opacity-0 bg-primaryDark max-lg:flex flex-col justify-center items-center shadow-lg -translate-x-full z-50;
     transition: all 0.35s ease-in-out;
 
     &__open {

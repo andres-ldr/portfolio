@@ -4,7 +4,13 @@
   .image-viewer {
     @apply fixed w-screen h-screen flex flex-col justify-center items-center  bg-black inset-0 z-50;
     &__close__btn {
-      @apply absolute top-10 right-16 flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50 z-[60] max-lg:top-5 max-lg:right-5 max-lg:w-10 max-lg:h-10;
+      @apply absolute top-10 right-16 flex justify-center items-center w-12 h-12 p-2 bg-primaryGreen rounded-full transition cursor-pointer hover:bg-secondaryBlue active:scale-110 select-none active:opacity-50 z-[60] max-lg:top-5 max-lg:right-5 max-lg:w-10 max-lg:h-10;
+      & > * {
+        @apply w-8 h-8 fill-secondaryBlue transition;
+      }
+      &:hover > * {
+        @apply fill-primaryGreen;
+      }
     }
 
     &__wrapper {
@@ -19,7 +25,13 @@
     @apply absolute bottom-0 left-0 right-0 w-full h-32 flex justify-center items-center space-x-8 max-lg:hidden;
 
     &__btn {
-      @apply flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50;
+      @apply flex justify-center items-center w-12 h-12 p-2 bg-primaryGreen rounded-full transition cursor-pointer hover:bg-secondaryBlue active:scale-110 select-none active:opacity-50;
+      & > * {
+        @apply w-8 h-8 fill-secondaryBlue transition;
+      }
+      &:hover > * {
+        @apply fill-primaryGreen;
+      }
     }
   }
 
@@ -33,7 +45,13 @@
       @apply w-full h-full bg-opacity-30 transition-all;
     }
     &-arrow {
-      @apply absolute top-1/2 -translate-y-1/2 flex justify-center items-center w-12 h-12 p-2 bg-blue-400 rounded-full transition cursor-pointer hover:bg-blue-600 active:scale-110 select-none active:opacity-50 max-lg:hidden;
+      @apply absolute top-1/2 -translate-y-1/2 flex justify-center items-center w-12 h-12 p-2 bg-primaryGreen rounded-full transition cursor-pointer hover:bg-secondaryBlue active:scale-110 select-none active:opacity-50 max-lg:hidden;
+      & > * {
+        @apply w-8 h-8 fill-secondaryBlue transition;
+      }
+      &:hover > * {
+        @apply fill-primaryGreen;
+      }
     }
   }
 }
