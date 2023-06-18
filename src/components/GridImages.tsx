@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import ImageViewer from './image-viewer/ImageViewer';
 import ItemGrid from './grids/ItemGrid';
 import useMatrixGenerator from './hooks/useMatrixGenerator';
