@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface TabProps {
@@ -20,7 +20,7 @@ const Tab: React.FC<TabProps> = ({ id, label, clickHandler, isSelected }) => {
       ref={tabRef}
       onClick={() => clickHandler(label, id)}
       className={` ${isVisible ? 'tab' : 'opacity-0'}  ${
-        isSelected ? 'text-white bg-black rounded-md' : 'rounded-full'
+        isSelected ? 'text-white bg-primaryDark rounded-md' : 'rounded-full'
       }`}
     >
       {label}

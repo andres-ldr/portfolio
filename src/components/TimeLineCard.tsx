@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment } from 'react';
 import JobInfoCard from './JobInfoCard';
 import useIntersectionObserver from './hooks/useIntersectionObserver';
 
@@ -41,7 +41,7 @@ const TimeLineCard: React.FC<JobsProps> = ({
         ref={cardRef}
         onClick={() => handler(id)}
         className={`${isVisible ? `time-line-card` : 'opacity-0'} ${
-          isSelected ? 'time-line-card__selected' : 'bg-white'
+          isSelected ? 'time-line-card__selected' : 'bg-slate-50'
         }  `}
       >
         <img src={image} alt={image} className='w-16 h-auto max-lg:w-14' />
