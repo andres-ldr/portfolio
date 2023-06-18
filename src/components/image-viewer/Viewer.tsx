@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import arrowLeft from '../../../public/icons/arrow-left.svg';
-import arrowRight from '../../../public/icons/arrow-right.svg';
 
 enum DIRECTION {
   RIGHT,
@@ -111,14 +109,18 @@ const Viewer: React.FC<ViewerProps> = ({
           onClick={() => imageHandler(DIRECTION.LEFT)}
           className='arrows-container__btn'
         >
-          <img src={arrowLeft} className='w-8 h-8' />
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 96 960 960'>
+            <path d='M480 896 160 576l320-320 42 42-248 248h526v60H274l248 248-42 42Z' />
+          </svg>
         </span>
         <span
           id='arrow-right'
           onClick={() => imageHandler(DIRECTION.RIGHT)}
           className='arrows-container__btn'
         >
-          <img src={arrowRight} className='w-8 h-8' />
+          <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 96 960 960'>
+            <path d='m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z' />
+          </svg>
         </span>
       </div>
     </div>

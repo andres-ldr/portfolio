@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Viewer from './Viewer';
-import closeIcon from '../../../public/icons/close.svg';
 import SliderViewer from './SliderViewer';
 
 interface IVProps {
@@ -24,7 +23,9 @@ const ImageViewer: React.FC<IVProps> = ({ images, closeHandler, index }) => {
         onClick={() => closeHandler()}
         className='image-viewer__close__btn'
       >
-        <img src={closeIcon} className='w-8 h-8' />
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'>
+          <path d='m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z' />
+        </svg>
       </span>
 
       <Viewer
