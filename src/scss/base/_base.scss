@@ -2,10 +2,10 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    @apply scroll-smooth text-primaryDark;
   }
 
   .navbar-link {
-    @apply font-bold text-xl leading-none p-2 hover-underline-animation max-2xl:text-lg max-xl:text-base max-lg:hidden;
+    @apply font-bold text-xl h-8 px-2 py-0 hover-underline-animation max-2xl:text-lg max-xl:text-base max-lg:hidden;
   }
 }
