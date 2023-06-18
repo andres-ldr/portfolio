@@ -6,6 +6,11 @@ module.exports = {
       inter: ['inter, sans-serif'],
     },
     extend: {
+      colors: {
+        primaryDark: '#303030',
+        primaryGreen: '#01c38d',
+        secondaryBlue: '#132D46',
+      },
       keyframes: {
         show: {
           '0%': { opacity: 0 },
