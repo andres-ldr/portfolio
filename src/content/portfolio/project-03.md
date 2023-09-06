@@ -8,7 +8,7 @@ type: Frontend
 goals:
   [
     {
-      title: ser chido,
+      title: Usability,
       goal: Lorem ipsum dolor sit amet consectetur adipiscing elit,
       icon: /images/shield3d.png,
     },
