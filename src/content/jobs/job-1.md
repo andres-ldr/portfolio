@@ -1,14 +1,14 @@
 ---
-company: Facebook
-date_start: 2020-03
-date_end: 2020-06
-post: AR Developer
-description: 0Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Sed arcu non odio euismod lacinia at quis.
-stack: [unity, c#, blender]
+company: Association ARIA
+date_start: 2022-03
+date_end: 2022-07
+post: Flutter Developper
+description: Build a Flutter app capable of request data from an API to fill of content the app and set a CI/CD workflow on Gitlab to make constants deliveries. Follow a TDD and BDD methodologies
+stack: [Flutter, Symfony, GitlabCI]
 image: /images/facebook3D.png
 goals:
   [
-    'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Build the firsts stages of the user interface with the flutter framework',
+    'Set a CI system to test each edit of the project and a CD control to deploy the app on the app store and the play store',
   ]
 ---
