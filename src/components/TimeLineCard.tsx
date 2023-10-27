@@ -44,7 +44,9 @@ const TimeLineCard: React.FC<JobsProps> = ({
           isSelected ? 'time-line-card__selected' : 'bg-slate-50'
         }  `}
       >
-        <img src={image} alt={image} className='w-16 h-auto max-lg:w-14' />
+        <div className='w-16 h-16 rounded-full max-lg:w-14 '>
+          <img src={image} alt={image} className='w-full h-full object-cover' />
+        </div>
         <div className='flex flex-col grow justify-start item-center space-y-2 text-left'>
           <div className='flex justify-between'>
             <h4 className='font-bold text-lg max-lg:text-base'>{company}</h4>
