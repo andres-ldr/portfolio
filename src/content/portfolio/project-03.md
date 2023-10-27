@@ -1,7 +1,12 @@
 ---
 name: Clothes online store
 stack: [React, Firebase, Redux]
-images: ['/images/apple.png']
+images:
+  [
+    /images/store_menu.png,
+    /images/store_checkout.png,
+    /images/store_auth.png,
+  ]
 link_repo: https://github.com/zzkal/crwn-clothing
 link_app: https://hilarious-kheer-44b770.netlify.app/
 type: Frontend

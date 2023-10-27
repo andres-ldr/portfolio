@@ -1,7 +1,7 @@
 ---
 name: My website v2
 stack: [React, Astro, Tailwindcss]
-images: ['/images/mac.png']
+images: [/images/portfolio-app.png]
 link_repo: https://github.com/zzkal/portfolio
 link_app: https://starlit-hummingbird-8f04ac.netlify.app
 type: Frontend

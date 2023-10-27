@@ -1,14 +1,17 @@
 ---
 company: Association ARIA
-date_start: 2022-03
-date_end: 2022-07
+date_start: 2022/03
+date_end: 2022/07
 post: Flutter Developper
 description: Build a Flutter app capable of request data from an API to fill of content the app and set a CI/CD workflow on Gitlab to make constants deliveries. Follow a TDD and BDD methodologies
 stack: [Flutter, Symfony, GitlabCI]
-image: /images/facebook3D.png
+image: ''
 goals:
   [
-    'Build the firsts stages of the user interface with the flutter framework',
-    'Set a CI system to test each edit of the project and a CD control to deploy the app on the app store and the play store',
+    Streamlined the development process by converting design requirements for five user stories into efficient, high-quality Flutter code using atomic design methodology.,
+Spearheaded the introduction of a highly requested feature, allowing administrators to deploy a version of the application to each museum with ease and efficiency.,
+Optimized the app's deployment by setting up a continuous integration and deployment system, which promptly launches the app to both the Play Store and App Store after a successful test run, all while adhering to a robust test-driven development methodology.,
+Pioneered the incorporation of new, innovative features, including a QR code reader, audio player, and map of the museum, giving users a unique and informative experience.
+
   ]
 ---

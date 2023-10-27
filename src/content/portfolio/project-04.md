@@ -1,9 +1,9 @@
 ---
 name: Launch rocket project
 stack: [NodeJS, ExpressJS, Docker, MongoDB]
-images: ['/images/mac.png']
+images: [/images/rocket_app.png]
 link_repo: https://github.com/zzkal/nasa-project
-link_app: www.youtube.com
+link_app: 35.167.63.147:8000
 type: Backend
 goals:
   [

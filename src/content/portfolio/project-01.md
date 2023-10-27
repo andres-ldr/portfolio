@@ -1,9 +1,9 @@
 ---
 name: Chat app
 stack: [React, NodeJS, ExpressJS, Postgresql, Redux-Thunk, Socket.io]
-images: ['/images/apple.png']
+images: [/images/chat-app-img.png]
 link_repo: https://github.com/zzkal/
-link_app: ''
+link_app: https://gregarious-beijinho-ae0ab4.netlify.app/
 type: Full Stack
 goals:
   [
