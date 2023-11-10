@@ -5,7 +5,7 @@ date_end: 2022/07
 post: Flutter Developper
 description: Build a Flutter app capable of request data from an API to fill of content the app and set a CI/CD workflow on Gitlab to make constants deliveries. Follow a TDD and BDD methodologies
 stack: [Flutter, Symfony, GitlabCI]
-image: ''
+image: '/images/jppjm.jpg'
 goals:
   [
     Streamlined the development process by converting design requirements for five user stories into efficient, high-quality Flutter code using atomic design methodology.,
