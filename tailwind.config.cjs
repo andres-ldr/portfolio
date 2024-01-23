@@ -6,6 +6,9 @@ module.exports = {
       inter: ['inter, sans-serif'],
     },
     extend: {
+      maxWidth: {
+        '1/2': '50%',
+      },
       colors: {
         primaryDark: '#303030',
         primaryGreen: '#01c38d',
