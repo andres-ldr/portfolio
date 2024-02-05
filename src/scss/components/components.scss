@@ -1,20 +1,72 @@
 @tailwind components;
 
+@keyframes animationShape1 {
+  0% {
+    left: 50%;
+    top: 10%;
+  }
+  25% {
+    left: 55%;
+    top: 20%;
+  }
+  50% {
+    left: 45%;
+    top: 25%;
+  }
+  75% {
+    left: 40%;
+    top: 15%;
+  }
+  100% {
+    left: 50%;
+    top: 10%;
+  }
+}
+@keyframes animationShape2 {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 50px;
+    top: 10px;
+  }
+  50% {
+    left: 100px;
+    top: 50px;
+  }
+  75% {
+    left: 50px;
+    top: 100px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
 @layer components {
   #wrapper,
   #wrapper-viewer,
   #wrapper-viewer__slider {
     scrollbar-width: 0;
   }
-  .shape1 {
-    @apply absolute inset-1/2 -translate-x-1/2 -translate-y-1/2  w-1/2 animate-show075  max-lg:hidden;
+
+  .bg-shape {
+    &-1 {
+      @apply absolute left-1/2 top-1/4 w-[500px] h-[500px] rounded-full blur-3xl opacity-30;
+      animation: animationShape1 20s infinite;
+    }
+    &-2 {
+      @apply absolute left-1/2 top-1/4 w-[300px] h-[300px] rounded-full blur-3xl opacity-30;
+      animation: animationShape1 10s infinite backwards;
+    }
+    &-3 {
+      @apply absolute left-1/3 top-1/4 w-[300px] h-[300px] rounded-full blur-3xl opacity-30;
+      animation: animationShape1 15s infinite;
+    }
   }
-  .shape2 {
-    @apply absolute right-[24rem] bottom-0 w-1/3 h-[30rem] animate-show075  max-lg:hidden;
-  }
-  .shape3 {
-    @apply absolute -bottom-20 right-14 w-[40rem] max-2xl:-right-20 max-xl:w-[25rem] max-xl:right-0 max-xl:-bottom-10 max-lg:hidden;
-  }
+
   .image-bg-effect {
     clip-path: circle(50% at 50% 50%);
     @apply bg-black;

@@ -2,10 +2,13 @@
 
 @layer base {
   html {
-    @apply scroll-smooth text-primaryDark;
+    @apply scroll-smooth text-slate-300;
+  }
+  .max-container {
+    @apply max-w-[80%] mx-auto;
   }
 
-  .navbar-link {
-    @apply font-bold text-xl h-8 px-2 py-0 hover-underline-animation max-2xl:text-lg max-xl:text-base max-lg:hidden;
+  body {
+    @apply bg-slate-900 overflow-x-hidden;
   }
 }

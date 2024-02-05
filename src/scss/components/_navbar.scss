@@ -2,11 +2,11 @@
 
 @layer components {
   .navbar {
-    @apply sticky opacity-100 bg-slate-100 shadow-md top-0 inset-x-0 w-full flex justify-center z-30;
+    @apply fixed top-0 inset-x-0 opacity-100 z-30;
     transition: all 0.25s ease-in-out;
 
-    & > * {
-      @apply w-3/4 flex justify-between bg-transparent p-6 z-20 max-xl:w-5/6 max-lg:w-full;
+    &-link {
+      @apply font-bold hover-underline-animation max-2xl:text-lg max-xl:text-base max-lg:hidden;
     }
   }
 

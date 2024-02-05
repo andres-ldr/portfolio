@@ -1,51 +1,10 @@
 ---
-import sphere3d from '/images/Rectangle.png';
-import CardSkill from './CardSkill.astro';
 ---
 
-<div id='skills' class='section center-section mt-72'>
-  <div
-    class='w-3/4 h-auto flex justify-evenly items-center max-lg:flex-col max-lg:w-5/6'
-  >
-    <!-- cards container -->
-    <div
-      class='w-[35rem] h-auto flex p-10 max-xl:w-full max-lg:order-2 max-lg:flex-col max-lg:space-y-5 max-md:p-0'
-    >
-      <div
-        class='w-1/2 h-auto flex flex-col justify-end items-center space-y-10 mt-24 max-lg:w-full'
-      >
-        <CardSkill
-          icon={sphere3d}
-          title={'Frontend Development'}
-          text={'Designing quality user interfaces with technologies like: scss, tailwiind and react'}
-        />
-        <CardSkill
-          icon={sphere3d}
-          title={'Backend development'}
-          text={'Develope secure and reliable REST and GraphQL APIs with ExpressJS'}
-        />
-      </div>
-      <div
-        class='w-1/2 h-full flex flex-col justify-start items-center space-y-10 max-lg:w-full'
-      >
-        <CardSkill
-          icon={sphere3d}
-          title={'Data Base Management'}
-          text={'Modelling and management of SQL and No-SQL Databases like postgresql and mongodb'}
-        />
-        <!-- <CardSkill
-          icon={sphere3d}
-          title={'Data science'}
-          text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum iste aperiam ratione, ipsum modi unde necessitatibus sapiente'}
-        /> -->
-      </div>
-    </div>
-
-    <div
-      class='lazy-element w-[15rem] flex flex-col max-lg:order-1 max-lg:text-center'
-    >
-      <h2 class='section-header mb-10'>Skillset & services</h2>
-      <p>Some of my skills and fields i am interested at</p>
-    </div>
+<div id='skills' class='max-container pt-60'>
+  <h2 class='text-5xl font-semibold'>Services</h2>
+  <p class="pt-10 w-[30rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam est ex in! Incidunt delectus odit quod, fuga quo nam laboriosam facilis animi eius porro autem ipsum impedit ad amet illo!</p>
+  <div class="flex justify-stretch  gap-6 flex-wrap pt-40">
+    <div class="w-60 h-80 border rounded-xl border-slate-300"></div>
   </div>
 </div>
