@@ -1,14 +1,11 @@
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
+import vtl from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { setColor } from './CardProjectContent';
 
 const VerticalTimeLineComponent = () => {
   return (
-    <VerticalTimeline lineColor=''>
-      <VerticalTimelineElement
+    <vtl.VerticalTimeline lineColor=''>
+      <vtl.VerticalTimelineElement
         className='vertical-timeline-element--work'
         contentStyle={{
           background: 'rgb(30 41 59)',
@@ -99,8 +96,8 @@ const VerticalTimeLineComponent = () => {
             between entities.
           </p>
         </details>
-      </VerticalTimelineElement>
-      <VerticalTimelineElement
+      </vtl.VerticalTimelineElement>
+      <vtl.VerticalTimelineElement
         className='vertical-timeline-element--work'
         contentStyle={{
           background: 'rgb(30 41 59)',
@@ -197,8 +194,8 @@ const VerticalTimeLineComponent = () => {
             unique and informative experience.
           </p>
         </details>
-      </VerticalTimelineElement>
-      <VerticalTimelineElement
+      </vtl.VerticalTimelineElement>
+      <vtl.VerticalTimelineElement
         className='vertical-timeline-element--work'
         contentStyle={{
           background: 'rgb(30 41 59)',
@@ -273,8 +270,8 @@ const VerticalTimeLineComponent = () => {
             an immersive user experience while maintaining optimal performance.
           </p>
         </details>
-      </VerticalTimelineElement>
-    </VerticalTimeline>
+      </vtl.VerticalTimelineElement>
+    </vtl.VerticalTimeline>
   );
 };
 export default VerticalTimeLineComponent;
