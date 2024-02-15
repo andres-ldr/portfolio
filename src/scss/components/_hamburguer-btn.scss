@@ -2,10 +2,10 @@
 
 @layer components {
   .hamburguer {
-    @apply relative hidden max-lg:flex w-10 h-7 bg-transparent rotate-0;
+    @apply relative flex md:hidden w-8 h-4 bg-transparent rotate-0;
 
     & > span {
-      @apply absolute rounded-lg w-full h-[5px] bg-black rotate-0 opacity-100;
+      @apply absolute rounded-lg w-full h-[3px] bg-slate-200 rotate-0 opacity-100;
       transition: all 0.2s ease-in-out;
     }
 

@@ -1,7 +1,7 @@
 ---
+import { CollectionEntry, getCollection } from 'astro:content';
 import Project from '../models/Project';
 import PortfolioPanel from './PortfolioPanel';
-import { getCollection, CollectionEntry } from 'astro:content';
 
 const projects: CollectionEntry<'portfolio'>[] = await getCollection(
   'portfolio'
@@ -14,17 +14,16 @@ projects.map((el) => {
 });
 ---
 
-<div id='portfolio' class='center-section mt-52 pt-52 pb-52 bg-slate-400'>
-  <div class='w-3/4 flex flex-col justify-center items-center max-lg:w-5/6'>
-    <!-- title -->
-    <div class='lazy-element w-80 space-y-10 max-lg:w-full'>
-      <h3 class='text-center section-header'>Portfolio</h3>
-      <p class='text-center text-lg'>
-        An history of personal projects to learn something new or just things i
-        build for fun.
-      </p>
-    </div>
-
-    <PortfolioPanel client:load projects={list} />
+<div id='portfolio' class='max-container flex flex-col gap-10 pt-32'>
+  <!-- title -->
+  <div class='w-1/2 self-center'>
+    <h3 class='text-2xl md:text-5xl font-bold text-center'>Portfolio</h3>
+    <p class='text-center text-sm md:text-base leading-6 pt-10'>
+      Welcome to the Portfolio section. Here, you'll discover a diverse range of
+      projects built with creativity to address unique
+      challenges.
+    </p>
   </div>
+
+  <PortfolioPanel projects={list} client:only />
 </div>

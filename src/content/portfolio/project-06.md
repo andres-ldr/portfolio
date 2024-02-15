@@ -1,10 +1,10 @@
 ---
-name: Launch rocket project
-stack: [Node.js, Express, Docker, MongoDB]
-images: [/images/rocket_app.png]
-link_repo: https://github.com/andres-ldr/nasa-project
-link_app: 35.167.63.147:8000
-type: Backend
+name: Ecommence
+stack: [HTML, CSS, Bootstrap, Python, Django]
+images: [/images/portfolio-app.png]
+link_repo: https://github.com/andres-ldr/django_ecommerce
+link_app: ''
+type: Full Stack
 goals:
   [
     {

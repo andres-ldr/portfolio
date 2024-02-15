@@ -1,8 +1,8 @@
 ---
 name: Share places app
-stack: [React, NodeJS, ExpressJS, MongoDB]
+stack: [React, Node.js, Express, MongoDB]
 images: [/images/share_app.png, /images/share_app_map.png]
-link_repo: https://github.com/zzkal/share-place-app
+link_repo: https://github.com/andres-ldr/share-place-app-client
 link_app: https://share-places-app-271222.web.app/
 type: Frontend
 goals:

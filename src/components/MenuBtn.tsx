@@ -24,7 +24,6 @@ const MenuBtn: React.FC<MenuBtnProps> = ({ closeNavbarHandler }) => {
       <Drawer
         btnHandle={btnHandle}
         isBtnClicked={isBtnClicked}
-        closeNavbarHandler={closeNavbarHandler}
       />
     </Fragment>
   );

@@ -1,19 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+import ContactMeSec from '../components/ContactMeSec.astro';
 import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
+import Portfolio from '../components/Portfolio.astro';
+import SkillsetSec from '../components/SkillsetSec.astro';
+import WorkXSec from '../components/WorkXSec.astro';
 ---
 
 <Layout title='Andrés López'>
-  <Navbar client:load />
   <main class=''>
     <Hero client:load />
-    <!-- <AboutSec /> -->
-    <!-- <SkillsetSec /> -->
-    <!-- <WorkXSec />
+    <SkillsetSec />
+    <WorkXSec />
     <Portfolio />
-    <ContactMeSec /> -->
+    <ContactMeSec />
   </main>
-  <!-- <Footer /> -->
-</Layout>../components/Hero.tsx
+</Layout>

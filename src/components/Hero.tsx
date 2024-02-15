@@ -1,15 +1,15 @@
 import { TypeAnimation } from 'react-type-animation';
+import { setColor } from './CardProjectContent';
 
 const Hero = () => {
   return (
-    <div className='w-screen h-screen relative'>
-      <Shapes />
-      <div className='max-container relative h-full w-full'>
-        <div className='absolute top-1/3 w-1/2'>
+    <div className='w-screen md:h-screen'>
+      <div className='max-container flex flex-wrap pt-40 gap-10 md:items-start md:relative h-full w-full'>
+        <div className='flex flex-col gap-5 md:w-1/2'>
           {/* Name container */}
           <div className='h-[6rem]'>
             <TypeAnimation
-              className='text-5xl font-bold'
+              className='text-3xl md:text-5xl font-bold'
               sequence={[
                 'Hi, I am Andrés 👋',
                 1000,
@@ -23,21 +23,124 @@ const Hero = () => {
             />
           </div>
           {/* Summary paragraph */}
-          <h4 className='pt-8 leading-7'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Asperiores, maiores debitis est suscipit delectus impedit aliquam,
-            dolorem id nulla beatae quibusdam exercitationem hic sequi incidunt
-            commodi blanditiis distinctio reprehenderit modi.
+          <h4 className='text-sm md:text-base pt-8 leading-6'>
+            Highly motivated and adaptable software developer with 1 year of
+            hands-on experience in designing and maintaining mobile and web
+            applications. Proficient in utilizing atomic design methodology and
+            test-driven development for streamlined development and optimal
+            performance.
           </h4>
+          <div className='flex flex-wrap gap-2'>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'React'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              React
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'Jquery'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Jquery
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'TailwindCSS'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              TailwindCSS
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'Next.js'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Next.js
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'Node.js'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Node.js
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'Django'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Django
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'dotnetcore'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              .NET Core
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'GraphQL'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              GraphQL
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'MongoDB'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              MongoDB
+            </span>
+            <span
+              className={`font-semibold rounded-full ${setColor(
+                'PostgreSQL'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              PostgreSQL
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'AWS'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              AWS EC2
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'Docker'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Docker
+            </span>
+            <span
+              className={`font-semibold rounded-lg ${setColor(
+                'terminal'
+              )} py-1 px-4 text-xs flex items-center`}
+            >
+              Terminal
+            </span>
+          </div>
           {/* CTA buttons */}
-          <div className='flex pt-8 gap-4'>
+          <div className='flex pt-12 gap-4 items-center justify-center md:justify-start'>
             <a
-              href='#'
-              className='border py-2 px-6 rounded-lg font-bold transition hover:bg-slate-400 hover:text-slate-900'
+              href='../../public/files/resume.pdf'
+              target='_blank'
+              rel='noreferrer'
+              className='text-sm md:text-base border py-2 px-4 rounded-lg font-bold transition hover:bg-slate-400 hover:text-slate-900'
             >
               Get my resume
             </a>
           </div>
+        </div>
+        <div className='pt-10 md:flex-1'>
+          <img
+            src='../../public/images/rocket.png'
+            alt=''
+            className='object-cover'
+          />
         </div>
       </div>
     </div>
@@ -45,13 +148,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-const Shapes = () => {
-  return (
-    <div className='absolute w-screen'>
-      <div className='bg-shape-1 bg-red-500 opacity-50'></div>
-      <div className='bg-shape-2 bg-blue-500 opacity-50'></div>
-      <div className='bg-shape-3 bg-purple-500 opacity-50'></div>
-    </div>
-  );
-};

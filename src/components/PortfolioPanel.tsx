@@ -1,66 +1,95 @@
 import React, { useEffect, useState } from 'react';
-import Grid from './Grid';
 
-import Tab from './Tab';
+import StackGrid from 'react-stack-grid';
 import Project from '../models/Project';
+import CardProjContent from './CardProjectContent';
 
 interface PortfolioPanelProps {
   projects: Project[];
 }
 
 const PortfolioPanel: React.FC<PortfolioPanelProps> = ({ projects }) => {
-  const [allProjects, setAllProjects] = useState<Project[]>(projects);
-  const [varList, setVarList] = useState<Project[]>(projects);
-
-  const [typesList, setTypesList] = useState<string[]>();
-  const [tabSelectedId, setTabSelectedId] = useState(0);
+  const [listOfProjects, setListOfProjects] = useState(projects);
+  const [columnWidth, setColumnWidth] = useState('25%');
+  const [types, setTypes] = useState<string[]>([]);
 
   useEffect(() => {
-    const getTypes = () => {
-      const arr = allProjects.map((e) => e.type);
-      const set = new Set(arr);
-      setTypesList(Array.from(set));
+    const filterTypes = () => {
+      const projectTypes = projects.map((project) => project.type);
+      const uniqueTypes = [...new Set(projectTypes)];
+      setTypes(uniqueTypes);
     };
-    getTypes();
-  }, []);
+    filterTypes();
+  }, [projects]);
 
-  const onFilterHandler = (type: string, id: number) => {
-    setTabSelectedId(id);
-    if (type === 'All') {
-      setVarList(allProjects);
+  const filterProjects = (filter: string) => {
+    if (filter === 'all') {
+      setListOfProjects(projects);
     } else {
-      const newArr = allProjects.filter((p) => p.type === type);
-      setVarList(newArr);
+      setListOfProjects(
+        projects.filter((project) => project.type.includes(filter))
+      );
     }
   };
 
-  return (
-    <div className='mt-20'>
-      <div className='w-full flex justify-center space-x-12 items-center p-3 text-xl font-semibold max-sm:flex-col max-sm:space-x-0 max-sm:space-y-3 '>
-        <Tab
-          id={0}
-          label={'All'}
-          clickHandler={onFilterHandler}
-          isSelected={tabSelectedId === 0}
-        />
-        {typesList?.map((e) => (
-          <Tab
-            key={typesList.indexOf(e)}
-            id={typesList.indexOf(e) + 1}
-            label={e}
-            clickHandler={onFilterHandler}
-            isSelected={tabSelectedId === typesList.indexOf(e) + 1}
-          />
-        ))}
-        <Tab
-          id={-1}
-          label={'Others'}
-          clickHandler={onFilterHandler}
-          isSelected={tabSelectedId === -1}
-        />
-      </div>
+  useEffect(() => {
+    function handleResize() {
+      const width = window.innerWidth;
+      if (width > 768) {
+        setColumnWidth('33.33%');
+      } else if (width > 640) {
+        setColumnWidth('50%');
+      } else {
+        setColumnWidth('100%');
+      }
+    }
 
-      <Grid projects={varList} />
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div className='relative pt-20'>
+      <div className='flex flex-wrap justify-center gap-4'>
+        <button
+          className='font-bold rounded-2xl hover:bg-indigo-950 transition py-2 px-4'
+          onClick={() => filterProjects('all')}
+        >
+          All
+        </button>
+        {types.map((el) => (
+          <button
+            className='font-bold rounded-2xl hover:bg-indigo-950 transition py-2 px-4'
+            onClick={() => filterProjects(el)}
+          >
+            {el}
+          </button>
+        ))}
+      </div>
+      <div className='pt-16'>
+        <StackGrid
+          columnWidth={columnWidth}
+          gutterWidth={20}
+          gutterHeight={20}
+          className=''
+        >
+          {listOfProjects.map((project) => (
+            <a href={project.link_repo} target='_blank'>
+              <CardProjContent
+                id={project.id}
+                name={project.name}
+                stack={project.stack}
+                image={project.images[0]}
+              />
+            </a>
+          ))}
+        </StackGrid>
+      </div>
     </div>
   );
 };

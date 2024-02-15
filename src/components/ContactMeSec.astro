@@ -2,17 +2,52 @@
 ---
 
 <div
-  id='contact-me'
-  class='w-full h-[35rem] contact-image flex justify-center items-center'
+  id='contact'
+  class='max-container flex flex-col lg:flex-row gap-32 items-center justify-evenly pt-52'
 >
-  <div
-    class='lazy-element w-[35rem] h-56 bg-white rounded-[3rem] shadow-lg flex flex-col justify-center items-center p-10 text-center space-y-8 max-sm:w-5/6 max-sm:p-5'
+  <form
+    class='w-full xl:w-1/2 backdrop-opacity-10 bg-slate-800/30 shadow-indigo-600 shadow-lg flex flex-col p-4 md:p-6 gap-5 rounded-2xl'
   >
-    <h3 class='text-2xl font-bold max-sm:text-base'>
-      👋 Let's Work Toghether!
-    </h3>
-    <a href='mailto:lopez.andresrigoberto@gmail.com' class='button-email'
-      >email</a
+    <h2 class='text-2xl font-semibold'>Let's work together</h2>
+    <input
+      id='subject'
+      type='text'
+      name='subject'
+      placeholder='Subject'
+      class='text-xs w-full p-2 bg-slate-700/50 border-2 border-slate-700/50 rounded-md outline-indigo-900'
+      required
+    />
+    <textarea
+      id='message'
+      name='message'
+      placeholder='Message'
+      class='text-xs w-full p-2 bg-slate-700/50 border-2 border-slate-700/50 rounded-md outline-indigo-900 resize-none'
+      rows='6'
+      required></textarea>
+    <button
+      id='send-email'
+      class='text-xs w-full p-2 bg-indigo-700/50 border-2 border-indigo-700/50 rounded-md'
     >
+      Open Email
+    </button>
+  </form>
+  <div class='lg:w-[30rem]'>
+    <img src='../../public/images/cube.png' alt='' class='object-cover' />
   </div>
 </div>
+
+<script>
+  const sendEmailButton = document.getElementById(
+    'send-email'
+  ) as HTMLButtonElement;
+  sendEmailButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const message = document.getElementById('message') as HTMLTextAreaElement;
+    const subject = document.getElementById('subject') as HTMLInputElement;
+    if (message.value && subject.value) {
+      window.location.href = `mailto:lopez.andresrigoberto@gmail.com?subject=${subject.value}&body=${message.value}`;
+      message.value = '';
+      subject.value = '';
+    }
+  });
+</script>

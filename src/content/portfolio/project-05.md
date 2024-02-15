@@ -1,8 +1,8 @@
 ---
-name: My website v2
-stack: [React, Astro, Tailwindcss]
+name: My website
+stack: [React, HTML, Sass, TailwindCSS]
 images: [/images/portfolio-app.png]
-link_repo: https://github.com/zzkal/portfolio
+link_repo: https://github.com/andres-ldr/portfolio
 link_app: https://starlit-hummingbird-8f04ac.netlify.app
 type: Frontend
 goals:

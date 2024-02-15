@@ -1,17 +1,12 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 interface DrawerProps {
   btnHandle: () => void;
   isBtnClicked: boolean;
-  closeNavbarHandler: () => void;
 }
 
-const Drawer: React.FC<DrawerProps> = ({
-  isBtnClicked,
-  btnHandle,
-  closeNavbarHandler,
-}) => {
+const Drawer: React.FC<DrawerProps> = ({ isBtnClicked, btnHandle }) => {
   const [element, setElement] = useState<React.ReactPortal | null>(null);
 
   useEffect(() => {
@@ -24,34 +19,20 @@ const Drawer: React.FC<DrawerProps> = ({
         <div className={`drawer-nav ${isBtnClicked ? 'drawer-nav__open' : ''}`}>
           <div className='drawer-nav-links'>
             <a
-              href='#about-me'
+              href='#services'
               onClick={() => {
                 btnHandle();
-                closeNavbarHandler();
               }}
               className={`drawer-nav-links-item ${
                 isBtnClicked ? 'drawer-nav-links-item__show' : ''
               }`}
             >
-              About
-            </a>
-            <a
-              href='#skills'
-              onClick={() => {
-                btnHandle();
-                closeNavbarHandler();
-              }}
-              className={`drawer-nav-links-item ${
-                isBtnClicked ? 'drawer-nav-links-item__show' : ''
-              }`}
-            >
-              Skillset
+              Services
             </a>
             <a
               href='#work-experience'
               onClick={() => {
                 btnHandle();
-                closeNavbarHandler();
               }}
               className={`drawer-nav-links-item ${
                 isBtnClicked ? 'drawer-nav-links-item__show' : ''
@@ -63,7 +44,6 @@ const Drawer: React.FC<DrawerProps> = ({
               href='#portfolio'
               onClick={() => {
                 btnHandle();
-                closeNavbarHandler();
               }}
               className={`drawer-nav-links-item ${
                 isBtnClicked ? 'drawer-nav-links-item__show' : ''
@@ -72,10 +52,9 @@ const Drawer: React.FC<DrawerProps> = ({
               Portfolio
             </a>
             <a
-              href='#contact-me'
+              href='#contact'
               onClick={() => {
                 btnHandle();
-                closeNavbarHandler();
               }}
               className={`drawer-nav-links-item ${
                 isBtnClicked ? 'drawer-nav-links-item__show' : ''

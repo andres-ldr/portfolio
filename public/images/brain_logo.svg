@@ -1,46 +1,12 @@
-import { useWindowScroll } from '@uidotdev/usehooks';
-import React, { useRef } from 'react';
-import { useScrollDirection } from './hooks/useScrollDirection';
-import MenuBtn from './MenuBtn';
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500.000000 500.000000"
+ preserveAspectRatio="xMidYMid meet">
 
-interface NavbarProps {
-  children: React.ReactNode;
-}
-
-const Navbar = ({ children }: NavbarProps) => {
-  const navbarRef = useRef<HTMLDivElement>(null);
-  const [{ y }] = useWindowScroll();
-  const direction = useScrollDirection();
-
-  const closeNavbar = () =>
-    setTimeout(() => navbarRef.current?.classList.add('hide'), 1000);
-
-  // ${direction === 'down' ? ' hide' :
-
-  return (
-    <header
-      ref={navbarRef}
-      id='nav-bar'
-      className={`fixed top-0 inset-x-0 z-30 transition-all ${
-        y ? 'bg-slate-700/30 backdrop-blur-lg' : 'bg-transparent'
-      }`}
-    >
-      <div className='flex justify-between items-center max-container py-2'>
-
-        <a href='/'>
-          <svg
-            version='1.0'
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 500.000000 500.000000'
-            preserveAspectRatio='xMidYMid meet'
-            className='w-10 md:w-12 h-10 md:h-12 fill-current text-slate-100 hover:text-slate-200 transition-colors duration-300 ease-in-out'
-          >
-            <g
-              transform='translate(0.000000,500.000000) scale(0.100000,-0.100000)'
-              stroke='none'
-            >
-              <path
-                d='M2340 3963 c-193 -14 -493 -91 -655 -167 -241 -113 -458 -285 -597
+<g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M2340 3963 c-193 -14 -493 -91 -655 -167 -241 -113 -458 -285 -597
 -471 -154 -207 -238 -444 -238 -673 0 -120 16 -202 62 -313 98 -238 320 -393
 538 -376 76 6 147 29 203 64 21 13 40 23 41 21 2 -2 13 -30 25 -63 78 -214
 280 -354 511 -355 157 0 301 -51 385 -135 80 -79 133 -158 186 -274 80 -174
@@ -83,25 +49,10 @@ l172 0 0 -256 c0 -285 4 -312 59 -375 122 -143 300 -91 551 161 151 151 275
 -219 26 l-183 4 0 104 0 104 240 0 c218 0 244 -2 278 -19z m-528 -741 c0 -38
 -4 -70 -8 -70 -5 0 -17 10 -28 21 -10 12 -48 44 -83 70 l-64 49 92 0 91 0 0
 -70z m750 -11 c-81 -77 -189 -149 -223 -149 -8 0 -25 12 -36 26 -18 23 -21 41
--21 115 l0 89 183 0 182 -1 -85 -80z'
-              />
-              <path
-                d='M3409 2191 c-37 -37 -38 -79 -3 -120 35 -42 84 -43 125 -2 39 39 40
-92 3 126 -38 35 -87 34 -125 -4z'
-              />
-              <path
-                d='M2148 2280 c-50 -27 -78 -76 -78 -137 0 -155 189 -207 284 -79 29 38
-29 124 0 162 -52 70 -136 92 -206 54z'
-              />
-            </g>
-          </svg>
-        </a>
-        {/* Links */}
-        <MenuBtn closeNavbarHandler={closeNavbar} />
-        <div className='gap-10 hidden md:flex'>{children}</div>
-      </div>
-    </header>
-  );
-};
-
-export default Navbar;
+-21 115 l0 89 183 0 182 -1 -85 -80z"/>
+<path d="M3409 2191 c-37 -37 -38 -79 -3 -120 35 -42 84 -43 125 -2 39 39 40
+92 3 126 -38 35 -87 34 -125 -4z"/>
+<path d="M2148 2280 c-50 -27 -78 -76 -78 -137 0 -155 189 -207 284 -79 29 38
+29 124 0 162 -52 70 -136 92 -206 54z"/>
+</g>
+</svg>

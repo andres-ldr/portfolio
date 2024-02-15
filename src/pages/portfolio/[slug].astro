@@ -1,7 +1,9 @@
 ---
-import GeneralProjectPage from '../../components/GeneralProjectPage.astro';
+import { CollectionEntry, getCollection } from 'astro:content';
+import ContactMeSec from '../../components/ContactMeSec.astro';
+import Footer from '../../components/Footer.astro';
+import Navbar from '../../components/Navbar';
 import Layout from '../../layouts/Layout.astro';
-import { getCollection, CollectionEntry } from 'astro:content';
 
 interface Props {
   project: CollectionEntry<'portfolio'>;
@@ -20,7 +22,42 @@ const { Content, headings } = await project.render();
 ---
 
 <Layout title='Project'>
-  <GeneralProjectPage project={project}>
-    <Content />
-  </GeneralProjectPage>
+  <Navbar client:load>
+    <a href='/' class='navbar-link'> Home</a>
+    <a href='#contact' class='navbar-link'> Contact</a>
+  </Navbar>
+  <main class='max-container overflow-x-hidden flex flex-col pt-28 items-start'>
+    <h1 class='text-3xl md:text-5xl font-bold text-center'>{project.data.name}</h1>
+    <div class='flex justify-center items-center mt-4'>
+      <a
+        href={project.data.link_repo}
+        target='_blank'
+        class='text-lg font-bold text-center'
+      >
+        Repo
+      </a>
+      <a
+        href={project.data.link_app}
+        target='_blank'
+        class='text-lg font-bold text-center ml-4'
+      >
+        App
+      </a>
+    </div>
+    <p class='pt-10'>
+      <Content />
+    </p>
+    <div class='pt-10 flex flex-wrap gap-4'>
+      {
+        project.data.goals.map((e) => (
+          <div class='w-52 flex flex-col gap-3'>
+            <h2 class='text-2xl font-bold'>{e.title}</h2>
+            <p>{e.goal}</p>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+  <ContactMeSec />
+  <Footer />
 </Layout>
