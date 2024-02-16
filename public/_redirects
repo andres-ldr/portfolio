@@ -1,3 +1,1 @@
-/public/files/* /files 200
-/public/images/* /images 200
-/public/icons/* /icons 200
+/public/files/* /files/:splat 301
