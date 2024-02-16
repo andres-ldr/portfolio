@@ -1,1 +1,3 @@
 /public/files/* /files/:splat 301
+/public/images/* /images/:splat 301
+/public/icons/* /icons/:splat 301
