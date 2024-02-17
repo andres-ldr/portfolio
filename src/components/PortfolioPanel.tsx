@@ -79,14 +79,9 @@ const PortfolioPanel: React.FC<PortfolioPanelProps> = ({ projects }) => {
           className=''
         >
           {listOfProjects.map((project) => (
-            <a href={project.link_repo} target='_blank'>
-              <CardProjContent
-                id={project.id}
-                name={project.name}
-                stack={project.stack}
-                image={project.images[0]}
-              />
-            </a>
+            <CardProjContent
+              key={project.id}
+              project={project}           />
           ))}
         </StackGrid>
       </div>

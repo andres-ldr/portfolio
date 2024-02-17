@@ -1,10 +1,8 @@
 import React from 'react';
+import Project from '../models/Project';
 
 interface ContentProps {
-  id: string;
-  name: string;
-  stack: string[];
-  image: string;
+  project: Project;
 }
 
 export const setColor = (techName: string) => {
@@ -142,13 +140,10 @@ export const setColor = (techName: string) => {
   }
 };
 const CardProjContent: React.FC<ContentProps> = ({
-  id,
-  name,
-  stack,
-  image,
+  project: { name, stack, link_app, link_repo },
 }) => {
   return (
-    <div className='flex flex-col items-center gap-8 px-5 py-10 backdrop-opacity-10 bg-slate-700/30 shadow-sm shadow-violet-800 cursor-pointer rounded-md hover:shadow-lg hover:shadow-violet-800  transition duration-300 ease-in-out'>
+    <div className='flex flex-col items-center gap-8 px-5 py-10 backdrop-opacity-10 bg-slate-700/30 shadow-sm shadow-violet-800 rounded-md hover:shadow-lg hover:shadow-violet-800  transition duration-300 ease-in-out'>
       <h4 className='text-lg font-semibold uppercase text-center'>{name}</h4>
       <div className='flex justify-center flex-wrap gap-3'>
         {stack.map((el) => (
@@ -161,6 +156,24 @@ const CardProjContent: React.FC<ContentProps> = ({
             {el}
           </span>
         ))}
+      </div>
+      <div className='flex flex-col w-full gap-2'>
+        <a
+          href={link_app}
+          target='_blank'
+          rel='noreferrer'
+          className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
+        >
+          Demo
+        </a>
+        <a
+          href={link_repo}
+          target='_blank'
+          rel='noreferrer'
+          className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
+        >
+          Source code
+        </a>
       </div>
       {/* <a href={`/portfolio/${id}`}>Know more</a> */}
     </div>
