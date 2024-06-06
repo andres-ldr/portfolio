@@ -1,15 +1,18 @@
 import { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 import hbs from 'nodemailer-express-handlebars';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const POST: APIRoute = async ({ request }) => {
   const { name, lastname, subject, email, message } = await request.json();
   const rootPath = process.cwd();
-
+  
   try {
     const auth = {
-      user: `${import.meta.env.EMAIL_USER}`,
-      pass:  `${import.meta.env.EMAIL_PASS}`
+      user: `${process.env.EMAIL_USER}`,
+      pass:  `${process.env.EMAIL_PASS}`
     };
 
     const transporter = nodemailer.createTransport({
