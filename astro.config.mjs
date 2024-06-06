@@ -14,8 +14,4 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: 'static',
-  adapter: node({
-    mode: 'standalone',
-  }),
 });
