@@ -8,11 +8,11 @@ dotenv.config();
 export const POST: APIRoute = async ({ request }) => {
   const { name, lastname, subject, email, message } = await request.json();
   const rootPath = process.cwd();
-  
+
   try {
     const auth = {
       user: `${process.env.EMAIL_USER}`,
-      pass:  `${process.env.EMAIL_PASS}`
+      pass: `${process.env.EMAIL_PASS}`,
     };
 
     const transporter = nodemailer.createTransport({
@@ -36,11 +36,11 @@ export const POST: APIRoute = async ({ request }) => {
 
     transporter.use('compile', hbs(hbsOptions));
 
-    // const confirmationEmail = await transporter.sendMail({
-    //   to: `${email}`,
-    //   subject: 'Confirmation email',
-    //   html: `<p>Thank you for your email</p>`,
-    // });
+    const confirmationEmail = await transporter.sendMail({
+      to: `${email}`,
+      subject: 'Confirmation email',
+      html: `<p>Thank you for your email</p>`,
+    });
 
     const emailOptions = {
       // from: {
@@ -56,16 +56,26 @@ export const POST: APIRoute = async ({ request }) => {
 
     const info = await transporter.sendMail(emailOptions);
 
-    return new Response(JSON.stringify(info), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({
+        message: 'Email sent',
+      }),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   } catch (error) {
     console.log(error);
 
-    return new Response(JSON.stringify(error), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({
+        message: (error as Error).message,
+      }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 };
