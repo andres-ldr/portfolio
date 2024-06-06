@@ -22,6 +22,7 @@ const Form = () => {
       }
     } catch (error) {
       console.error(error);
+      toast('An error occurred, please try again');
     }
   };
 
