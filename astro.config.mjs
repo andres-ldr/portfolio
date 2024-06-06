@@ -14,8 +14,8 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: 'server',
-  adapter: node({
-    mode: 'middleware',
-  }),
+  // output: 'server',
+  // adapter: node({
+  //   mode: 'middleware',
+  // }),
 });

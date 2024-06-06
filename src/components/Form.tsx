@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { toast, Toaster } from 'sonner';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 type Input = {
   name: string;
@@ -11,23 +13,41 @@ type Input = {
 };
 
 const Form = () => {
+  const form = useRef<HTMLFormElement>(null);
   const { register, handleSubmit, reset } = useForm<Input>();
 
   const onSubmit = async (data: Input) => {
     try {
-      const response = await axios.post('/api/post.json', data);
-      if (response.status === 200) {
-        toast('Email sent successfully');
-        reset();
-      }
+      const serviceID = import.meta.env.PUBLIC_SERVICE_ID as string;
+      const templateID = import.meta.env.PUBLIC_TEMPLATE_ID as string;
+      const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY as string;
+      console.log(serviceID, templateID, publicKey);
+
+      emailjs
+        .send(serviceID, templateID, data, {
+          publicKey,
+        })
+        .then(
+          (response) => {
+            if (response.status === 200) {
+              toast('Email sent successfully');
+              reset();
+            }
+          },
+          (err) => {
+            console.log(err);
+
+            toast('Failed to send email. Please try again later.');
+          }
+        );
     } catch (error) {
-      console.error(error);
-      toast('An error occurred, please try again');
+      toast('An error occurred. Please try again later.');
     }
   };
 
   return (
     <form
+      ref={form}
       onSubmit={handleSubmit(onSubmit)}
       className='w-full xl:w-1/2 backdrop-opacity-10 bg-slate-800/30 shadow-indigo-600 shadow-lg flex flex-col p-4 md:p-6 gap-5 rounded-2xl'
     >
