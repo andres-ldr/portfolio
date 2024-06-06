@@ -5,12 +5,11 @@ import hbs from 'nodemailer-express-handlebars';
 export const POST: APIRoute = async ({ request }) => {
   const { name, lastname, subject, email, message } = await request.json();
   const rootPath = process.cwd();
-  console.log(rootPath);
 
   try {
     const auth = {
-      user: 'tic270222@gmail.com', // `${process.env.EMAIL_USER}` ||
-      pass: 'aqpl uehj pqha glpk', // `${process.env.EMAIL_PASS}` ||
+      user: `${import.meta.env.EMAIL_USER}`,
+      pass:  `${import.meta.env.EMAIL_PASS}`
     };
 
     const transporter = nodemailer.createTransport({
@@ -45,7 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
       //   name: `${name} ${lastname}`,
       //   address: `${email}`,
       // },
-      to: 'lopez.andresrigoberto@gmail.com', // `${process.env.EMAIL_USER}`,
+      to: 'lopez.andresrigoberto@gmail.com',
       subject,
       template: 'email',
       text: message,
