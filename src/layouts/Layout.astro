@@ -6,10 +6,11 @@ export interface Props {
 const { title } = Astro.props;
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar';
+import { Toaster } from 'sonner';
 import '../scss/main.scss';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en' class='font-inter bg-slate-50'>
   <head>
     <meta charset='UTF-8' />
@@ -24,12 +25,11 @@ import '../scss/main.scss';
     />
     <script
       src='https://kit.fontawesome.com/a70871ddc1.js'
-      crossorigin='anonymous'
-    ></script>
+      crossorigin='anonymous'></script>
     <title>{title}</title>
   </head>
   <body class='bg-slate-900 overflow-x-hidden relative'>
-    <Navbar client:load>
+    <Navbar client:only='react'>
       <a href='#services' class='navbar-link'> Services</a>
       <a href='#work-experience' class='navbar-link'> Experience</a>
       <a href='#portfolio' class='navbar-link'> Portfolio</a>
@@ -37,6 +37,7 @@ import '../scss/main.scss';
     </Navbar>
     <slot />
     <Footer />
+    <Toaster client:only='react' />
     <script src='../main.ts'></script>
   </body>
 </html>

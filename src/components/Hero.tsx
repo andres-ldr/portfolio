@@ -1,7 +1,22 @@
 import { TypeAnimation } from 'react-type-animation';
 import { setColor } from './CardProjectContent';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Hero = () => {
+  const box = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(box.current, {
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      ease: 'power3.out',
+      delay: 0.5,
+    });
+  }, []);
+
   return (
     <div className='w-screen md:h-screen'>
       <div className='max-container flex flex-wrap pt-40 gap-10 md:items-start md:relative h-full w-full'>
@@ -20,6 +35,7 @@ const Hero = () => {
               speed={20}
               repeat={Infinity}
               style={{ whiteSpace: 'pre-line' }}
+              omitDeletionAnimation={true}
             />
           </div>
           {/* Summary paragraph */}
@@ -135,7 +151,7 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className='pt-10 md:flex-1'>
+        <div className='pt-10 md:flex-1' ref={box}>
           <img
             src='../../public/images/rocket.png'
             alt=''

@@ -4,14 +4,15 @@ import Layout from '../layouts/Layout.astro';
 import ContactMeSec from '../components/ContactMeSec.astro';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio.astro';
-import SkillsetSec from '../components/SkillsetSec.astro';
+
 import WorkXSec from '../components/WorkXSec.astro';
+import SkillsetSec from '../components/SkillsetSec';
 ---
 
 <Layout title='Andrés López'>
   <main class=''>
     <Hero client:load />
-    <SkillsetSec />
+    <SkillsetSec client:only='react' />
     <WorkXSec />
     <Portfolio />
     <ContactMeSec />

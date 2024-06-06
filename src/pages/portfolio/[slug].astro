@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { Content, headings } = await project.render();
+const { Content } = await project.render();
 ---
 
 <Layout title='Project'>
@@ -27,7 +27,9 @@ const { Content, headings } = await project.render();
     <a href='#contact' class='navbar-link'> Contact</a>
   </Navbar>
   <main class='max-container overflow-x-hidden flex flex-col pt-28 items-start'>
-    <h1 class='text-3xl md:text-5xl font-bold text-center'>{project.data.name}</h1>
+    <h1 class='text-3xl md:text-5xl font-bold text-center'>
+      {project.data.name}
+    </h1>
     <div class='flex justify-center items-center mt-4'>
       <a
         href={project.data.link_repo}
