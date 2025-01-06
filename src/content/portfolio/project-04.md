@@ -3,7 +3,7 @@ name: Launch rocket project
 stack: [Node.js, Express, Docker, MongoDB]
 images: [/images/rocket_app.png]
 link_repo: https://github.com/andres-ldr/nasa-project
-link_app: http://35.167.63.147:8000
+link_app: null
 type: Backend
 goals:
   [

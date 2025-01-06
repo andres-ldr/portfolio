@@ -158,22 +158,26 @@ const CardProjContent: React.FC<ContentProps> = ({
         ))}
       </div>
       <div className='flex flex-col w-full gap-2'>
-        <a
-          href={link_app}
-          target='_blank'
-          rel='noreferrer'
-          className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
-        >
-          Demo
-        </a>
-        <a
-          href={link_repo}
-          target='_blank'
-          rel='noreferrer'
-          className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
-        >
-          Source code
-        </a>
+        {link_app ? (
+          <a
+            href={link_app}
+            target='_blank'
+            rel='noreferrer'
+            className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
+          >
+            Demo
+          </a>
+        ) : null}
+        {link_repo ? (
+          <a
+            href={link_repo}
+            target='_blank'
+            rel='noreferrer'
+            className='w-full px-4 py-2 font-semibold bg-slate-800 text-slate-200 rounded-md text-center transition hover:bg-indigo-600'
+          >
+            Source code
+          </a>
+        ) : null}
       </div>
       {/* <a href={`/portfolio/${id}`}>Know more</a> */}
     </div>

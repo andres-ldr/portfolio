@@ -3,7 +3,7 @@ name: Ecommence
 stack: [HTML, CSS, Bootstrap, Python, Django]
 images: [/images/portfolio-app.png]
 link_repo: https://github.com/andres-ldr/django_ecommerce
-link_app: ''
+link_app: null
 type: Full Stack
 goals:
   [

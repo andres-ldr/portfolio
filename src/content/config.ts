@@ -16,8 +16,8 @@ const jobsCollection = defineCollection({
 const projectCollection = defineCollection({
   schema: z.object({
     name: z.string(),
-    link_repo: z.string(),
-    link_app: z.string(),
+    link_repo: z.union([z.string(), z.null()]),
+    link_app: z.union([z.string(), z.null()]),
     type: z.string(),
     stack: z.array(z.string()),
     goals: z.array(
