@@ -28,16 +28,16 @@ import '../scss/main.scss';
       crossorigin='anonymous'></script>
     <title>{title}</title>
   </head>
-  <body class='bg-slate-900 overflow-x-hidden relative'>
-    <Navbar client:only='react'>
+  <body class='bg-gray-200'>
+    <!-- <Navbar client:only='react'>
       <a href='#services' class='navbar-link'> Services</a>
       <a href='#work-experience' class='navbar-link'> Experience</a>
       <a href='#portfolio' class='navbar-link'> Portfolio</a>
       <a href='#contact' class='navbar-link'> Contact</a>
-    </Navbar>
+    </Navbar> -->
     <slot />
-    <Footer />
+    <!-- <Footer />
     <Toaster client:only='react' />
-    <script src='../main.ts'></script>
+    <script src='../main.ts'></script> -->
   </body>
 </html>

@@ -1,20 +1,265 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-import ContactMeSec from '../components/ContactMeSec.astro';
-import Hero from '../components/Hero';
-import Portfolio from '../components/Portfolio.astro';
-
-import WorkXSec from '../components/WorkXSec.astro';
-import SkillsetSec from '../components/SkillsetSec';
 ---
 
 <Layout title='Andrés López'>
-  <main class=''>
-    <Hero client:load />
-    <SkillsetSec client:only='react' />
-    <WorkXSec />
-    <Portfolio />
-    <ContactMeSec />
+  <main class='max-w-[70%] mx-auto flex py-4'>
+    <!-- Left section -->
+    <aside class='w-1/3 text-black space-y-4'>
+      <!-- profile card -->
+      <div class='rounded-lg bg-white'>
+        <div class='h-72 relative'>
+          <img
+            src='/images/coding.jpg'
+            alt='profile-banner'
+            srcset=''
+            class='w-full h-full object-cover rounded-t-lg'
+          />
+          <div
+            class='absolute inset-0 bg-gradient-to-t from-white to-transparent rounded-t-lg'
+          >
+          </div>
+          <img
+            src='/images/portrait-1.png'
+            alt='profile-picture'
+            class='w-24 h-24 rounded-full bottom-2 left-2 absolute object-cover'
+          />
+        </div>
+        <div class='p-2 flex flex-col gap-2'>
+          <h2 class='font-bold'>Andres</h2>
+          <span class='font-light'>Software Engineer | Canada</span>
+          <div class='bg-gray-100 p-4 rounded-lg flex flex-col gap-3'>
+            <p class='text-sm'>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Consequuntur voluptatibus accusamus dolor id ullam nostrum omnis
+              ipsa sit officia cum consequatur
+            </p>
+            <div class='flex gap-1 flex-wrap'>
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >.Net Core</span
+              >
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >AWS</span
+              >
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >Kubernetes</span
+              >
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >Azure</span
+              >
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >Tensor Flow</span
+              >
+              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
+                >SQL</span
+              >
+            </div>
+            <a
+              href='#'
+              class='px-4 py-2 bg-blue-600 text-white text-center rounded-lg w-full'
+              >Download Resume</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- end profile card -->
+      <!-- Contact card -->
+      <div class='rounded-lg bg-white p-4 space-y-4'>
+        <h2 class='font-bold'>Information</h2>
+        <div class='bg-gray-100 space-y-4 p-4 rounded-lg'>
+          <p class='text-sm'>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id unde
+            distinctio ratione voluptas repellendus, blanditiis nemo est dolore
+            impedit sit quas laudantium aliquid libero placeat porro cumque
+            accusantium ipsa. Perferendis.
+          </p>
+          <hr />
+          <div class='flex flex-col gap-1'>
+            <a href='#'>github.com</a>
+            <a href='#'>email.com</a>
+          </div>
+        </div>
+      </div>
+      <!-- end card -->
+    </aside>
+    <!-- End left section -->
+    <aside class='flex-1 px-4 text-black space-y-4'>
+      <nav class='w-full p-2 flex bg-white rounded-lg sticky top-2 gap-1 z-10'>
+        <button
+          id='btn-resume'
+          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          >Resume</button
+        >
+        <button
+          id='btn-project'
+          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          >Project</button
+        >
+        <button
+          id='btn-blog'
+          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          >Blog</button
+        >
+      </nav>
+      <div
+        id='section-1'
+        class='space-y-4 transition-transform transform translate-x-full'
+      >
+        <div class='bg-white rounded-lg p-4 space-y-4'>
+          <h2 class='font-bold'>Experience</h2>
+          <div class='flex flex-col gap-2'>
+            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
+              <img
+                src='/images/jppjm.jpg'
+                alt=''
+                class='w-16 h-16 rounded-full'
+              />
+              <div class='flex flex-col gap-2 text-sm'>
+                <h4 class='font-bold'>Full-time Software Engineer</h4>
+                <div class='flex gap-2'>
+                  <span>Google</span>
+                  <span>Mountain View, CA</span>
+                  <span>Jul 2020 - Present</span>
+                </div>
+                <p class='font-thin text-sm'>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
+                  omnis ipsa sit officia cum consequatur
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='bg-white rounded-lg p-4 space-y-4'>
+          <h2 class='font-bold'>Education</h2>
+          <div class='flex flex-col gap-2'>
+            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
+              <img
+                src='/images/jppjm.jpg'
+                alt=''
+                class='w-16 h-16 rounded-full'
+              />
+              <div class='flex flex-col gap-2 text-sm'>
+                <h4 class='font-bold'>Full-time Software Engineer</h4>
+                <div class='flex gap-2'>
+                  <span>Google</span>
+                  <span>Mountain View, CA</span>
+                  <span>Jul 2020 - Present</span>
+                </div>
+                <p class='font-thin text-sm'>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
+                  omnis ipsa sit officia cum consequatur
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id='section-2'
+        class='space-y-4 hidden transition-transform transform translate-x-full'
+      >
+        <div class='bg-white rounded-lg p-4 space-y-4'>
+          <h2 class='font-bold'>Projects</h2>
+          <div class='flex flex-col gap-2'>
+            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
+              <img
+                src='/images/jppjm.jpg'
+                alt=''
+                class='w-16 h-16 rounded-full'
+              />
+              <div class='flex flex-col gap-2 text-sm'>
+                <h4 class='font-bold'>Full-time Software Engineer</h4>
+                <div class='flex gap-2'>
+                  <span>Google</span>
+                  <span>Mountain View, CA</span>
+                  <span>Jul 2020 - Present</span>
+                </div>
+                <p class='font-thin text-sm'>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
+                  omnis ipsa sit officia cum consequatur
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id='section-3'
+        class='space-y-4 hidden transition-transform transform translate-x-full'
+      >
+        <div class='bg-white rounded-lg p-4 space-y-4'>
+          <h2 class='font-bold'>Blog</h2>
+          <div class='flex flex-col gap-2'>
+            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
+              <img
+                src='/images/jppjm.jpg'
+                alt=''
+                class='w-16 h-16 rounded-full'
+              />
+              <div class='flex flex-col gap-2 text-sm'>
+                <h4 class='font-bold'>Full-time Software Engineer</h4>
+                <div class='flex gap-2'>
+                  <span>Google</span>
+                  <span>Mountain View, CA</span>
+                  <span>Jul 2020 - Present</span>
+                </div>
+                <p class='font-thin text-sm'>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
+                  omnis ipsa sit officia cum consequatur
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
   </main>
 </Layout>
+
+<script>
+  function setActiveButton(activeButtonId: string) {
+    const buttons = ['btn-resume', 'btn-project', 'btn-blog'];
+    buttons.forEach((buttonId) => {
+      const button = document.getElementById(buttonId);
+      if (buttonId === activeButtonId) {
+        button!.classList.add('bg-gray-100', 'text-blue-600');
+      } else {
+        button!.classList.remove('bg-gray-100', 'text-blue-600');
+      }
+    });
+  }
+  function showSection(sectionId) {
+    const sections = ['section-1', 'section-2', 'section-3'];
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (section === sectionId) {
+        element!.classList.remove('hidden', 'translate-x-full');
+        element!.classList.add('translate-x-0');
+      } else {
+        element!.classList.add('hidden', 'translate-x-full');
+        element!.classList.remove('translate-x-0');
+      }
+    });
+  }
+
+  document.getElementById('btn-resume')!.addEventListener('click', function () {
+    showSection('section-1');
+    setActiveButton('btn-resume');
+  });
+
+  document
+    .getElementById('btn-project')!
+    .addEventListener('click', function () {
+      showSection('section-2');
+      setActiveButton('btn-project');
+    });
+
+  document.getElementById('btn-blog')!.addEventListener('click', function () {
+    showSection('section-3');
+    setActiveButton('btn-blog');
+  });
+</script>
