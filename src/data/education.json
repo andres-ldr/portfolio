@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "id": "0",
+      "image": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/022018/untitled-2_17.jpg?ZHblE55AzU2HCLXMRiKSoPexgvO5_tkC&itok=O0MBug6f",
+      "schoolName": "UNITEC",
+      "location": "Mexico",
+      "date_start": "July 2023",
+      "date_end": "Present",
+      "degree": "Bachelor in Data Science",
+      "description": "0Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "1",
+      "image": "https://ciccc.ca/wp-content/uploads/2024/07/cornerstone-college-icon.png",
+      "schoolName": "CICCC",
+      "location": "Canada",
+      "date_start": "August 2023",
+      "date_end": "Present",
+      "degree": "Dipoma in Web Development",
+      "description": "0Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "2",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4vioXQHX3lKlSUyE-XNDewJBILw3JCoXMWg&s",
+      "schoolName": "IUT de La Rochelle",
+      "location": "France",
+      "date_start": "September 2021",
+      "date_end": "September 2022",
+      "degree": "Dipoma in Web Development",
+      "description": "0Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "id": "3",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXIxO7O_zFzYLDmN_DV-iRD6SIDjawjBSc3g&s",
+      "schoolName": "UT Nayarit",
+      "location": "Mexico",
+      "date_start": "September 2018",
+      "date_end": "September 2020",
+      "degree": "Information Technology",
+      "description": "0Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ]
+}

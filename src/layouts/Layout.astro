@@ -7,11 +7,11 @@ const { title } = Astro.props;
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar';
 import { Toaster } from 'sonner';
-import '../scss/main.scss';
+import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang='en' class='font-inter bg-slate-50'>
+<html lang='en'>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
@@ -28,7 +28,7 @@ import '../scss/main.scss';
       crossorigin='anonymous'></script>
     <title>{title}</title>
   </head>
-  <body class='bg-gray-200'>
+  <body>
     <!-- <Navbar client:only='react'>
       <a href='#services' class='navbar-link'> Services</a>
       <a href='#work-experience' class='navbar-link'> Experience</a>
@@ -37,7 +37,7 @@ import '../scss/main.scss';
     </Navbar> -->
     <slot />
     <!-- <Footer />
-    <Toaster client:only='react' />
+    <Toaster client:only='react' /> 
     <script src='../main.ts'></script> -->
   </body>
 </html>

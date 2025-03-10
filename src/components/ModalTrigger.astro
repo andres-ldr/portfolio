@@ -1,0 +1,9 @@
+---
+const { key } = Astro.props;
+---
+
+<!-- Modal Toggle Button -->
+<button class={`toggle-modal-${key} w-full`}>
+  <slot />
+</button>
+<!-- END Modal Toggle Button -->

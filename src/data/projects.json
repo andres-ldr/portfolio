@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": "0",
+      "name": "Real time Chat Communication",
+      "description": "",
+      "stack": ["React", "Node.js", "PostgreSQL"],
+      "image": "../images/coding.jpg",
+      "link_repo": "https://github.com/andres-ldr/chat-app",
+      "link_app": null,
+      "role": "Full stack",
+      "industry": "Communication",
+      "tasks": null
+    }
+  ]
+}

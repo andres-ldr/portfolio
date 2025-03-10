@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { company, companyLink, header, key } = Astro.props;
+---
+
+<!-- Modal Backdrop -->
+<div
+  id={`modal-backdrop-${key}`}
+  tabindex='-1'
+  role='dialog'
+  class='hidden fixed inset-0 z-20 overflow-y-auto overflow-x-hidden bg-neutral-900/75 p-4 backdrop-blur-sm lg:p-8'
+>
+  <!-- Modal Dialog -->
+  <div
+    id={`modal-dialog-${key}`}
+    role='document'
+    class='relative mx-auto flex w-full md:max-w-5xl flex-col overflow-hidden rounded-lg bg-neutral-300 shadow-sm dark:bg-neutral-800 dark:text-neural-200 transition ease-out duration-200 opacity-0 scale-125'
+  >
+    <!-- Modal header -->
+    <div
+      class='flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-neutral-600 border-neutral-200'
+    >
+      <div>
+        <h3 class='text-xl font-semibold text-gray-900 dark:text-neutral-200'>
+          {header}
+        </h3>
+        {
+          companyLink ? (
+            <a
+              class='text-indigo-600 font-bold hover:underline'
+              href={companyLink}
+              target='_blank'
+            >
+              {company}
+            </a>
+          ) : null
+        }
+      </div>
+      <button
+        type='button'
+        class={`toggle-modal-${key} text-neutral-600 bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-200'
+        data-modal-hide='default-modal`}
+      >
+        <Icon name='mdi:close' />
+        <span class='sr-only'>Close modal</span>
+      </button>
+    </div>
+    <!-- Modal body -->
+    <div class='p-4 md:p-5 space-y-4'>
+      <slot />
+    </div>
+  </div>
+  <!-- END Modal Dialog -->
+</div>
+<!-- END Modal Backdrop -->

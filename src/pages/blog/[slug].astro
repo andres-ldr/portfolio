@@ -1,0 +1,84 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ThemeIcon from '../../components/ThemeIcon.astro';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+  const blogData = await getCollection('articles', ({ data }) => {
+    return import.meta.env.PROD ? data.isDraft !== true : true;
+  });
+
+  return blogData.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<style>
+  article :global(h1) {
+    @apply font-bold text-4xl my-4;
+  }
+  article :global(h2) {
+    @apply font-semibold text-3xl mb-4;
+  }
+  article :global(h3) {
+    @apply font-medium text-2xl mb-4;
+  }
+  article :global(h3) {
+    @apply font-medium text-xl mb-4;
+  }
+  article :global(p) {
+    @apply mb-4;
+  }
+  article :global(a) {
+    @apply text-indigo-600 font-medium hover:underline;
+  }
+  article :global(img) {
+    @apply max-w-full h-auto mb-4;
+  }
+  article :global(pre) {
+    @apply p-4 rounded-lg overflow-auto mb-4;
+  }
+  /* article :global(code) {
+    @apply bg-gray-200 p-1 rounded;
+  } */
+</style>
+
+<Layout title={article.data.title}>
+  <div class='py-12 relative'>
+    <ThemeIcon
+      className='absolute top-4 right-6 rounded-full hover:bg-neutral-300'
+    />
+    <header
+      class='max-w-[70%] mx-auto flex flex-col gap-4 justify-center items-center mb-10'
+    >
+      <a
+        href='/'
+        class='flex items-center text-indigo-600 font-bold self-start hover:underline'
+      >
+        <Icon name='mdi:arrow-left' />
+        <span>Back</span>
+      </a>
+      <div class='flex gap-2'>
+        {
+          article.data.categories.map((category) => (
+            <small class='px-2 py-1 bg-indigo-600 text-neutral-200 font-bold rounded'>
+              {category}
+            </small>
+          ))
+        }
+      </div>
+      <h1 class='text-4xl font-bold'>{article.data.title}</h1>
+      <p>by Andrés López | {article.data.date}</p>
+    </header>
+
+    <article class='max-w-[70%] mx-auto'>
+      <Content />
+    </article>
+  </div>
+</Layout>

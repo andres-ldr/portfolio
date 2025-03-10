@@ -1,0 +1,98 @@
+{
+  "items": [
+    {
+      "id": "0",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNGE1SMusEMPSyz1OCVZFdqwm6z4B4o8Alhw&s",
+      "company": "Inside View Global",
+      "companyLink": "https://insideviewglobal.com/",
+      "location": "Canada",
+      "date_start": "September 2024",
+      "date_end": "Present",
+      "post": "Full Stack Software Engineer",
+      "description": "",
+      "skills": [
+        "Power Apps",
+        "Sharepoint",
+        "Microsoft 365",
+        "Astro.js",
+        "React.js",
+        "PowerShell Scripts",
+        "Laravel",
+        "PHP"
+      ],
+      "tasks": [""]
+    },
+    {
+      "id": "1",
+      "image": "https://www.dignidadmigrantesociety.org/_next/image?url=%2Fimages%2Flogo.png&w=96&q=75",
+      "company": "Dignidad Migrante Society",
+      "location": "Canada",
+      "date_start": "March 2024",
+      "date_end": "Part Time",
+      "post": "Frontend Developer",
+      "description": "",
+      "skills": ["Next.js", "TailwindCSS"],
+      "tasks": [
+        "Develop React components for a friendly and consistent user experience.",
+        "Improve the database schema to ensure a consistent relation between entities."
+      ]
+    },
+    {
+      "id": "2",
+      "image": "https://eepic.ca/_next/static/media/logo_full_primary_color.f4ec7235.svg",
+      "company": "Eepic",
+      "location": "Canada",
+      "date_start": "December 2023",
+      "date_end": "March 2024",
+      "post": "Full Stack Engineer",
+      "description": "As an AR Developer at CATID, I developed React components to enhance user experience and improved the database schema to ensure consistent relations between entities. My work focused on creating a seamless and interactive augmented reality experience.",
+      "skills": [
+        "React",
+        "TailwindCSS",
+        "Next.js",
+        "Node.js",
+        "GraphQL",
+        "PostgreSQL"
+      ],
+      "tasks": [
+        "Develop React components for a friendly and consistent user experience.",
+        "Improve the database schema to ensure a consistent relation between entities."
+      ]
+    },
+    {
+      "id": "3",
+      "image": "/images/jppjm.jpg",
+      "company": "ARIA",
+      "location": "France",
+      "date_start": "March 2022",
+      "date_end": "July 2022",
+      "post": "Full Stack Software Engineer Intern",
+      "description": "As a Full Stack Software Engineer Intern in France, I contributed to the development of web applications by implementing React interfaces, streamlining development processes, and introducing innovative features. I optimized app deployment with CI/CD systems and adhered to test-driven development methodologies.",
+      "skills": ["Flutter", "Symfony", "PHP", "Docker", "CI/CD", "TDD"],
+      "tasks": [
+        "Implemented React interface to create multiple components for faster rendering for Web App Version of apps that we worked on as a proof of concept for future deployments.",
+        "Streamlined the development process by converting design requirements for five user stories into efficient, high-quality Flutter code using atomic design methodology.",
+        "Spearheaded the introduction of a highly requested feature, allowing administrators to deploy a version of the application to each museum with ease and efficiency.",
+        "Optimized the app's deployment by setting up a continuous integration and deployment system, which promptly launches the app to both the Play Store and App Store after a successful test run, all while adhering to a robust test-driven development methodology.",
+        "Pioneered the incorporation of new, innovative features, including a QR code reader, audio player, and map of the museum, giving users a unique and informative experience."
+      ]
+    },
+    {
+      "id": "4",
+      "image": "/images/logo_catid.jpg",
+      "company": "CATID",
+      "location": "Mexico",
+      "date_start": "March 2021",
+      "date_end": "June 2021",
+      "post": "Mobile developer intern",
+      "description": "As a Mobile Developer Intern at CATID, I contributed to the development of a mobile application by creating a visually appealing user interface, producing and animating 3D assets, integrating a QR code reader, and writing custom scripts to enhance interactivity and user experience.",
+      "skills": ["Unity", "C#", "Blender", "Vuforia"],
+      "tasks": [
+        "Developed a visually stunning user interface and efficiently translated it into Unity objects, creating a seamless user experience",
+        "Produced and animated an array of 3D and MP3 assets for the app's content, ensuring engaging and high-quality content",
+        "Integrated a QR code reader feature, allowing users to easily access specific assets by scanning the codes, boosting user engagement and satisfaction",
+        "Wrote custom scripts to add interactivity to 3D objects, leading to an immersive user experience while maintaining optimal performance"
+      ]
+    }
+  ]
+}

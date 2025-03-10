@@ -1,218 +1,393 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import jobsData from '../data/jobs.json';
+import educationData from '../data/education.json';
+import certsData from '../data/certs.json';
+import projectData from '../data/projects.json';
+import profileData from '../data/profile.json';
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import ThemeIcon from '../components/ThemeIcon.astro';
+import Modal from '../components/Modal.astro';
+import ModalTrigger from '../components/ModalTrigger.astro';
+import ModalBackdrop from '../components/ModalBackdrop.astro';
+
+const articles = await getCollection('articles');
 ---
 
 <Layout title='Andrés López'>
-  <main class='max-w-[70%] mx-auto flex py-4'>
+  <main
+    class='max-w-[90%] md:max-w-[70%] mx-auto flex flex-col gap-4 md:flex-row py-4'
+  >
     <!-- Left section -->
-    <aside class='w-1/3 text-black space-y-4'>
+    <aside class='md:w-1/3 space-y-4'>
       <!-- profile card -->
-      <div class='rounded-lg bg-white'>
+      <div class='rounded-lg bg-neutral-100 dark:bg-neutral-800'>
         <div class='h-72 relative'>
           <img
-            src='/images/coding.jpg'
+            src={profileData.bannerPicturePath}
             alt='profile-banner'
             srcset=''
             class='w-full h-full object-cover rounded-t-lg'
           />
           <div
-            class='absolute inset-0 bg-gradient-to-t from-white to-transparent rounded-t-lg'
+            class='absolute inset-0 bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent rounded-t-lg'
           >
           </div>
           <img
-            src='/images/portrait-1.png'
+            src={profileData.profilePicturePath}
             alt='profile-picture'
             class='w-24 h-24 rounded-full bottom-2 left-2 absolute object-cover'
           />
+          <ThemeIcon
+            className='absolute bottom-2 right-4 rounded-full hover:bg-neutral-300'
+          />
         </div>
-        <div class='p-2 flex flex-col gap-2'>
-          <h2 class='font-bold'>Andres</h2>
-          <span class='font-light'>Software Engineer | Canada</span>
-          <div class='bg-gray-100 p-4 rounded-lg flex flex-col gap-3'>
+        <div class='p-2 flex flex-col gap-6'>
+          <div>
+            <h2 class='font-bold text-xl'>Andres</h2>
+            <p>{profileData.post} | {profileData.location}</p>
+          </div>
+          <div
+            class='bg-neutral-200 dark:bg-neutral-900 p-4 rounded-lg flex flex-col gap-6'
+          >
             <p class='text-sm'>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Consequuntur voluptatibus accusamus dolor id ullam nostrum omnis
-              ipsa sit officia cum consequatur
+              {profileData.shortDescription}
             </p>
             <div class='flex gap-1 flex-wrap'>
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >.Net Core</span
-              >
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >AWS</span
-              >
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >Kubernetes</span
-              >
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >Azure</span
-              >
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >Tensor Flow</span
-              >
-              <span class='p-1 bg-gray-300 rounded-md text-xs font-semibold'
-                >SQL</span
-              >
+              {
+                profileData.skills.map((skill) => (
+                  <span class='p-1 text-neutral-900 bg-neutral-400 dark:text-neutral-200 dark:bg-neutral-700 rounded-md text-sm font-semibold'>
+                    {skill}
+                  </span>
+                ))
+              }
             </div>
             <a
-              href='#'
-              class='px-4 py-2 bg-blue-600 text-white text-center rounded-lg w-full'
-              >Download Resume</a
+              href='/files/resume_andres_lopez.pdf'
+              target='_blank'
+              class='flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 text-neutral-200 font-bold text-center rounded-lg w-full hover:bg-indigo-700 transition duration-150 ease-in-out'
             >
+              <Icon name='mdi:tray-download' class='w-6 h-6' />
+              <span>Download Resume</span>
+            </a>
           </div>
         </div>
       </div>
       <!-- end profile card -->
       <!-- Contact card -->
-      <div class='rounded-lg bg-white p-4 space-y-4'>
+      <div class='rounded-lg p-4 space-y-4 bg-neutral-100 dark:bg-neutral-800'>
         <h2 class='font-bold'>Information</h2>
-        <div class='bg-gray-100 space-y-4 p-4 rounded-lg'>
+        <div
+          class='bg-neutral-200 dark:bg-neutral-900 space-y-4 p-4 rounded-lg'
+        >
           <p class='text-sm'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id unde
-            distinctio ratione voluptas repellendus, blanditiis nemo est dolore
-            impedit sit quas laudantium aliquid libero placeat porro cumque
-            accusantium ipsa. Perferendis.
+            {profileData.longDescription}
           </p>
-          <hr />
+          <hr class='bg-neutral-800 dark:bg-neutral-100' />
           <div class='flex flex-col gap-1'>
-            <a href='#'>github.com</a>
-            <a href='#'>email.com</a>
+            <a
+              href='https://github.com/andres-ldr'
+              class='flex gap-1 items-center hover:underline transition-all duration-200 ease-in-out'
+            >
+              <Icon name='mdi:github' class='w-4 h-4' />
+              <span>Github</span>
+            </a>
+            <a
+              href='https://linkedin.com/in/andres-ldr'
+              class='flex gap-1 items-center hover:underline transition-all duration-200 ease-in-out'
+            >
+              <Icon name='mdi:linkedin' class='w-4 h-4' />
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
       </div>
       <!-- end card -->
     </aside>
     <!-- End left section -->
-    <aside class='flex-1 px-4 text-black space-y-4'>
-      <nav class='w-full p-2 flex bg-white rounded-lg sticky top-2 gap-1 z-10'>
+    <aside class='md:flex-1 md:px-4 space-y-4'>
+      <nav
+        class='font-semibold w-full p-2 flex bg-neutral-100 dark:bg-neutral-800 rounded-lg sticky top-2 gap-1 z-10'
+      >
         <button
           id='btn-resume'
-          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          class='hover:bg-background hover:text-indigo-600 py-2 px-4 rounded-md flex-1'
           >Resume</button
         >
         <button
           id='btn-project'
-          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          class='hover:bg-background hover:indigo-blue-600 py-2 px-4 rounded-md flex-1'
           >Project</button
         >
         <button
           id='btn-blog'
-          class='hover:bg-gray-100 hover:text-blue-600 py-2 px-4 rounded-md flex-1'
+          class='hover:bg-background hover:text-indigo-600 py-2 px-4 rounded-md flex-1'
           >Blog</button
         >
       </nav>
-      <div
-        id='section-1'
-        class='space-y-4 transition-transform transform translate-x-full'
-      >
-        <div class='bg-white rounded-lg p-4 space-y-4'>
+      <div id='section-1' class='space-y-4'>
+        <!-- Jobs -->
+        <div
+          class='bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 space-y-4'
+        >
           <h2 class='font-bold'>Experience</h2>
-          <div class='flex flex-col gap-2'>
-            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
-              <img
-                src='/images/jppjm.jpg'
-                alt=''
-                class='w-16 h-16 rounded-full'
-              />
-              <div class='flex flex-col gap-2 text-sm'>
-                <h4 class='font-bold'>Full-time Software Engineer</h4>
-                <div class='flex gap-2'>
-                  <span>Google</span>
-                  <span>Mountain View, CA</span>
-                  <span>Jul 2020 - Present</span>
-                </div>
-                <p class='font-thin text-sm'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
-                  omnis ipsa sit officia cum consequatur
-                </p>
-              </div>
-            </div>
-          </div>
+          <ul class='flex flex-col gap-2'>
+            {
+              jobsData.items.map((data, index) => (
+                <Modal key={index}>
+                  <ModalTrigger key={index}>
+                    <li class='w-full bg-neutral-200 dark:bg-neutral-900 p-4 flex flex-col md:flex-row gap-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-950 transition duration-200 ease-in-out cursor-pointer'>
+                      <img
+                        src={data.image}
+                        alt={data.image}
+                        class='w-16 h-16 rounded-full object-contain'
+                      />
+                      <div class='flex flex-1 flex-col gap-6 text-sm text-left'>
+                        <div class='space-y-2'>
+                          <h4 class='font-bold'>{data.post}</h4>
+                          <div class='flex gap-4 text-xs font-medium'>
+                            <div class='flex gap-1 items-center'>
+                              <Icon
+                                name='mdi:jewel-case-outline'
+                                class='w-4 h-4'
+                              />
+                              <span>{data.company}</span>
+                            </div>
+                            <div class='flex gap-1 items-center'>
+                              <Icon
+                                name='mdi:location-on-outline'
+                                class='w-4 h-4'
+                              />
+                              <span>{data.location}</span>
+                            </div>
+                            <div class='flex gap-1 items-center'>
+                              <Icon
+                                name='mdi:calendar-outline'
+                                class='w-4 h-4'
+                              />
+                              <span>
+                                {data.date_start} - {data.date_end}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <p class='font-thin text-sm'>{data.description}</p>
+                      </div>
+                    </li>
+                  </ModalTrigger>
+                  <ModalBackdrop
+                    key={index}
+                    header={data.post}
+                    company={data.company}
+                    companyLink={data.companyLink}
+                  >
+                    <h2 class='font-semibold text-lg'>Description</h2>
+                    <p>{data.description}</p>
+                    <h2 class='font-semibold text-lg'>Skills</h2>
+                    <ul class='flex flex-wrap gap-1'>
+                      {data.skills.map((skill) => (
+                        <li class='p-1 text-neutral-900 bg-neutral-400 dark:text-neutral-200 dark:bg-neutral-700 rounded-md text-sm font-semibold'>
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                    <h2 class='font-semibold text-lg'>Tasks</h2>
+                    <ul>
+                      {data.tasks.map((task) => (
+                        <li>{task}</li>
+                      ))}
+                    </ul>
+                  </ModalBackdrop>
+                </Modal>
+              ))
+            }
+          </ul>
         </div>
-        <div class='bg-white rounded-lg p-4 space-y-4'>
+        <!-- Certs -->
+        {
+          certsData.items.length ? (
+            <div class='bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 space-y-4'>
+              <h2 class='font-bold'>Certificates</h2>
+              <ul class='flex flex-col gap-2'>
+                {certsData.items.map((data) => (
+                  <li class='bg-neutral-200 dark:bg-neutral-900 p-4 flex flex-col md:flex-row gap-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-950 transition duration-200 ease-in-out cursor-pointer'>
+                    <img
+                      src={data.image}
+                      alt={data.image}
+                      class='w-16 h-16 rounded-full'
+                    />
+                    <div class='flex flex-1 flex-col gap-6 text-sm'>
+                      <div class='space-y-2'>
+                        <h4 class='font-bold'>{data.certName}</h4>
+                        <div class='flex gap-4 text-xs font-medium'>
+                          <div class='flex gap-1 items-center'>
+                            <Icon
+                              name='mdi:certificate-outline'
+                              class='w-4 h-4'
+                            />
+                            <span>{data.schoolName}</span>
+                          </div>
+                          <div class='flex gap-1 items-center'>
+                            <Icon name='mdi:calendar-outline' class='w-4 h-4' />
+                            <span>{data.date}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class='font-thin text-sm'>{data.description}</p>
+                      <a
+                        href={data.link}
+                        target='_blank'
+                        class='flex gap-1 items-center text-indigo-600 font-semibold hover:underline transition duration-200 ease-in-out'
+                      >
+                        <Icon name='mdi:external-link' class='w-5 h-5' />
+                        <span>Know more</span>
+                      </a>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null
+        }
+        <!-- Education -->
+        <div
+          class='bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 space-y-4'
+        >
           <h2 class='font-bold'>Education</h2>
-          <div class='flex flex-col gap-2'>
-            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
-              <img
-                src='/images/jppjm.jpg'
-                alt=''
-                class='w-16 h-16 rounded-full'
-              />
-              <div class='flex flex-col gap-2 text-sm'>
-                <h4 class='font-bold'>Full-time Software Engineer</h4>
-                <div class='flex gap-2'>
-                  <span>Google</span>
-                  <span>Mountain View, CA</span>
-                  <span>Jul 2020 - Present</span>
-                </div>
-                <p class='font-thin text-sm'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
-                  omnis ipsa sit officia cum consequatur
-                </p>
-              </div>
-            </div>
-          </div>
+          <ul class='flex flex-col gap-2'>
+            {
+              educationData.items.map((data) => (
+                <li class='bg-neutral-200 dark:bg-neutral-900 p-4 flex flex-col md:flex-row gap-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-950 transition duration-200 ease-in-out cursor-pointer'>
+                  <img
+                    src={data.image}
+                    alt={data.image}
+                    class='w-16 h-16 rounded-full'
+                  />
+                  <div class='flex flex-1 flex-col gap-6 text-sm'>
+                    <div class='space-y-2'>
+                      <h4 class='font-bold'>{data.degree}</h4>
+                      <div class='flex gap-4 text-xs font-medium'>
+                        <div class='flex gap-1 items-center'>
+                          <Icon name='mdi:school-outline' class='w-4 h-4' />
+                          <span>{data.schoolName}</span>
+                        </div>
+                        <div class='flex gap-1 items-center'>
+                          <Icon
+                            name='mdi:location-on-outline'
+                            class='w-4 h-4'
+                          />
+                          <span>{data.location}</span>
+                        </div>
+                        <div class='flex gap-1 items-center'>
+                          <Icon name='mdi:calendar-outline' class='w-4 h-4' />
+                          <span>
+                            {data.date_start} - {data.date_end}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class='font-thin text-sm'>{data.description}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
-      <div
-        id='section-2'
-        class='space-y-4 hidden transition-transform transform translate-x-full'
-      >
-        <div class='bg-white rounded-lg p-4 space-y-4'>
+      <div id='section-2' class='space-y-4 hidden'>
+        <div
+          class='bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 space-y-4'
+        >
           <h2 class='font-bold'>Projects</h2>
-          <div class='flex flex-col gap-2'>
-            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
-              <img
-                src='/images/jppjm.jpg'
-                alt=''
-                class='w-16 h-16 rounded-full'
-              />
-              <div class='flex flex-col gap-2 text-sm'>
-                <h4 class='font-bold'>Full-time Software Engineer</h4>
-                <div class='flex gap-2'>
-                  <span>Google</span>
-                  <span>Mountain View, CA</span>
-                  <span>Jul 2020 - Present</span>
-                </div>
-                <p class='font-thin text-sm'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
-                  omnis ipsa sit officia cum consequatur
-                </p>
-              </div>
-            </div>
-          </div>
+          <ul class='flex flex-col gap-2'>
+            {
+              projectData.items.map((data) => (
+                <li class='bg-neutral-200 dark:bg-neutral-900 p-4 flex flex-col md:flex-row gap-2 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-950 transition duration-200 ease-in-out cursor-pointer'>
+                  <img
+                    src={data.image}
+                    alt={data.image}
+                    class='w-16 h-16 rounded-full object-cover'
+                  />
+                  <div class='flex flex-1 flex-col gap-6 text-sm'>
+                    <div class='space-y-2'>
+                      <h4 class='font-bold'>{data.name}</h4>
+                      <div class='flex gap-4 text-xs font-medium'>
+                        <div class='flex gap-1 items-center'>
+                          <Icon name='mdi:search-globe' class='w-4 h-4' />
+                          <span>{data.industry}</span>
+                        </div>
+                        <div class='flex gap-1 items-center'>
+                          <Icon name='mdi:person-outline' class='w-4 h-4' />
+                          <span>{data.role}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class='font-thin text-sm'>{data.description}</p>
+                    <div class='space-y-2'>
+                      {data.link_repo && (
+                        <a
+                          href={data.link_repo}
+                          target='_blank'
+                          class='flex gap-1 items-center text-blue-600 font-semibold hover:underline'
+                        >
+                          <Icon name='mdi:external-link' class='w-5 h-5' />
+                          <span>Source Code</span>
+                        </a>
+                      )}
+                      {data.link_app && (
+                        <a
+                          href={data.link_app}
+                          target='_blank'
+                          class='flex gap-1 items-center text-blue-600 font-semibold hover:underline'
+                        >
+                          <Icon name='mdi:external-link' class='w-5 h-5' />
+                          <span>Live App</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
-      <div
-        id='section-3'
-        class='space-y-4 hidden transition-transform transform translate-x-full'
-      >
-        <div class='bg-white rounded-lg p-4 space-y-4'>
+      <div id='section-3' class='space-y-4 hidden'>
+        <div
+          class='bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 space-y-4'
+        >
           <h2 class='font-bold'>Blog</h2>
           <div class='flex flex-col gap-2'>
-            <div class='bg-gray-100 p-4 flex gap-2 rounded-lg'>
-              <img
-                src='/images/jppjm.jpg'
-                alt=''
-                class='w-16 h-16 rounded-full'
-              />
-              <div class='flex flex-col gap-2 text-sm'>
-                <h4 class='font-bold'>Full-time Software Engineer</h4>
-                <div class='flex gap-2'>
-                  <span>Google</span>
-                  <span>Mountain View, CA</span>
-                  <span>Jul 2020 - Present</span>
-                </div>
-                <p class='font-thin text-sm'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Consequuntur voluptatibus accusamus dolor id ullam nostrum
-                  omnis ipsa sit officia cum consequatur
-                </p>
-              </div>
-            </div>
+            <ul class='flex gap-2 rounded-lg'>
+              {
+                articles.map((article) =>
+                  !article.data.isDraft ? (
+                    <li class='flex flex-col gap-4 text-sm bg-neutral-200 dark:bg-neutral-900 p-4 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-950 transition duration-200 ease-in-out cursor-pointer'>
+                      <div class='space-y-2'>
+                        <p class='font-medium text-gray-400 text-sm'>
+                          {article.data.date}
+                        </p>
+                        <a href={`/blog/${article.slug}`}>
+                          <h4 class='text-indigo-600 text-lg font-bold hover:underline'>
+                            {article.data.title}
+                          </h4>
+                        </a>
+                      </div>
+                      <p class='font-thin text-sm'>
+                        {article.data.description}
+                      </p>
+                      <a
+                        href={`/blog/${article.slug}`}
+                        class='text-indigo-600 text-sm font-semibold hover:underline'
+                      >
+                        Read more
+                      </a>
+                    </li>
+                  ) : null
+                )
+              }
+            </ul>
           </div>
         </div>
       </div>
@@ -226,22 +401,28 @@ import Layout from '../layouts/Layout.astro';
     buttons.forEach((buttonId) => {
       const button = document.getElementById(buttonId);
       if (buttonId === activeButtonId) {
-        button!.classList.add('bg-gray-100', 'text-blue-600');
+        button!.classList.add(
+          'bg-neutral-200',
+          'dark:bg-neutral-900',
+          'text-indigo-600'
+        );
       } else {
-        button!.classList.remove('bg-gray-100', 'text-blue-600');
+        button!.classList.remove(
+          'bg-neutral-200',
+          'dark:bg-neutral-900',
+          'text-indigo-600'
+        );
       }
     });
   }
-  function showSection(sectionId) {
+  function showSection(sectionId: string) {
     const sections = ['section-1', 'section-2', 'section-3'];
     sections.forEach((section) => {
       const element = document.getElementById(section);
       if (section === sectionId) {
-        element!.classList.remove('hidden', 'translate-x-full');
-        element!.classList.add('translate-x-0');
+        element!.classList.remove('hidden');
       } else {
-        element!.classList.add('hidden', 'translate-x-full');
-        element!.classList.remove('translate-x-0');
+        element!.classList.add('hidden');
       }
     });
   }
@@ -262,4 +443,9 @@ import Layout from '../layouts/Layout.astro';
     showSection('section-3');
     setActiveButton('btn-blog');
   });
+
+  window.onload = function () {
+    setActiveButton('btn-resume');
+    showSection('section-1');
+  };
 </script>
